@@ -38,15 +38,17 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import os
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Mount the static assets folder to serve background artwork and styling files
-app.mount("/lux_editorial", StaticFiles(directory="stitch design/lux_editorial"), name="lux_editorial")
+app.mount("/lux_editorial", StaticFiles(directory=os.path.join(BASE_DIR, "stitch design", "lux_editorial")), name="lux_editorial")
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_home():
     """
     Serves Manya's main Lux Editorial portfolio home page.
     """
-    path = os.path.join("stitch design", "home", "code.html")
+    path = os.path.join(BASE_DIR, "stitch design", "home", "code.html")
     with open(path, "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
@@ -55,7 +57,7 @@ async def serve_projects_layout_1():
     """
     Serves the standard editorial card grid layout for Projects.
     """
-    path = os.path.join("stitch design", "project", "code.html")
+    path = os.path.join(BASE_DIR, "stitch design", "project", "code.html")
     with open(path, "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
@@ -64,7 +66,7 @@ async def serve_experience():
     """
     Serves the professional journey experience page.
     """
-    path = os.path.join("stitch design", "experience", "code.html")
+    path = os.path.join(BASE_DIR, "stitch design", "experience", "code.html")
     with open(path, "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
@@ -73,7 +75,7 @@ async def serve_certifications():
     """
     Serves the accredited skills and credentials page.
     """
-    path = os.path.join("stitch design", "certifcations", "code.html")
+    path = os.path.join(BASE_DIR, "stitch design", "certifcations", "code.html")
     with open(path, "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
@@ -82,7 +84,7 @@ async def serve_achievements():
     """
     Serves the milestones and key accolades page.
     """
-    path = os.path.join("stitch design", "achievements", "code.html")
+    path = os.path.join(BASE_DIR, "stitch design", "achievements", "code.html")
     with open(path, "r", encoding="utf-8") as f:
         return HTMLResponse(content=f.read())
 
