@@ -9,16 +9,17 @@ load_dotenv(override=True)
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-if not GROQ_API_KEY:
-    raise ValueError("Missing GROQ_API_KEY inside the .env environment configuration.")
+llm = None
+agent_executor = None
 
-llm = ChatOpenAI(
-    model="llama-3.3-70b-versatile",
-    api_key=GROQ_API_KEY,
-    base_url="https://api.groq.com/openai/v1",
-    temperature=0.5,
-    max_retries=1
-)
+if GROQ_API_KEY:
+    llm = ChatOpenAI(
+        model="llama-3.3-70b-versatile",
+        api_key=GROQ_API_KEY,
+        base_url="https://api.groq.com/openai/v1",
+        temperature=0.5,
+        max_retries=1
+    )
 
 
 @tool
@@ -76,12 +77,18 @@ RESPONSE FORMAT:
 - General questions: 1-2 lines max
 """
 
-agent_executor = create_react_agent(llm, tools, prompt=SYSTEM_PROMPT)
+if llm:
+    agent_executor = create_react_agent(llm, tools, prompt=SYSTEM_PROMPT)
+else:
+    agent_executor = None
+
 
 def ask_agent(question: str) -> str:
     """
     Sends a query to the Digital Twin agent and returns its response.
     """
+    if not agent_executor:
+        return "Manya's AI Twin is currently offline as the GROQ_API_KEY is not configured. Please check back later!"
     try:
         response = agent_executor.invoke({"messages": [("user", question)]})
         if "messages" in response and len(response["messages"]) > 0:
