@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from api.models import ChatRequest, ChatResponse
-from agent.chat import ask_agent
+from api.agent.chat import ask_agent
 
 router = APIRouter()
 
