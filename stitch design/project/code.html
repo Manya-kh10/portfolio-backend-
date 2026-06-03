@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MANYA | PROJECTS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "main-bg": "#F1EFDF",
+                        "nav-sidebar": "#2D4150",
+                        "surface-card": "#E8E6D8",
+                        "text-primary": "#2E3133",
+                        "text-secondary": "#69717A",
+                        "accent": "#A9B79C",
+                        "border-subtle": "#C9D0C6",
+                        "primary": "#2D4150", // Map to nav-sidebar for consistency with original structure
+                        "secondary": "#A9B79C"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "16px",
+                        "xl": "24px",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "40px",
+                        "unit": "8px",
+                        "stack-sm": "16px",
+                        "container-max": "1440px",
+                        "stack-md": "32px",
+                        "stack-lg": "64px",
+                        "margin-tablet": "40px",
+                        "margin-mobile": "24px",
+                        "gutter": "40px"
+                    },
+                    fontFamily: {
+                        "headline-xl": ["Hanken Grotesk"],
+                        "body-md": ["DM Sans"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "body-lg": ["DM Sans"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    fontSize: {
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "300"}]
+                    },
+                    animation: {
+                        'fade-slide-up': 'fadeSlideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeSlideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #F1EFDF; color: #2E3133; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .cinematic-ease { transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .reveal-delay-1 { animation-delay: 0.1s; }
+        .reveal-delay-2 { animation-delay: 0.2s; }
+        .reveal-delay-3 { animation-delay: 0.3s; }
+        .reveal-delay-4 { animation-delay: 0.4s; }
+        .glass-sidebar { background: rgba(45, 65, 80, 0.95); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="overflow-x-hidden font-body-md text-body-md selection:bg-accent/30">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-main-bg/80 backdrop-blur-xl border-b border-border-subtle/50 flex justify-between items-center px-6 md:px-12 py-5">
+<div class="flex items-center gap-stack-sm">
+<button class="p-2 hover:bg-surface-card rounded-full transition-colors" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-text-primary">menu</span>
+</button>
+<h1 class="font-headline-lg text-2xl font-bold tracking-tighter text-text-primary">MANYA</h1>
+</div>
+<nav class="hidden md:flex gap-10">
+<a class="font-label-sm text-[15px] uppercase tracking-[0.2em] text-text-secondary hover:text-accent transition-colors duration-500" href="/">Home</a>
+<a class="font-label-sm text-[15px] uppercase tracking-[0.2em] text-text-secondary hover:text-accent transition-colors duration-500" href="/#contact">Connect</a>
+</nav>
+</header>
+<!-- Navigation Drawer -->
+<div class="fixed inset-0 bg-text-primary/40 backdrop-blur-sm z-[55] opacity-0 pointer-events-none transition-opacity duration-500" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed left-0 top-0 h-full w-80 z-[60] glass-sidebar -translate-x-full cinematic-ease transition-transform duration-500 shadow-2xl flex flex-col p-8 gap-8" id="navigation-drawer">
+<div class="flex items-center justify-between">
+<span class="font-headline-lg text-headline-lg text-white tracking-tight">Portfolio</span>
+<button class="p-2 text-white/70 hover:text-white" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/">
+<span class="material-symbols-outlined">home</span> Home
+        </a>
+<a class="flex items-center gap-4 px-4 py-4 text-white bg-white/10 rounded-xl cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/projects">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">grid_view</span> Projects
+        </a>
+<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/experience">
+<span class="material-symbols-outlined">work</span> Experience
+        </a>
+<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/certifications">
+<span class="material-symbols-outlined">verified</span> Certifications
+        </a>
+<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/achievements">
+<span class="material-symbols-outlined">military_tech</span> Achievements
+        </a>
+</nav>
+<div class="mt-auto pt-8 border-t border-white/10">
+<p class="text-white/40 text-xs uppercase tracking-widest leading-loose">
+            Dreams demand discipline.
+        </p>
+</div>
+</aside>
+<main class="min-h-screen pt-[160px] pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Title Section -->
+<section class="mb-20 text-center md:text-left opacity-0 animate-fade-slide-up">
+<h2 class="font-display-lg text-display-lg text-[#3C5063] uppercase mb-8 leading-[0.9]">PROJECTS</h2>
+</section>
+<!-- Project Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter" id="projects-grid">
+</section>
+</main>
+<!-- Project Detail Modal (Centered Cinematic Style matching Experience Modal) -->
+<div class="fixed inset-0 z-[100] opacity-0 pointer-events-none transition-all duration-500 flex items-center justify-center p-4 md:p-8" id="project-modal">
+<div class="absolute inset-0 bg-[#2E3133]/40 backdrop-blur-2xl" onclick="closeModal()"></div>
+<div class="relative max-w-4xl w-full bg-[#4F6478] rounded-2xl shadow-2xl overflow-hidden border border-white/10 flex flex-col cinematic-ease translate-y-20 scale-95 transition-all duration-500">
+<div class="h-64 relative">
+<img alt="Project Header" class="w-full h-full object-cover" id="modal-img" src=""/>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/40 transition-all" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-8 grid md:grid-cols-3 gap-8">
+<div class="md:col-span-2 text-[#F1EFDF]">
+<span class="font-label-sm text-label-sm text-accent uppercase tracking-widest" id="modal-category"></span>
+<h2 class="font-headline-xl text-headline-xl text-[#F1EFDF] mt-2" id="modal-title"></h2>
+<div class="mt-6 flex flex-col gap-6">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-accent mb-2">Description</h4>
+<p class="font-body-md text-body-md text-[#F1EFDF]/80 leading-relaxed" id="modal-desc"></p>
+</div>
+<div class="flex flex-wrap gap-4 mt-6" id="modal-buttons-container">
+<a class="px-6 py-3 bg-accent text-[#2E3133] rounded-full font-bold text-xs uppercase tracking-widest inline-flex items-center gap-2 hover:scale-105 transition-all w-fit" href="#" id="github-link" target="_blank">
+<span class="material-symbols-outlined text-[16px]">code</span> GitHub link
+</a>
+<a class="px-6 py-3 bg-accent text-[#2E3133] rounded-full font-bold text-xs uppercase tracking-widest inline-flex items-center gap-2 hover:scale-105 transition-all w-fit" href="#" id="live-link" target="_blank">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span> Working link
+</a>
+</div>
+</div>
+</div>
+<div class="bg-black/20 p-6 rounded-xl flex flex-col gap-6 text-[#F1EFDF]">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-accent mb-2">Role / Type</h4>
+<p class="font-body-md text-body-md font-medium text-[#F1EFDF]">Featured Project</p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-accent mb-2">Technologies</h4>
+<div class="flex flex-wrap gap-2" id="modal-tags">
+<!-- Tech tags dynamic -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Assistant FAB -->
+<div class="fixed bottom-8 right-8 z-[60]">
+  <!-- Chat Window -->
+  <div class="absolute bottom-20 right-0 w-[360px] bg-[#BFC4C8] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-outline-variant/30 overflow-hidden opacity-0 scale-95 pointer-events-none transition-all duration-500 origin-bottom-right" id="chat-window">
+    <div class="bg-primary p-6 text-white flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-[#A9B79C] rounded-full animate-pulse"></div>
+        <span class="font-label-sm uppercase tracking-widest text-on-primary">Manya's AI Twin</span>
+      </div>
+      <button onclick="toggleChat()"><span class="material-symbols-outlined text-[20px] text-white/80 hover:text-white">close</span></button>
+    </div>
+    <!-- Chat Messages -->
+    <div class="p-6 h-80 overflow-y-auto space-y-4 bg-[#BFC4C8] text-on-surface-variant text-[15px]" id="chat-messages">
+      <div class="bg-[#E8E6D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
+        Greetings. I am Manya Khandelwal's AI assistant.
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="p-4 bg-[#BFC4C8] border-t border-outline-variant/20 flex gap-3 items-center">
+      <input class="flex-1 border-none bg-white px-4 py-3 rounded-xl text-sm focus:ring-1 focus:ring-[#A9B79C] outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/50" placeholder="Ask my AI Twin..." type="text" id="chat-input" onkeydown="handleChatKey(event)"/>
+      <button class="text-white w-12 h-12 bg-[#A9B79C] rounded-xl flex items-center justify-center hover:bg-[#97a58a] transition-colors" onclick="sendChatMessage()"><span class="material-symbols-outlined">send</span></button>
+    </div>
+  </div>
+  
+  <!-- FAB Trigger Button -->
+  <button class="w-16 h-16 bg-[#A9B79C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" onclick="toggleChat()">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+    <div class="absolute right-20 bg-[#2D4150] border border-[#E8E6D8]/10 px-4 py-2 rounded-xl text-[#E8E6D8] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+      Ask my AI Assistant
+    </div>
+  </button>
+</div>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full px-8 py-4 w-[90%] z-50 bg-nav-sidebar text-white backdrop-blur-xl shadow-2xl flex items-center justify-between">
+<a class="text-white/50 hover:text-accent transition-colors" href="/"><span class="material-symbols-outlined">home</span></a>
+<a class="text-accent scale-125" href="/projects"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span></a>
+<a class="text-white/50 hover:text-accent transition-colors" href="/experience"><span class="material-symbols-outlined">work</span></a>
+<a class="text-white/50 hover:text-accent transition-colors" href="/#contact"><span class="material-symbols-outlined">mail</span></a>
+</nav>
+<script>
+    let projectsList = [];
+    const BACKEND_URL = ""; // Relative paths
+
+    function toggleDrawer() {
+        const drawer = document.getElementById('navigation-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+        drawer.classList.toggle('-translate-x-full');
+        overlay.classList.toggle('opacity-0');
+        overlay.classList.toggle('pointer-events-none');
+    }
+
+    function openModal(idx) {
+        const modal = document.getElementById('project-modal');
+        const proj = projectsList[idx];
+        if (!proj) return;
+        
+        document.getElementById('modal-title').innerText = proj.title;
+        document.getElementById('modal-category').innerText = proj.category;
+        document.getElementById('modal-desc').innerText = proj.description;
+        document.getElementById('modal-img').src = proj.preview_image || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600";
+
+        // Live and github links
+        const githubLink = document.getElementById('github-link');
+        if (githubLink) {
+            if (proj.github_link) {
+                githubLink.href = proj.github_link;
+                githubLink.style.display = 'inline-flex';
+            } else {
+                githubLink.style.display = 'none';
+            }
+        }
+
+        const liveLink = document.getElementById('live-link');
+        if (liveLink) {
+            if (proj.live_link) {
+                liveLink.href = proj.live_link;
+                liveLink.style.display = 'inline-flex';
+            } else {
+                liveLink.style.display = 'none';
+            }
+        }
+
+        const tagsContainer = document.getElementById('modal-tags');
+        tagsContainer.innerHTML = '';
+        proj.tech_stack.forEach(tag => {
+            const span = document.createElement('span');
+            span.className = 'px-3 py-1 bg-white/10 rounded-full text-xs font-medium border border-white/10 text-[#F1EFDF]';
+            span.innerText = tag;
+            tagsContainer.appendChild(span);
+        });
+
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.children[1].classList.remove('translate-y-20', 'scale-95');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('project-modal');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.children[1].classList.add('translate-y-20', 'scale-95');
+        document.body.style.overflow = 'auto';
+    }
+
+    // --- Dynamic Projects Data Population ---
+    async function fetchProjects() {
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/projects/`);
+            if (!response.ok) return;
+            const data = await response.json();
+            projectsList = data;
+            
+            const grid = document.getElementById('projects-grid');
+            if (grid) {
+                if (data.length > 0) {
+                    grid.innerHTML = data.map((proj, idx) => {
+                        // Set all project cards to uniform size (lg:col-span-4, aspect-video)
+                        let colSpan = "lg:col-span-4";
+                        let aspectClass = "aspect-video";
+                        let imgHeight = "h-full";
+
+                        return `
+                            <div class="${colSpan} group cursor-pointer relative bg-[#4B5D70] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-2xl cinematic-ease transition-all duration-500 opacity-0 animate-fade-slide-up" style="animation-delay: ${idx * 0.1}s; animation-fill-mode: forwards;" onclick="openModal(${idx})">
+                                <div class="${aspectClass} w-full overflow-hidden">
+                                    <img alt="${proj.title}" class="w-full ${imgHeight} object-cover group-hover:scale-105 cinematic-ease transition-transform duration-1000" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
+                                </div>
+                                <div class="p-10 text-[#FFFFE3]">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <span class="font-label-sm text-[#FFFFE3]/70 uppercase tracking-widest">${proj.category}</span>
+                                        <span class="material-symbols-outlined text-[#FFFFE3]/60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
+                                    </div>
+                                    <h3 class="font-headline-lg text-3xl text-[#FFFFE3] mb-4">${proj.title}</h3>
+                                    <p class="font-body-md text-[#FFFFE3]/80 line-clamp-2">${proj.subtitle}</p>
+                                    <div class="flex flex-wrap gap-2 mt-6">
+                                        ${proj.tech_stack.slice(0, 3).map(tech => `
+                                            <span class="px-3 py-1 bg-white/15 text-[#FFFFE3] text-[10px] font-bold uppercase tracking-widest rounded border border-white/5">${tech}</span>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                } else {
+                    grid.innerHTML = `
+                        <div class="lg:col-span-12 flex flex-col items-center justify-center p-16 border-2 border-dashed border-[#C9D0C6] rounded-xl opacity-0 animate-fade-slide-up w-full">
+                            <div class="w-20 h-20 bg-[#E8E6D8] rounded-full flex items-center justify-center mb-6 shadow-inner">
+                                <span class="material-symbols-outlined text-text-secondary text-3xl">hourglass_empty</span>
+                            </div>
+                            <p class="font-body-lg text-text-secondary text-center px-10">
+                                Manya is currently refining this section. New cinematic experiences are coming soon.
+                            </p>
+                        </div>
+                    `;
+                }
+            }
+        } catch (err) {
+            console.error("Error loading projects dynamically:", err);
+        }
+    }
+
+    function formatAIResponse(text) {
+        const escaped = text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        return escaped.replace(markdownLinkRegex, (match, btnText, url) => {
+            return `<a href="${url}" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 mt-3 bg-[#A9B79C] hover:bg-[#97a58a] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 w-fit"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">open_in_new</span>${btnText}</a>`;
+        });
+    }
+
+    // --- Conversational Assistant Chat Engine ---
+    function toggleChat() {
+        const chat = document.getElementById('chat-window');
+        chat.classList.toggle('opacity-0');
+        chat.classList.toggle('scale-95');
+        chat.classList.toggle('pointer-events-none');
+        
+        // Focus search input
+        if (!chat.classList.contains('pointer-events-none')) {
+            setTimeout(() => document.getElementById('chat-input').focus(), 300);
+        }
+    }
+
+    function handleChatKey(event) {
+        if (event.key === 'Enter') {
+            sendChatMessage();
+        }
+    }
+
+    async function sendChatMessage() {
+        const input = document.getElementById('chat-input');
+        const container = document.getElementById('chat-messages');
+        const text = input.value.trim();
+        if (!text) return;
+
+        // Clear input
+        input.value = '';
+
+        // Append User Message
+        const userDiv = document.createElement('div');
+        userDiv.className = 'bg-[#475764] text-white p-4 rounded-2xl rounded-tr-none shadow-sm ml-auto max-w-[85%] text-right leading-relaxed break-words animate-fade-in-up';
+        userDiv.innerText = text;
+        container.appendChild(userDiv);
+        container.scrollTop = container.scrollHeight;
+
+        // Append Typing Indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'bg-white p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[85%] leading-relaxed flex items-center gap-1.5 py-3';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+            <span class="w-2 h-2 bg-[#475764]/40 rounded-full animate-bounce" style="animation-delay:0ms"></span>
+            <span class="w-2 h-2 bg-[#475764]/40 rounded-full animate-bounce" style="animation-delay:150ms"></span>
+            <span class="w-2 h-2 bg-[#475764]/40 rounded-full animate-bounce" style="animation-delay:300ms"></span>
+        `;
+        container.appendChild(typingDiv);
+        container.scrollTop = container.scrollHeight;
+
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/chat/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: text })
+            });
+
+            // Remove typing indicator
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+
+            if (!response.ok) {
+                throw new Error("Chat response status failure");
+            }
+            const data = await response.json();
+
+            // Append AI Response
+            const aiDiv = document.createElement('div');
+            aiDiv.className = 'bg-[#E8E6D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
+            aiDiv.innerHTML = formatAIResponse(data.response);
+            container.appendChild(aiDiv);
+            container.scrollTop = container.scrollHeight;
+        } catch (err) {
+            console.error("Chat failure:", err);
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+
+            const errDiv = document.createElement('div');
+            errDiv.className = 'bg-red-50 text-red-800 p-4 rounded-2xl rounded-tl-none border border-red-100 shadow-sm mr-auto max-w-[85%] text-xs';
+            errDiv.innerText = "Manya's AI Twin is briefly offline for maintenance. Please check again shortly!";
+            container.appendChild(errDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+    }
+
+    // Set Chat Window IDs dynamically
+    window.addEventListener('DOMContentLoaded', () => {
+        fetchProjects();
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            if (!document.getElementById('navigation-drawer').classList.contains('-translate-x-full')) toggleDrawer();
+            if (!document.getElementById('chat-window').classList.contains('opacity-0')) toggleChat();
+        }
+    });
+</script>
+</body></html>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manya Khandelwal | Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#394954",
+                    "on-secondary-container": "#646353",
+                    "surface-bright": "#fbf8fc",
+                    "on-primary-container": "#e5f2ff",
+                    "primary-container": "#5f6f7d",
+                    "tertiary-fixed-dim": "#b7c9d7",
+                    "tertiary": "#465762",
+                    "surface": "#fbf8fc",
+                    "secondary": "#5f5f4f",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#b8c8d8",
+                    "outline": "#74777c",
+                    "on-surface": "#1b1b1e",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#0c1d27",
+                    "inverse-on-surface": "#f2f0f3",
+                    "primary-fixed-dim": "#b8c8d8",
+                    "surface-container-low": "#f5f3f6",
+                    "on-tertiary-container": "#e2f2ff",
+                    "primary-fixed": "#d4e5f5",
+                    "secondary-container": "#e2e1cc",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e4e2e5",
+                    "on-surface-variant": "#43474b",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#e5e3cf",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#50606e",
+                    "inverse-surface": "#303033",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#efedf1",
+                    "surface-variant": "#e4e2e5",
+                    "surface-container-high": "#eae7eb",
+                    "on-secondary-fixed": "#1c1c10",
+                    "surface-dim": "#dbd9dd",
+                    "on-background": "#1b1b1e",
+                    "primary": "#475764",
+                    "secondary-fixed-dim": "#c9c7b4",
+                    "on-secondary-fixed-variant": "#474839",
+                    "on-primary-fixed": "#0d1d29",
+                    "on-primary-fixed-variant": "#394956",
+                    "background": "#fbf8fc",
+                    "outline-variant": "#c3c7cc",
+                    "tertiary-container": "#5e6f7b",
+                    "tertiary-fixed": "#d3e5f3",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "margin-desktop": "40px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "margin-tablet": "40px",
+                    "gutter": "32px",
+                    "stack-md": "32px",
+                    "stack-lg": "64px",
+                    "stack-sm": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Hanken Grotesk"],
+                    "body-lg": ["DM Sans"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-xl": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-md": ["DM Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .asymmetric-shape {
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="fixed inset-0 grain-overlay z-50"></div>
+<!-- Navigation Drawer (Desktop) -->
+<aside class="fixed left-0 top-0 h-full w-20 hover:w-64 transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] z-50 hidden md:flex flex-col bg-[#2D4150] backdrop-blur-2xl border-r border-white/10 shadow-2xl group overflow-hidden">
+<div class="flex flex-col py-stack-lg items-center h-full">
+<div class="mb-12">
+<span class="font-headline-lg text-headline-lg text-[#FFFFE3] tracking-tighter px-6">MK</span>
+</div>
+<nav class="flex flex-col gap-6 w-full">
+<a class="flex items-center gap-4 px-6 py-3 bg-primary-container/30 text-on-primary-container rounded-full mx-2 transition-all duration-500 scale-95" href="#home">
+<span class="material-symbols-outlined">home</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/projects">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Projects</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/experience">
+<span class="material-symbols-outlined">work</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Experience</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/certifications">
+<span class="material-symbols-outlined">verified</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Certifications</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/achievements">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Achievements</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Top AppBar (Mobile Only) -->
+<header class="fixed top-0 w-full z-40 md:hidden flex items-center justify-between px-margin-mobile h-20 bg-surface/70 backdrop-blur-xl shadow-sm">
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-black/5 rounded-full transition-colors text-primary" id="menu-toggle" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold tracking-tighter">Manya Khandelwal</span>
+</div>
+<div class="h-10 w-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="Manya Khandelwal" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a young South Asian woman with a confident expression, set against a soft-focus minimalist background. The lighting is warm and cinematic, emphasizing her professional and approachable demeanor for a high-end portfolio. The overall aesthetic is clean, light, and editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkd2_8Lmyerhcjh-ZcNeuu84xfU7kmoy0vowsls5cEffvfsem2lcU6BGSO8IwcDla132dyc2kGdh62i0SbrrQrjMataumhGvS4w5CnAauqKKOGICYJ0VqrFNpLTactl5G6na6_FtcuzqL1uBOB1V-1Zuo9G-CulAwCPHH1TQJ-2Qxj54FjF6DqVtxuzqL1uBOB1V-1Zuo9G-CulAwCPHH1TQJ-2Qxj54FjF6DqVyuuwZdgWJaeCZDq8NJuCfA4HE5d0GRsd_RLVLvoOqbs6RpEQv5_vOa-eDyf3BwGi9jNb4ZIFMOOOa6ldeDFhmVo"/>
+</div>
+</header>
+<!-- Side Navigation Drawer (Mobile Only) -->
+<div class="fixed left-0 top-0 h-full w-72 z-[60] bg-[#2D4150]/95 backdrop-blur-2xl -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-2xl flex md:hidden flex-col p-stack-sm gap-unit text-[#FFFFE3]" id="side-drawer">
+<div class="flex justify-between items-center px-4 py-6">
+<span class="font-headline-lg text-headline-lg text-[#FFFFE3]">Portfolio</span>
+<button class="text-[#FFFFE3]/70 hover:text-[#FFFFE3]" id="close-drawer" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3] font-medium bg-white/20 rounded-xl" href="/">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-lg text-[19.5px]">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/projects">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-body-lg text-[19.5px]">Projects</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/experience">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-lg text-[19.5px]">Experience</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/certifications">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-body-lg text-[19.5px]">Certifications</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/achievements">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-body-lg text-[19.5px]">Achievements</span>
+</a>
+</div>
+</div>
+<!-- Navigation Drawer Overlay (Mobile Only) -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-500 md:hidden" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<!-- Main Content -->
+<main class="md:ml-20">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop" id="home">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" src="/lux_editorial/background_shadow.jpg" alt="Background shadow artwork"/>
+</div>
+<div class="relative z-10 max-w-5xl text-center">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-6 reveal-on-scroll">Engineer • Developer • Problem Solver</p>
+<h1 class="text-[40px] md:text-[72px] font-bold text-[#2D4150] mb-stack-md reveal-on-scroll" style="transition-delay: 200ms; line-height: 1.15; font-family: 'Oswald', sans-serif; letter-spacing: -0.01em;">
+                    Dreams Demand <br/>
+                    Discipline.
+</h1>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-10 reveal-on-scroll" style="transition-delay: 400ms">
+<a class="px-8 py-4 bg-primary text-on-primary rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-all duration-500 shadow-xl" href="#contact">Connect</a>
+<a class="px-8 py-4 border border-outline/30 text-on-surface rounded-full font-label-sm uppercase tracking-widest hover:bg-surface-variant transition-all duration-500" href="#projects">View Projects</a>
+</div>
+</div>
+</section>
+<!-- Portrait & Intro -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop reveal-on-scroll bg-[#43576A]">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center bg-[#E8E6D8] p-8 md:p-16 rounded-[40px] border border-white/20 shadow-sm">
+<div class="md:col-span-5 relative">
+<div class="aspect-[4/5] rounded-[30px] overflow-hidden shadow-2xl">
+<img alt="Manya's Professional Portrait" class="w-full h-full object-cover" data-alt="A striking and professional portrait of a tech-focused woman." src="/lux_editorial/manya_portrait.jpg"/>
+</div>
+</div>
+<div class="md:col-span-7 space-y-stack-md">
+<h2 class="font-headline-xl text-headline-xl text-primary">Hello, I’m Manya</h2>
+<p class="font-body-lg text-[20px] text-on-surface-variant max-w-xl">
+                        I’m a developer focused on AI, automation, and agentic systems. I enjoy building practical applications powered by modern AI tools, intelligent workflows, and scalable technologies while continuously learning and experimenting with emerging tech.
+                    </p>
+<div class="pt-4">
+<span class="inline-block w-12 h-[2px] bg-primary"></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Education -->
+<section class="pt-6 pb-28 px-margin-mobile md:px-margin-desktop bg-[#43576A]">
+<div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+<h2 class="font-headline-xl text-[38px] md:text-[56px] leading-snug mb-stack-md text-[#FFFFE3]">
+                    Education
+                </h2>
+<div class="text-left max-w-3xl mx-auto font-body-lg text-body-lg text-[#43576A] leading-relaxed bg-[#E8E6D8] p-8 rounded-3xl border border-[#43576A]/20">
+    <ul class="space-y-4 list-disc list-inside">
+        <li>B.Tech in CSE (AI &amp; ML), VIT Bhopal University | 2023–2027 | CGPA: 8.90</li>
+        <li>Class 12th, CBSE Board | 2023 | 88.4%</li>
+        <li>Class 10th, CBSE Board | 2021 | 91.2%</li>
+    </ul>
+</div>
+</div>
+</section>
+<!-- Skills -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#E8E6D8]">
+<div class="max-w-container-max mx-auto reveal-on-scroll">
+<div class="mb-stack-lg">
+<h2 class="font-headline-xl text-[38px] md:text-[56px] text-primary">Expertise</h2>
+</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8">
+                <div class="space-y-6">
+                    <h4 class="font-label-sm text-label-sm uppercase text-primary border-b border-primary/20 pb-2">Programming</h4>
+                    <div class="flex flex-wrap gap-2" id="skills-programming-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="font-label-sm text-label-sm uppercase text-primary border-b border-primary/20 pb-2">AI / ML Tools</h4>
+                    <div class="flex flex-wrap gap-2" id="skills-ai-ml-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="font-label-sm text-label-sm uppercase text-primary border-b border-primary/20 pb-2">GenAI &amp; Agents</h4>
+                    <div class="flex flex-wrap gap-2" id="skills-genai-agents-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="font-label-sm text-label-sm uppercase text-primary border-b border-primary/20 pb-2">Data Tools</h4>
+                    <div class="flex flex-wrap gap-2" id="skills-data-tools-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="font-label-sm text-label-sm uppercase text-primary border-b border-primary/20 pb-2">Soft Skills</h4>
+                    <div class="flex flex-wrap gap-2" id="skills-soft-skills-list">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+</div>
+</section>
+<!-- Projects Preview -->
+<section class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop bg-[#43576A]" id="projects">
+<div class="max-w-container-max mx-auto reveal-on-scroll">
+<div class="flex justify-between items-center mb-stack-lg">
+<div>
+<h2 class="font-headline-xl text-[38px] md:text-[56px] text-[#FFFFE3]">Projects</h2>
+</div>
+<a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#FFFFE3] group" href="/projects">
+                        EXPLORE ALL PROJECTS 
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform text-[#FFFFE3]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md" id="projects-grid">
+<!-- Project Card 1 -->
+<div class="group cursor-pointer" onclick="window.location.href='/projects'">
+<div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
+<img alt="Neural Synthesis Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic, high-resolution rendering of a complex digital neural network. Strands of luminous light pulse through a dark, foggy three-dimensional space, representing data flow. The colors are muted blues and deep slates with warm golden sparks. The style is modern, technical, and clean, fitting a high-end AI portfolio project showcase." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO-C7X9OFpJcu9jzGoyIGVIgzh8SPEOYgWu7-MtLxSw84UvstHJPd_3c38rNIWTVopjycTFIzQsXJhajE5tFairy_96e-FwayJ2QuI1ztYzZCF02TGxbTemvhuQ0BdmE2dWBa3DrshmiC5HoLW_mnxhS-yymf1RzRsO7zOdWbsCDEcni8DOxvdj8FT0beb50_x3Q8G474DAcDF1Xsf1jSkpp_i1OOu66_NNgwTNI1UolxvgA_J1nI3tFXzbo7L2GRP1_0oMrzBLilU"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+<span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW CASE STUDY</span>
+</div>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">Neural Synthesis</h3>
+<p class="text-on-surface-variant font-body-md mb-4">Generative AI framework for industrial design optimization.</p>
+<div class="flex gap-2">
+<span class="text-[10px] tracking-widest font-bold uppercase text-outline px-3 py-1 bg-surface-container rounded-full">Python</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-outline px-3 py-1 bg-surface-container rounded-full">PyTorch</span>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group cursor-pointer" onclick="window.location.href='/projects'">
+<div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
+<img alt="Sentient Analytics Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A professional screenshot-style visualization of a sophisticated data analytics dashboard. The interface is clean, utilizing a minimal white and soft grey palette with elegant chart components. High-contrast typography and subtle glassmorphic effects make it look futuristic yet highly usable. The mood is focused and data-centric." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUuDLIxak0gHNaYUxsTbktYLfCxSPDw1x7Sdmfi5XIj-FqdjhsUBJI6dK8mCjdPFZOTJ8p5A8qcQ_qMTaNWGgL6Dhn9Mn7KkBb4jJutqLYCp_SVrGO8tlPVpZkrSQKX9_iVh7pnQJ3kymbARkkCv2GgJzn6jlcJ-tGLL3zaT1OsrioZyu_-hVmhs2CUlUM2LU73n21qOSvwjbqbuCPtD8_snli-MVHqXc1tfO_SvFbedFuzRi5ZkmWz91sBK2R1UBJtD-RWZ0DBx4F"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+<span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW CASE STUDY</span>
+</div>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-2">Sentient Analytics</h3>
+<p class="text-on-surface-variant font-body-md mb-4">Real-time sentiment analysis engine for global logistics.</p>
+<div class="flex gap-2">
+<span class="text-[10px] tracking-widest font-bold uppercase text-outline px-3 py-1 bg-surface-container rounded-full">React</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-outline px-3 py-1 bg-surface-container rounded-full">TensorFlow</span>
+</div>
+</div>
+</div>
+<div class="mt-stack-md md:hidden text-center">
+<a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary" href="/projects">EXPLORE ALL PROJECTS <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</section>
+<!-- Experience Preview -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#E8E6D8]" id="experience">
+<div class="max-w-4xl mx-auto reveal-on-scroll">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-xl text-[38px] md:text-[56px]">Experience</h2>
+</div>
+<div class="space-y-stack-md" id="experience-list">
+<div class="flex flex-col md:flex-row gap-8 bg-[#BFC4C8] p-8 rounded-[32px] shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow group cursor-pointer" onclick="window.location.href='/experience'">
+    <div class="md:w-full text-center">
+        <h3 class="font-headline-lg text-headline-lg text-primary">No industry experience yet — actively building through hands-on projects.</h3>
+    </div>
+</div>
+</div>
+<div class="mt-stack-lg text-center">
+<button class="font-label-sm text-label-sm uppercase border-b-2 border-primary pb-1 text-primary hover:text-on-surface transition-colors" onclick="window.location.href='/experience'">VIEW FULL EXPERIENCE</button>
+</div>
+</div>
+</section>
+<!-- Certifications -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop overflow-hidden bg-[#4B5D70] text-[#E8E6D8]" id="certifications">
+<div class="max-w-container-max mx-auto reveal-on-scroll">
+<div class="flex justify-between items-center mb-stack-lg">
+    <div>
+        <h2 class="font-headline-xl text-[38px] md:text-[56px] text-[#E8E6D8]">Certifications</h2>
+    </div>
+    <a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#E8E6D8] group" href="/certifications">
+        EXPLORE ALL CERTIFICATIONS
+        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform text-[#E8E6D8]">arrow_forward</span>
+    </a>
+</div>
+<div class="flex gap-gutter overflow-x-auto pb-8 snap-x no-scrollbar" id="certifications-list">
+    <div class="flex-none w-72 bg-[#E8E6D8] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">school</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">Deep Learning Specialization</h4>
+        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">Coursera • 2023</p>
+    </div>
+    <div class="flex-none w-72 bg-[#E8E6D8] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">cloud_done</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">AWS Certified Solutions Architect</h4>
+        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">Amazon • 2022</p>
+    </div>
+    <div class="flex-none w-72 bg-[#E8E6D8] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">security</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">Cybersecurity Analyst</h4>
+        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">IBM • 2021</p>
+    </div>
+    <div class="flex-none w-72 bg-[#E8E6D8] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">analytics</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">Google Data Analytics</h4>
+        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">Google • 2021</p>
+    </div>
+</div>
+<div class="mt-stack-md md:hidden text-center">
+    <a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-[#E8E6D8]" href="/certifications">EXPLORE ALL CERTIFICATIONS <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</section>
+<!-- Contact CTA -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#E8E6D8] text-[#4B5D70]" id="contact">
+<div class="max-w-container-max mx-auto text-center reveal-on-scroll">
+<h2 class="font-display-lg text-[32px] md:text-[64px] leading-tight mb-stack-md text-[#4B5D70]">
+                    Let's build something <br/>
+<span class="italic font-light">meaningful.</span>
+</h2>
+<p class="font-body-lg text-[#4B5D70]/80 max-w-xl mx-auto mb-stack-lg">
+                    Always open to discussing innovative projects, AI research, or interesting collaborations. My inbox is always open.
+                </p>
+<div class="flex flex-wrap justify-center gap-12 font-label-sm text-label-sm uppercase tracking-widest text-[#4B5D70]">
+<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="mailto:khandelwalmanya8@gmail.com">
+<span class="material-symbols-outlined text-sm">mail</span> EMAIL
+                    </a>
+<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/manya-khandelwal-b821492a3" target="_blank">
+<span class="material-symbols-outlined text-sm">link</span> LINKEDIN
+                    </a>
+<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="https://github.com/Manya-kh10" target="_blank">
+<span class="material-symbols-outlined text-sm">code</span> GITHUB
+                    </a>
+<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="https://github.com/Manya-kh10/Manya-resume/blob/main/Manya_Khandelwal_resume%20(2).pdf" target="_blank">
+<span class="material-symbols-outlined text-sm">description</span> RESUME
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav (Mobile) -->
+<nav class="fixed bottom-8 left-1/2 -translate-x-1/2 rounded-full w-[90%] md:hidden bg-surface-container-lowest/80 backdrop-blur-md shadow-xl z-50 flex justify-around items-center p-2">
+<a class="bg-primary text-on-primary rounded-full p-3 shadow-lg" href="#home">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="text-on-surface-variant p-3" href="#projects">
+<span class="material-symbols-outlined">grid_view</span>
+</a>
+<a class="text-on-surface-variant p-3" href="#experience">
+<span class="material-symbols-outlined">work</span>
+</a>
+<a class="text-on-surface-variant p-3" href="#certifications">
+<span class="material-symbols-outlined">verified</span>
+</a>
+<a class="text-on-surface-variant p-3" href="#contact">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</nav>
+<!-- AI Chatbot FAB & Window -->
+<div class="fixed bottom-8 right-8 z-[60]">
+  <!-- Chat Window -->
+  <div class="absolute bottom-20 right-0 w-[360px] bg-[#BFC4C8] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-outline-variant/30 overflow-hidden opacity-0 scale-95 pointer-events-none transition-all duration-500 origin-bottom-right" id="chat-window">
+    <div class="bg-primary p-6 text-white flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-[#A9B79C] rounded-full animate-pulse"></div>
+        <span class="font-label-sm uppercase tracking-widest text-on-primary">Manya's AI Twin</span>
+      </div>
+      <button onclick="toggleChat()"><span class="material-symbols-outlined text-[20px] text-white/80 hover:text-white">close</span></button>
+    </div>
+    <!-- Chat Messages -->
+    <div class="p-6 h-80 overflow-y-auto space-y-4 bg-[#BFC4C8] text-on-surface-variant text-[15px]" id="chat-messages">
+      <div class="bg-[#E8E6D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
+        Greetings. I am Manya Khandelwal's AI assistant.
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="p-4 bg-[#BFC4C8] border-t border-outline-variant/20 flex gap-3 items-center">
+      <input class="flex-1 border-none bg-white px-4 py-3 rounded-xl text-sm focus:ring-1 focus:ring-[#A9B79C] outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/50" placeholder="Ask my AI Twin..." type="text" id="chat-input" onkeydown="handleChatKey(event)"/>
+      <button class="text-white w-12 h-12 bg-[#A9B79C] rounded-xl flex items-center justify-center hover:bg-[#97a58a] transition-colors" onclick="sendChatMessage()"><span class="material-symbols-outlined">send</span></button>
+    </div>
+  </div>
+  
+  <!-- FAB Trigger Button -->
+  <button class="w-16 h-16 bg-[#A9B79C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" onclick="toggleChat()">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+    <div class="absolute right-20 bg-[#2D4150] border border-[#E8E6D8]/10 px-4 py-2 rounded-xl text-[#E8E6D8] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+      Ask my AI Assistant
+    </div>
+  </button>
+</div>
+
+<script>
+    // Reveal on scroll logic
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Parallax effect on grain
+    window.addEventListener('mousemove', (e) => {
+        const grain = document.querySelector('.grain-overlay');
+        const x = (e.clientX / window.innerWidth) * 10;
+        const y = (e.clientY / window.innerHeight) * 10;
+        if (grain) grain.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // --- Dynamic Data Binding from FastAPI / MongoDB Cluster ---
+    const BACKEND_URL = ""; // Served on the same port
+
+    async function fetchSkills() {
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/skills/`);
+            if (!response.ok) return;
+            const skills = await response.json();
+            
+            const groups = {
+                "programming": [],
+                "ai-ml-tools": [],
+                "genai-agents": [],
+                "data-tools": [],
+                "soft-skills": []
+            };
+            
+            skills.forEach(skill => {
+                const cat = skill.category;
+                if (cat === "Programming") {
+                    groups["programming"].push(skill.name);
+                } else if (cat === "AI/ML Tools") {
+                    groups["ai-ml-tools"].push(skill.name);
+                } else if (cat === "GenAI & Agents") {
+                    groups["genai-agents"].push(skill.name);
+                } else if (cat === "Data Tools") {
+                    groups["data-tools"].push(skill.name);
+                } else if (cat === "Soft Skills") {
+                    groups["soft-skills"].push(skill.name);
+                }
+            });
+
+            const progList = document.getElementById("skills-programming-list");
+            const aiList = document.getElementById("skills-ai-ml-list");
+            const genaiList = document.getElementById("skills-genai-agents-list");
+            const dataList = document.getElementById("skills-data-tools-list");
+            const softList = document.getElementById("skills-soft-skills-list");
+
+            if (progList && groups["programming"].length > 0) {
+                progList.innerHTML = groups["programming"].map(name => `
+                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                `).join('');
+            }
+            if (aiList && groups["ai-ml-tools"].length > 0) {
+                aiList.innerHTML = groups["ai-ml-tools"].map(name => `
+                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                `).join('');
+            }
+            if (genaiList && groups["genai-agents"].length > 0) {
+                genaiList.innerHTML = groups["genai-agents"].map(name => `
+                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                `).join('');
+            }
+            if (dataList && groups["data-tools"].length > 0) {
+                dataList.innerHTML = groups["data-tools"].map(name => `
+                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                `).join('');
+            }
+            if (softList && groups["soft-skills"].length > 0) {
+                softList.innerHTML = groups["soft-skills"].map(name => `
+                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                `).join('');
+            }
+        } catch (err) {
+            console.error("Error fetching skills:", err);
+        }
+    }
+
+    async function fetchProjects() {
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/projects/`);
+            if (!response.ok) return;
+            const projects = await response.json();
+            
+            const grid = document.getElementById("projects-grid");
+            if (grid && projects.length > 0) {
+                // Feature specifically NEXUS and Personal RAG Chatbot on the home page
+                const featured = projects.filter(proj => 
+                    proj.title.toLowerCase().includes("nexus") || 
+                    proj.title.toLowerCase().includes("personal rag")
+                );
+                const displayProjects = featured.length > 0 ? featured : projects.slice(0, 2);
+                
+                grid.innerHTML = displayProjects.map((proj, idx) => `
+                    <div class="group cursor-pointer" onclick="window.location.href='/projects'">
+                        <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
+                            <img alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                                <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
+                            </div>
+                        </div>
+                        <h3 class="font-headline-lg text-headline-lg mb-2 text-[#FFFFE3]">${proj.title}</h3>
+                        <p class="text-[#FFFFE3]/80 font-body-md mb-4">${proj.subtitle}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${proj.tech_stack.slice(0, 3).map(tech => `
+                                <span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#FFFFE3] rounded-full">${tech}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+        } catch (err) {
+            console.error("Error fetching projects:", err);
+        }
+    }
+
+    async function fetchExperience() {
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/experience/`);
+            if (!response.ok) return;
+            const experience = await response.json();
+            
+            const list = document.getElementById("experience-list");
+            if (list && experience.length > 0) {
+                list.innerHTML = experience.map((exp, idx) => `
+                    <div class="flex flex-col md:flex-row gap-8 bg-[#BFC4C8] p-8 rounded-[32px] border border-outline-variant/10 hover:-translate-y-1 hover:shadow-xl hover:border-primary/20 transition-all duration-500 ease-out group cursor-pointer" onclick="window.location.href='/experience'">
+                        <div class="md:w-1/4 text-outline font-label-sm uppercase tracking-widest">${exp.start_date} - ${exp.end_date || 'Present'}</div>
+                        <div class="md:w-3/4">
+                            <h3 class="font-headline-lg text-headline-lg text-primary group-hover:translate-x-2 transition-transform">${exp.role}</h3>
+                            <p class="text-secondary font-medium mb-4">${exp.company}</p>
+                            <p class="text-on-surface-variant">${exp.description[0]}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        } catch (err) {
+            console.error("Error fetching experience:", err);
+        }
+    }
+
+    async function fetchCertifications() {
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/certifications/`);
+            if (!response.ok) return;
+            const certifications = await response.json();
+            
+            const list = document.getElementById("certifications-list");
+            if (list && certifications.length > 0) {
+                // Slice to display up to 4 certifications on the home page
+                const displayedCerts = certifications.slice(0, 4);
+                list.innerHTML = displayedCerts.map(cert => `
+                    <div class="flex-none w-72 bg-[#E8E6D8] p-8 rounded-3xl shadow-sm hover:shadow-lg border border-outline-variant/10 hover:border-[#4B5D70]/20 snap-start cursor-pointer text-[#4B5D70] hover:-translate-y-1 transition-all duration-300" onclick="window.location.href='/certifications'">
+                        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">${
+                            cert.name.toLowerCase().includes('cloud') ? 'cloud_done' : 
+                            cert.name.toLowerCase().includes('generative ai') || cert.name.toLowerCase().includes('machine learning') ? 'psychology' : 'school'
+                        }</span>
+                        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70] font-bold">${cert.name}</h4>
+                        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">${cert.issuer} • ${cert.date_earned.split(' ').pop()}</p>
+                    </div>
+                `).join('');
+            }
+        } catch (err) {
+            console.error("Error fetching certifications:", err);
+        }
+    }
+
+    function formatAIResponse(text) {
+        const escaped = text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        return escaped.replace(markdownLinkRegex, (match, btnText, url) => {
+            return `<a href="${url}" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 mt-3 bg-[#A9B79C] hover:bg-[#97a58a] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 w-fit"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">open_in_new</span>${btnText}</a>`;
+        });
+    }
+
+    // --- Conversational Assistant Chat Engine ---
+    function toggleChat() {
+        const chat = document.getElementById('chat-window');
+        chat.classList.toggle('opacity-0');
+        chat.classList.toggle('scale-95');
+        chat.classList.toggle('pointer-events-none');
+        
+        // Focus search input
+        if (!chat.classList.contains('pointer-events-none')) {
+            setTimeout(() => document.getElementById('chat-input').focus(), 300);
+        }
+    }
+
+    function handleChatKey(event) {
+        if (event.key === 'Enter') {
+            sendChatMessage();
+        }
+    }
+
+    async function sendChatMessage() {
+        const input = document.getElementById('chat-input');
+        const container = document.getElementById('chat-messages');
+        const text = input.value.trim();
+        if (!text) return;
+
+        // Clear input
+        input.value = '';
+
+        // Append User Message
+        const userDiv = document.createElement('div');
+        userDiv.className = 'bg-[#475764] text-white p-4 rounded-2xl rounded-tr-none shadow-sm ml-auto max-w-[85%] text-right leading-relaxed break-words animate-fade-in-up';
+        userDiv.innerText = text;
+        container.appendChild(userDiv);
+        container.scrollTop = container.scrollHeight;
+
+        // Append Typing Indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'bg-surface-container-low p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[85%] leading-relaxed flex items-center gap-1.5 py-3';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+            <span class="w-2 h-2 bg-primary/40 rounded-full animate-bounce" style="animation-delay:0ms"></span>
+            <span class="w-2 h-2 bg-primary/40 rounded-full animate-bounce" style="animation-delay:150ms"></span>
+            <span class="w-2 h-2 bg-primary/40 rounded-full animate-bounce" style="animation-delay:300ms"></span>
+        `;
+        container.appendChild(typingDiv);
+        container.scrollTop = container.scrollHeight;
+
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/chat/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: text })
+            });
+
+            // Remove typing indicator
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+
+            if (!response.ok) {
+                throw new Error("Chat response status failure");
+            }
+            const data = await response.json();
+
+            // Append AI Response
+            const aiDiv = document.createElement('div');
+            aiDiv.className = 'bg-[#E8E6D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
+            aiDiv.innerHTML = formatAIResponse(data.response);
+            container.appendChild(aiDiv);
+            container.scrollTop = container.scrollHeight;
+        } catch (err) {
+            console.error("Chat failure:", err);
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+
+            const errDiv = document.createElement('div');
+            errDiv.className = 'bg-red-50 text-red-800 p-4 rounded-2xl rounded-tl-none border border-red-100 shadow-sm mr-auto max-w-[85%] text-xs';
+            errDiv.innerText = "Manya's AI Twin is currently offline for maintenance. Please check again shortly!";
+            container.appendChild(errDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+    }
+
+    // Drawer Logic
+    function toggleDrawer() {
+        const drawer = document.getElementById('side-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+        const isOpen = drawer.classList.contains('translate-x-0');
+        
+        if (isOpen) {
+            drawer.classList.remove('translate-x-0');
+            drawer.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('opacity-100');
+        } else {
+            drawer.classList.add('translate-x-0');
+            drawer.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.add('opacity-100'), 10);
+        }
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (!document.getElementById('chat-window').classList.contains('opacity-0')) toggleChat();
+            const drawer = document.getElementById('side-drawer');
+            if (drawer && drawer.classList.contains('translate-x-0')) {
+                toggleDrawer();
+            }
+        }
+    });
+
+    // Load data on page launch
+    window.addEventListener('DOMContentLoaded', () => {
+        Promise.all([
+            fetchSkills(),
+            fetchProjects(),
+            fetchCertifications()
+        ]).then(() => {
+            // Scroll to hash target (e.g. #contact) if specified in the URL
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }, 200); // 200ms delay to let layout heights settle
+                }
+            }
+        });
+    });
+</script>
+</body></html>

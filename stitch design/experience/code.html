@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manya | Experience</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#2E3133", // Primary Text (on light)
+                    "background": "#F1EFDF", // Main Background
+                    "surface": "#F1EFDF",
+                    "surface-container-low": "#5C7184", // Timeline/Experience Cards
+                    "on-surface": "#2E3133",
+                    "on-surface-variant": "#2E3133",
+                    "primary-container": "#A9B79C", // Accent
+                    "secondary-container": "#A9B79C", // Accent
+                    "modal-bg": "#4F6478", // Modal Background
+                    "text-on-dark": "#F1EFDF", // Text on dark cards
+                    "outline-variant": "rgba(46, 49, 51, 0.1)",
+                    "accent": "#A9B79C"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "24px", // Requested 24px
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "unit": "8px",
+                    "stack-sm": "16px",
+                    "container-max": "1440px",
+                    "stack-md": "32px",
+                    "stack-lg": "64px",
+                    "margin-tablet": "40px",
+                    "margin-mobile": "20px",
+                    "gutter": "32px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Hanken Grotesk"],
+                    "body-md": ["DM Sans"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "body-lg": ["DM Sans"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .cinematic-reveal {
+            opacity: 0;
+            animation: cinematicReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes cinematicReveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        .experience-card:hover .card-image {
+            transform: scale(1.05);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A9B79C;
+            border-radius: 10px;
+        }
+
+        body {
+          min-height: 100dvh;
+        }
+
+        .experience-card {
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-primary min-h-screen overflow-x-hidden font-body-md text-body-md">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-primary/5">
+<div class="flex justify-between items-center px-6 md:px-12 py-4">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-black/5 rounded-full transition-colors text-primary" id="menu-toggle" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-lg text-2xl font-bold tracking-tighter text-primary">MANYA</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="font-label-sm text-[15px] uppercase tracking-widest text-primary/60 hover:text-accent transition-colors duration-500 ease-out" href="/">Home</a>
+<a class="font-label-sm text-[15px] uppercase tracking-widest text-primary/60 hover:text-accent transition-colors duration-500 ease-out" href="/#contact">Connect</a>
+</nav>
+</div>
+</header>
+<!-- Side Navigation Drawer -->
+<div class="fixed left-0 top-0 h-full w-72 z-[60] bg-[#2D4150]/95 backdrop-blur-2xl -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-2xl flex flex-col p-stack-sm gap-unit text-[#FFFFE3]" id="side-drawer">
+<div class="flex justify-between items-center px-4 py-6">
+<span class="font-headline-lg text-headline-lg text-[#FFFFE3]">Portfolio</span>
+<button class="text-[#FFFFE3]/70 hover:text-[#FFFFE3]" id="close-drawer" onclick="toggleDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-lg text-[19.5px]">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/projects">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-body-lg text-[19.5px]">Projects</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3] font-medium bg-white/20 rounded-xl" href="/experience">
+<span class="material-symbols-outlined">work</span>
+<span class="font-body-lg text-[19.5px]">Experience</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/certifications">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-body-lg text-[19.5px]">Certifications</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#FFFFE3]/70 hover:text-[#FFFFE3] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/achievements">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-body-lg text-[19.5px]">Achievements</span>
+</a>
+</div>
+</div>
+<!-- Navigation Drawer Overlay -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-500" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<!-- Main Content -->
+<main class="pt-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="py-stack-lg">
+<div class="flex flex-col gap-stack-sm cinematic-reveal">
+<h1 class="font-display-lg text-display-lg text-[#3C5063] tracking-tighter uppercase">EXPERIENCE</h1>
+</div>
+<!-- Experience Message -->
+<div class="py-12 border-t border-primary/10 mt-stack-lg cinematic-reveal">
+<p class="font-body-lg text-xl text-[#3C5063] leading-relaxed">
+    No industry experience yet — actively building through hands-on projects.
+</p>
+</div>
+</div>
+</main>
+<!-- Centered Cinematic Modals -->
+<div class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4" id="modal-container">
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-2xl" id="modal-backdrop"></div>
+<!-- Dynamic Modal Content -->
+<div class="hidden relative max-w-4xl w-full bg-modal-bg rounded-2xl shadow-2xl overflow-hidden cinematic-reveal border border-white/10" id="experience-modal">
+<div class="h-64 relative">
+<img alt="Role Header" class="w-full h-full object-cover" id="modal-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000"/>
+<button class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/40 transition-all" onclick="closeModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-stack-lg grid md:grid-cols-3 gap-stack-md">
+<div class="md:col-span-2 text-text-on-dark">
+<span class="font-label-sm text-label-sm text-accent uppercase tracking-widest" id="modal-company">Nexus Technologies</span>
+<h2 class="font-headline-xl text-headline-xl text-text-on-dark mt-2" id="modal-role">AI Software Engineer Intern</h2>
+<div class="mt-stack-md flex flex-col gap-stack-sm">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-accent mb-2">Accomplishments</h4>
+<ul class="list-disc list-inside font-body-md text-body-md text-text-on-dark/70 flex flex-col gap-2" id="modal-desc-list">
+<!-- Bullet points dynamic -->
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-black/20 p-stack-sm rounded-xl flex flex-col gap-stack-sm text-text-on-dark">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-accent mb-2">Duration</h4>
+<p class="font-body-md text-body-md font-medium text-text-on-dark" id="modal-date">June 2025 - Present</p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase text-accent mb-2">Technologies</h4>
+<div class="flex flex-wrap gap-2" id="modal-tech">
+<!-- Tech tags dynamic -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Note: Additional modals (2, 3) follow same structure but omitted for brevity as per instructions -->
+</div>
+<!-- AI Assistant FAB -->
+<div class="fixed bottom-8 right-8 z-[60]">
+  <!-- Chat Window -->
+  <div class="absolute bottom-20 right-0 w-[360px] bg-[#BFC4C8] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-outline-variant/30 overflow-hidden opacity-0 scale-95 pointer-events-none transition-all duration-500 origin-bottom-right" id="chat-window">
+    <div class="bg-primary p-6 text-white flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 bg-[#A9B79C] rounded-full animate-pulse"></div>
+        <span class="font-label-sm uppercase tracking-widest text-on-primary">Manya's AI Twin</span>
+      </div>
+      <button onclick="toggleChat()"><span class="material-symbols-outlined text-[20px] text-white/80 hover:text-white">close</span></button>
+    </div>
+    <!-- Chat Messages -->
+    <div class="p-6 h-80 overflow-y-auto space-y-4 bg-[#BFC4C8] text-on-surface-variant text-[15px]" id="chat-messages">
+      <div class="bg-[#E8E6D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
+        Greetings. I am Manya Khandelwal's AI assistant.
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="p-4 bg-[#BFC4C8] border-t border-outline-variant/20 flex gap-3 items-center">
+      <input class="flex-1 border-none bg-white px-4 py-3 rounded-xl text-sm focus:ring-1 focus:ring-[#A9B79C] outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/50" placeholder="Ask my AI Twin..." type="text" id="chat-input" onkeydown="handleChatKey(event)"/>
+      <button class="text-white w-12 h-12 bg-[#A9B79C] rounded-xl flex items-center justify-center hover:bg-[#97a58a] transition-colors" onclick="sendChatMessage()"><span class="material-symbols-outlined">send</span></button>
+    </div>
+  </div>
+  
+  <!-- FAB Trigger Button -->
+  <button class="w-16 h-16 bg-[#A9B79C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" onclick="toggleChat()">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+    <div class="absolute right-20 bg-[#2D4150] border border-[#E8E6D8]/10 px-4 py-2 rounded-xl text-[#E8E6D8] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+      Ask my AI Assistant
+    </div>
+  </button>
+</div>
+<!-- Footer Space -->
+<footer class="h-32"></footer>
+<!-- Bottom Nav Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 rounded-full px-6 py-3 w-auto max-w-md z-50 bg-background/80 backdrop-blur-xl border border-primary/10 shadow-xl flex items-center gap-gutter">
+<a class="text-primary/40 hover:scale-110 transition-transform duration-300" href="/"><span class="material-symbols-outlined">home</span></a>
+<a class="text-primary/40 hover:scale-110 transition-transform duration-300" href="/projects"><span class="material-symbols-outlined">grid_view</span></a>
+<a class="text-accent scale-110" href="/experience"><span class="material-symbols-outlined">work</span></a>
+<a class="text-primary/40 hover:scale-110 transition-transform duration-300" href="/certifications"><span class="material-symbols-outlined">verified</span></a>
+<a class="text-primary/40 hover:scale-110 transition-transform duration-300" href="/achievements"><span class="material-symbols-outlined">military_tech</span></a>
+</nav>
+<script>
+        let experienceList = [];
+        const BACKEND_URL = "";
+
+        // Drawer Logic
+        function toggleDrawer() {
+            const drawer = document.getElementById('side-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const isOpen = drawer.classList.contains('translate-x-0');
+            
+            if (isOpen) {
+                drawer.classList.remove('translate-x-0');
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+                overlay.classList.remove('opacity-100');
+            } else {
+                drawer.classList.add('translate-x-0');
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            }
+        }
+
+        // Modal Logic
+        const modalContainer = document.getElementById('modal-container');
+        const backdrop = document.getElementById('modal-backdrop');
+
+        function openModal(idx) {
+            const exp = experienceList[idx];
+            if (!exp) return;
+
+            document.getElementById('modal-company').innerText = exp.company;
+            document.getElementById('modal-role').innerText = exp.role;
+            document.getElementById('modal-date').innerText = `${exp.start_date} — ${exp.end_date || 'Present'}`;
+            
+            // Random high-end editorial image for each card header
+            const headerImgs = [
+                "https://images.unsplash.com/photo-1542744095-2ad4870706d8?q=80&w=1000",
+                "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000",
+                "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000"
+            ];
+            document.getElementById('modal-img').src = headerImgs[idx % headerImgs.length];
+
+            const bulletContainer = document.getElementById('modal-desc-list');
+            bulletContainer.innerHTML = exp.description.map(pt => `
+                <li class="leading-relaxed text-[15px]">${pt}</li>
+            `).join('');
+
+            const techContainer = document.getElementById('modal-tech');
+            techContainer.innerHTML = exp.tech_stack.map(tech => `
+                <span class="px-3 py-1 bg-white/10 rounded-full text-xs font-medium border border-white/10 text-text-on-dark">${tech}</span>
+            `).join('');
+
+            modalContainer.classList.remove('hidden');
+            modalContainer.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            
+            const modal = document.getElementById('experience-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modalContainer.classList.add('hidden');
+            modalContainer.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+            const modal = document.getElementById('experience-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        if (backdrop) backdrop.addEventListener('click', closeModal);
+
+        // --- Dynamic Experience List Data Population ---
+        async function fetchExperience() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/experience/`);
+                if (!response.ok) return;
+                const data = await response.json();
+                experienceList = data;
+                
+                const container = document.getElementById('experience-container');
+                const emptyState = document.getElementById('empty-state');
+
+                if (container && data.length > 0) {
+                    emptyState.classList.add('hidden');
+                    container.classList.remove('hidden');
+                    
+                    // High-quality editorial covers
+                    const covers = [
+                        "https://lh3.googleusercontent.com/aida-public/AB6AXuDEOKy-qfZrzRl2mmkfZEaWGZIvs_aXoRjFCYq_VUuQx_Sfh6YFHGwbiSqkGzWVJgWGz87N2dZ56nDAsO_3l9q4GqBzIFOari_O9l7CMSWRonI7xRjDIRp-dzCarDT-LE2dQ6-OIn-vN34nrNzcD8XaVs5vb4yJyA7RAkB38Xb4M8LtlUJat5lJl81ppndlS1UPBoKB28ja5XcpdLDg05htLdqwEH1h_V2nj2A5ZPMw9edMJp2b60Y9qHxZR_8i_DPp4GV1YUWBO9mz",
+                        "https://lh3.googleusercontent.com/aida-public/AB6AXuDPJatFfg2YDPkY0jj_EZMWIC0ne66YIR0mfxhls7eAhPXAjMPKjOBLuN7AP2Dpt7_WMIizM9FvTLBhMERr4eyB7sFbadhkxSr4auyrSO2pRqUJ4iswgsTSB3jCkxNHzD1oAHnQdqU_qdYSilIWMaCqhyFb2L9nWFMhT6XLPzGuy5agmm3Bqf7mpk68EtsPMchi1RT54iyYSPSELFEWXe3oSFgnqQ0Z4Ltu5w30vFDVyJeqHq7_vnwjVBpdV9nUe34851AJ0p_4ny9o"
+                    ];
+
+                    container.innerHTML = data.map((exp, idx) => `
+                        <div class="experience-card cinematic-reveal group cursor-pointer bg-surface-container-low p-6 rounded-2xl border border-white/5 hover:shadow-2xl transition-all duration-500" onclick="openModal(${idx})" style="animation-delay: ${idx * 0.1}s; animation-fill-mode: forwards;">
+                            <div class="relative overflow-hidden rounded-xl aspect-video mb-6">
+                                <img alt="${exp.role}" class="card-image w-full h-full object-cover transition-transform duration-700 ease-out" src="${covers[idx % covers.length]}"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                            <span class="font-label-sm text-label-sm text-accent uppercase tracking-widest">${exp.start_date} — ${exp.end_date || 'Present'}</span>
+                            <h3 class="font-headline-lg text-headline-lg text-text-on-dark mt-2">${exp.role}</h3>
+                            <p class="font-body-md text-body-md text-text-on-dark/70 font-medium">${exp.company}</p>
+                            <p class="font-body-md text-body-md text-text-on-dark/80 mt-stack-sm line-clamp-2">${exp.description[0]}</p>
+                            <div class="mt-stack-sm flex items-center gap-2 text-accent font-medium">
+                                <span class="text-label-sm font-label-sm uppercase tracking-widest">View Details</span>
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    container.classList.add('hidden');
+                    emptyState.classList.remove('hidden');
+                }
+            } catch (err) {
+                console.error("Error loading experiences:", err);
+            }
+        }
+
+        function formatAIResponse(text) {
+            const escaped = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+            const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+            return escaped.replace(markdownLinkRegex, (match, btnText, url) => {
+                return `<a href="${url}" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 mt-3 bg-[#A9B79C] hover:bg-[#97a58a] text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-95 w-fit"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">open_in_new</span>${btnText}</a>`;
+            });
+        }
+
+        // --- Conversational Assistant Chat Engine ---
+        function toggleChat() {
+            const chat = document.getElementById('chat-window');
+            chat.classList.toggle('opacity-0');
+            chat.classList.toggle('scale-95');
+            chat.classList.toggle('pointer-events-none');
+            
+            // Focus search input
+            if (!chat.classList.contains('pointer-events-none')) {
+                setTimeout(() => document.getElementById('chat-input').focus(), 300);
+            }
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const container = document.getElementById('chat-messages');
+            const text = input.value.trim();
+            if (!text) return;
+
+            // Clear input
+            input.value = '';
+
+            // Append User Message
+            const userDiv = document.createElement('div');
+            userDiv.className = 'bg-[#475764] text-white p-4 rounded-2xl rounded-tr-none shadow-sm ml-auto max-w-[85%] text-right leading-relaxed break-words animate-fade-in-up';
+            userDiv.innerText = text;
+            container.appendChild(userDiv);
+            container.scrollTop = container.scrollHeight;
+
+            // Append Typing Indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'bg-white p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[85%] leading-relaxed flex items-center gap-1.5 py-3';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = `
+                <span class="w-2 h-2 bg-[#475764]/40 rounded-full animate-bounce" style="animation-delay:0ms"></span>
+                <span class="w-2 h-2 bg-[#475764]/40 rounded-full animate-bounce" style="animation-delay:150ms"></span>
+                <span class="w-2 h-2 bg-[#475764]/40 rounded-full animate-bounce" style="animation-delay:300ms"></span>
+            `;
+            container.appendChild(typingDiv);
+            container.scrollTop = container.scrollHeight;
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/chat/`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
+
+                // Remove typing indicator
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
+
+                if (!response.ok) {
+                    throw new Error("Chat response status failure");
+                }
+                const data = await response.json();
+
+                // Append AI Response
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'bg-[#E8E6D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
+                aiDiv.innerHTML = formatAIResponse(data.response);
+                container.appendChild(aiDiv);
+                container.scrollTop = container.scrollHeight;
+            } catch (err) {
+                console.error("Chat failure:", err);
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
+
+                const errDiv = document.createElement('div');
+                errDiv.className = 'bg-red-50 text-red-800 p-4 rounded-2xl rounded-tl-none border border-red-100 shadow-sm mr-auto max-w-[85%] text-xs';
+                errDiv.innerText = "Manya's AI Twin is briefly offline for maintenance. Please check again shortly!";
+                container.appendChild(errDiv);
+                container.scrollTop = container.scrollHeight;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // fetchExperience();
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                if (document.getElementById('side-drawer').classList.contains('translate-x-0')) {
+                    toggleDrawer();
+                }
+                if (!document.getElementById('chat-window').classList.contains('opacity-0')) toggleChat();
+            }
+        });
+    </script>
+</body></html>
