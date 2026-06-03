@@ -125,9 +125,9 @@
 </button>
 <span class="font-headline-lg text-2xl font-bold tracking-tighter text-on-background">MANYA</span>
 </div>
-<nav class="hidden md:flex gap-10">
-<a class="font-label-sm text-[15px] uppercase tracking-widest text-on-surface-variant hover:text-accent transition-colors duration-500" href="/">Home</a>
-<a class="font-label-sm text-[15px] uppercase tracking-widest text-on-surface-variant hover:text-accent transition-colors duration-500" href="/#contact">Connect</a>
+<nav class="flex gap-6 md:gap-10">
+<a class="font-label-sm text-xs md:text-[15px] uppercase tracking-wider md:tracking-widest text-on-surface-variant hover:text-accent transition-colors duration-500" href="/">Home</a>
+<a class="font-label-sm text-xs md:text-[15px] uppercase tracking-wider md:tracking-widest text-on-surface-variant hover:text-accent transition-colors duration-500" href="/#contact">Connect</a>
 </nav>
 </div>
 </header>
@@ -170,7 +170,7 @@
 <main class="pt-32 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto min-h-screen">
 <!-- Header Section -->
 <header class="mb-stack-lg text-center md:text-left">
-<h1 class="font-display-lg text-display-lg text-[#3C5063] mb-unit animate-fade-in-up">ACHIEVEMENTS</h1>
+<h1 class="font-display-lg text-[36px] md:text-display-lg text-[#3C5063] mb-unit animate-fade-in-up">ACHIEVEMENTS</h1>
 </header>
 <!-- Achievements Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="achievements-container">
@@ -242,14 +242,7 @@
     </div>
   </button>
 </div>
-<!-- Bottom Nav (Mobile) -->
-<nav class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 rounded-full px-6 py-3 w-auto max-w-md z-50 bg-background/80 backdrop-blur-xl border border-on-background/5 shadow-xl flex items-center gap-gutter">
-<a class="text-on-surface-variant/50 hover:text-on-background transition-colors" href="/"><span class="material-symbols-outlined">home</span></a>
-<a class="text-on-surface-variant/50 hover:text-on-background transition-colors" href="/projects"><span class="material-symbols-outlined">grid_view</span></a>
-<a class="text-accent scale-110" href="/achievements"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">military_tech</span></a>
-<a class="text-on-surface-variant/50 hover:text-on-background transition-colors" href="/certifications"><span class="material-symbols-outlined">verified</span></a>
-<a class="text-on-surface-variant/50 hover:text-on-background transition-colors" href="/experience"><span class="material-symbols-outlined">work</span></a>
-</nav>
+
 <script>
     let achievementsList = [];
     const BACKEND_URL = "";

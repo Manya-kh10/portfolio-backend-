@@ -93,9 +93,9 @@
 </button>
 <h1 class="font-headline-lg text-2xl font-bold tracking-tighter text-text-primary">MANYA</h1>
 </div>
-<nav class="hidden md:flex gap-10">
-<a class="font-label-sm text-[15px] uppercase tracking-[0.2em] text-text-secondary hover:text-accent transition-colors duration-500" href="/">Home</a>
-<a class="font-label-sm text-[15px] uppercase tracking-[0.2em] text-text-secondary hover:text-accent transition-colors duration-500" href="/#contact">Connect</a>
+<nav class="flex gap-6 md:gap-10">
+<a class="font-label-sm text-xs md:text-[15px] uppercase tracking-wider md:tracking-[0.2em] text-text-secondary hover:text-accent transition-colors duration-500" href="/">Home</a>
+<a class="font-label-sm text-xs md:text-[15px] uppercase tracking-wider md:tracking-[0.2em] text-text-secondary hover:text-accent transition-colors duration-500" href="/#contact">Connect</a>
 </nav>
 </header>
 <!-- Navigation Drawer -->
@@ -133,7 +133,7 @@
 <main class="min-h-screen pt-[160px] pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <!-- Title Section -->
 <section class="mb-20 text-center md:text-left opacity-0 animate-fade-slide-up">
-<h2 class="font-display-lg text-display-lg text-[#3C5063] uppercase mb-8 leading-[0.9]">PROJECTS</h2>
+<h2 class="font-display-lg text-[36px] md:text-display-lg text-[#3C5063] uppercase mb-8 leading-[0.9]">PROJECTS</h2>
 </section>
 <!-- Project Grid -->
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter" id="projects-grid">
@@ -215,13 +215,7 @@
     </div>
   </button>
 </div>
-<!-- Mobile Navigation Bar -->
-<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full px-8 py-4 w-[90%] z-50 bg-nav-sidebar text-white backdrop-blur-xl shadow-2xl flex items-center justify-between">
-<a class="text-white/50 hover:text-accent transition-colors" href="/"><span class="material-symbols-outlined">home</span></a>
-<a class="text-accent scale-125" href="/projects"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span></a>
-<a class="text-white/50 hover:text-accent transition-colors" href="/experience"><span class="material-symbols-outlined">work</span></a>
-<a class="text-white/50 hover:text-accent transition-colors" href="/#contact"><span class="material-symbols-outlined">mail</span></a>
-</nav>
+
 <script>
     let projectsList = [];
     const BACKEND_URL = ""; // Relative paths

@@ -113,9 +113,9 @@
 <button class="material-symbols-outlined p-2 hover:bg-black/5 rounded-full transition-colors text-on-background" onclick="toggleDrawer()">menu</button>
 <span class="font-headline-lg text-2xl font-bold tracking-tighter text-on-background">MANYA</span>
 </div>
-<nav class="hidden md:flex gap-10">
-<a class="font-label-sm text-[15px] uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-background transition-colors duration-500" href="/">Home</a>
-<a class="font-label-sm text-[15px] uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-background transition-colors duration-500" href="/#contact">Connect</a>
+<nav class="flex gap-6 md:gap-10">
+<a class="font-label-sm text-xs md:text-[15px] uppercase tracking-wider md:tracking-[0.2em] text-on-surface-variant hover:text-on-background transition-colors duration-500" href="/">Home</a>
+<a class="font-label-sm text-xs md:text-[15px] uppercase tracking-wider md:tracking-[0.2em] text-on-surface-variant hover:text-on-background transition-colors duration-500" href="/#contact">Connect</a>
 </nav>
 </div>
 </header>
@@ -153,7 +153,7 @@
 <main class="pt-stack-lg mt-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-stack-lg">
 <!-- Header Section -->
 <section class="mb-stack-lg">
-<h1 class="font-display-lg text-[48px] md:text-display-lg leading-tight text-[#3C5063]">CERTIFICATIONS</h1>
+<h1 class="font-display-lg text-[32px] md:text-display-lg leading-tight text-[#3C5063]">CERTIFICATIONS</h1>
 </section>
 <!-- Gallery Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="cert-grid">
@@ -279,13 +279,7 @@
     </div>
   </button>
 </div>
-<!-- Mobile Bottom Nav -->
-<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full px-6 py-3 w-auto max-w-md z-50 bg-primary text-on-primary shadow-2xl border border-white/10 flex items-center gap-10">
-<a class="text-on-primary/50 hover:text-on-primary transition-colors" href="/"><span class="material-symbols-outlined">home</span></a>
-<a class="text-on-primary/50 hover:text-on-primary transition-colors" href="/projects"><span class="material-symbols-outlined">grid_view</span></a>
-<a class="text-accent" href="/certifications"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span></a>
-<a class="text-on-primary/50 hover:text-on-primary transition-colors" href="/achievements"><span class="material-symbols-outlined">military_tech</span></a>
-</nav>
+
 <script>
         let certificationsList = [];
         const BACKEND_URL = "";
