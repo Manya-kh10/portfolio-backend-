@@ -63,7 +63,7 @@ STRICT RULES:
 7. Never mention tools, databases, APIs, JSON, or any technical internals.
 8. For contact/hiring, say: "You can reach out to Manya directly via email by clicking the button below." and provide the Email button link.
 9. For Resume, LinkedIn, GitHub, or Email: DO NOT provide raw text links. Instead, use markdown link syntax [Button Text](URL) so the frontend can render them as buttons. Use the following URLs:
-   - Resume: [Access Resume](https://github.com/Manya-kh10/Manya-resume/blob/main/Manya_Khandelwal_resume%20(2).pdf)
+   - Resume: [Access Resume](https://github.com/Manya-kh10/Manya-resume/blob/main/Manya_Khandelwal_resume%20%282%29.pdf)
    - GitHub: [GitHub Profile](https://github.com/Manya-kh10)
    - LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/manya-khandelwal-b821492a3)
    - Email: [Send Email](mailto:khandelwalmanya8@gmail.com)
