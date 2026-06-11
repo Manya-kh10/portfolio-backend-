@@ -353,10 +353,10 @@
 <section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F7F6EF]" id="experience">
 <div class="max-w-4xl mx-auto reveal-on-scroll">
 <div class="text-center mb-stack-lg">
-<h2 class="font-headline-xl text-[28px] md:text-[56px]">Experience</h2>
+<h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#2D4150]">Experience</h2>
 </div>
 <div class="space-y-stack-md" id="experience-list">
-<div class="flex flex-col md:flex-row gap-8 bg-[#BFC4C8] p-8 rounded-[32px] shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow group cursor-pointer" onclick="window.location.href='/experience'">
+<div class="flex flex-col md:flex-row gap-8 bg-[#DCE0E4] p-8 rounded-[32px] shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow group cursor-pointer" onclick="window.location.href='/experience'">
     <div class="md:w-full text-center">
         <h3 class="font-headline-lg text-headline-lg text-primary">No industry experience yet, but currently gaining practical experience by building real world projects.</h3>
     </div>
@@ -542,27 +542,27 @@
 
             if (progList && groups["programming"].length > 0) {
                 progList.innerHTML = groups["programming"].map(name => `
-                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                    <span class="px-4 py-2 bg-[#DCE0E4] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
                 `).join('');
             }
-            if (aiList && groups["ai-ml-tools"].length > 0) {
+            if (aiList && groups["skills-ai-ml-list"] || aiList && groups["ai-ml-tools"].length > 0) { // Keep matching groups safely
                 aiList.innerHTML = groups["ai-ml-tools"].map(name => `
-                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                    <span class="px-4 py-2 bg-[#DCE0E4] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
                 `).join('');
             }
             if (genaiList && groups["genai-agents"].length > 0) {
                 genaiList.innerHTML = groups["genai-agents"].map(name => `
-                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                    <span class="px-4 py-2 bg-[#DCE0E4] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
                 `).join('');
             }
             if (dataList && groups["data-tools"].length > 0) {
                 dataList.innerHTML = groups["data-tools"].map(name => `
-                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                    <span class="px-4 py-2 bg-[#DCE0E4] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
                 `).join('');
             }
             if (softList && groups["soft-skills"].length > 0) {
                 softList.innerHTML = groups["soft-skills"].map(name => `
-                    <span class="px-4 py-2 bg-[#BFC4C8] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
+                    <span class="px-4 py-2 bg-[#DCE0E4] rounded-full text-[#1b1b1e] font-medium text-sm border border-outline-variant/10 hover:-translate-y-0.5 hover:scale-105 hover:shadow-md transition-all duration-300 cursor-default">${name}</span>
                 `).join('');
             }
         } catch (err) {
@@ -625,7 +625,7 @@
             const list = document.getElementById("experience-list");
             if (list && experience.length > 0) {
                 list.innerHTML = experience.map((exp, idx) => `
-                    <div class="flex flex-col md:flex-row gap-8 bg-[#BFC4C8] p-8 rounded-[32px] border border-outline-variant/10 hover:-translate-y-1 hover:shadow-xl hover:border-primary/20 transition-all duration-500 ease-out group cursor-pointer" onclick="window.location.href='/experience'">
+                    <div class="flex flex-col md:flex-row gap-8 bg-[#DCE0E4] p-8 rounded-[32px] border border-outline-variant/10 hover:-translate-y-1 hover:shadow-xl hover:border-primary/20 transition-all duration-500 ease-out group cursor-pointer" onclick="window.location.href='/experience'">
                         <div class="md:w-1/4 text-outline font-label-sm uppercase tracking-widest">${exp.start_date} - ${exp.end_date || 'Present'}</div>
                         <div class="md:w-3/4">
                             <h3 class="font-headline-lg text-headline-lg text-primary group-hover:translate-x-2 transition-transform">${exp.role}</h3>
