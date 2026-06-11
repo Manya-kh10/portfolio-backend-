@@ -319,16 +319,16 @@
                                 <div class="${aspectClass} w-full overflow-hidden">
                                     <img alt="${proj.title}" class="w-full ${imgHeight} object-cover group-hover:scale-105 cinematic-ease transition-transform duration-1000" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
                                 </div>
-                                <div class="p-10 text-[#FFFFE3]">
+                                <div class="p-10 text-[#F7F6EF]">
                                     <div class="flex justify-between items-start mb-4">
-                                        <span class="font-label-sm text-[#FFFFE3]/70 uppercase tracking-widest">${proj.category}</span>
-                                        <span class="material-symbols-outlined text-[#FFFFE3]/60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
+                                        <span class="font-label-sm text-[#F7F6EF]/70 uppercase tracking-widest">${proj.category}</span>
+                                        <span class="material-symbols-outlined text-[#F7F6EF]/60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
                                     </div>
-                                    <h3 class="font-headline-lg text-3xl text-[#FFFFE3] mb-4">${proj.title}</h3>
-                                    <p class="font-body-md text-[#FFFFE3]/80 line-clamp-2">${proj.subtitle}</p>
+                                    <h3 class="font-headline-lg text-3xl text-[#F7F6EF] mb-4">${proj.title}</h3>
+                                    <p class="font-body-md text-[#F7F6EF]/80 line-clamp-2">${proj.subtitle}</p>
                                     <div class="flex flex-wrap gap-2 mt-6">
                                         ${proj.tech_stack.slice(0, 3).map(tech => `
-                                            <span class="px-3 py-1 bg-white/15 text-[#FFFFE3] text-[10px] font-bold uppercase tracking-widest rounded border border-white/5">${tech}</span>
+                                            <span class="px-3 py-1 bg-white/15 text-[#F7F6EF] text-[10px] font-bold uppercase tracking-widest rounded border border-white/5">${tech}</span>
                                         `).join('')}
                                     </div>
                                 </div>
