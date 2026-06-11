@@ -18,8 +18,8 @@
           extend: {
             "colors": {
                     "primary": "#2E3133", // Primary Text (on light)
-                    "background": "#F7F5EB", // Main Background
-                    "surface": "#F7F5EB",
+                    "background": "#F7F6EF", // Main Background
+                    "surface": "#F7F6EF",
                     "surface-container-low": "#5C7184", // Timeline/Experience Cards
                     "on-surface": "#2E3133",
                     "on-surface-variant": "#2E3133",
@@ -226,7 +226,7 @@
     </div>
     <!-- Chat Messages -->
     <div class="p-6 h-80 overflow-y-auto space-y-4 bg-[#BFC4C8] text-on-surface-variant text-[15px]" id="chat-messages">
-      <div class="bg-[#F7F5EB] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
+      <div class="bg-[#F7F6EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
         Greetings. I am Manya Khandelwal's AI assistant.
       </div>
     </div>
@@ -240,7 +240,7 @@
   <!-- FAB Trigger Button -->
   <button class="w-16 h-16 bg-[#A9B79C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" onclick="toggleChat()">
     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
-    <div class="absolute right-20 bg-[#2D4150] border border-[#F7F5EB]/10 px-4 py-2 rounded-xl text-[#F7F6EF] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+    <div class="absolute right-20 bg-[#2D4150] border border-[#F7F6EF]/10 px-4 py-2 rounded-xl text-[#F7F6EF] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
       Ask my AI Assistant
     </div>
   </button>
@@ -443,7 +443,7 @@
 
                 // Append AI Response
                 const aiDiv = document.createElement('div');
-                aiDiv.className = 'bg-[#F7F5EB] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
+                aiDiv.className = 'bg-[#F7F6EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
                 aiDiv.innerHTML = formatAIResponse(data.response);
                 container.appendChild(aiDiv);
                 container.scrollTop = container.scrollHeight;

@@ -13,9 +13,9 @@
             theme: {
                 extend: {
                     colors: {
-                        "main-bg": "#F7F5EB",
+                        "main-bg": "#F7F6EF",
                         "nav-sidebar": "#2D4150",
-                        "surface-card": "#F7F5EB",
+                        "surface-card": "#F7F6EF",
                         "text-primary": "#2E3133",
                         "text-secondary": "#69717A",
                         "accent": "#A9B79C",
@@ -72,7 +72,7 @@
         }
     </script>
 <style>
-        body { background-color: #F7F5EB; color: #2E3133; -webkit-font-smoothing: antialiased; }
+        body { background-color: #F7F6EF; color: #2E3133; -webkit-font-smoothing: antialiased; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
         .cinematic-ease { transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -196,7 +196,7 @@
     </div>
     <!-- Chat Messages -->
     <div class="p-6 h-80 overflow-y-auto space-y-4 bg-[#BFC4C8] text-on-surface-variant text-[15px]" id="chat-messages">
-      <div class="bg-[#F7F5EB] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
+      <div class="bg-[#F7F6EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
         Greetings. I am Manya Khandelwal's AI assistant.
       </div>
     </div>
@@ -210,7 +210,7 @@
   <!-- FAB Trigger Button -->
   <button class="w-16 h-16 bg-[#A9B79C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" onclick="toggleChat()">
     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
-    <div class="absolute right-20 bg-[#2D4150] border border-[#F7F5EB]/10 px-4 py-2 rounded-xl text-[#F7F6EF] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+    <div class="absolute right-20 bg-[#2D4150] border border-[#F7F6EF]/10 px-4 py-2 rounded-xl text-[#F7F6EF] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
       Ask my AI Assistant
     </div>
   </button>
@@ -338,7 +338,7 @@
                 } else {
                     grid.innerHTML = `
                         <div class="lg:col-span-12 flex flex-col items-center justify-center p-16 border-2 border-dashed border-[#C9D0C6] rounded-xl opacity-0 animate-fade-slide-up w-full">
-                            <div class="w-20 h-20 bg-[#F7F5EB] rounded-full flex items-center justify-center mb-6 shadow-inner">
+                            <div class="w-20 h-20 bg-[#F7F6EF] rounded-full flex items-center justify-center mb-6 shadow-inner">
                                 <span class="material-symbols-outlined text-text-secondary text-3xl">hourglass_empty</span>
                             </div>
                             <p class="font-body-lg text-text-secondary text-center px-10">
@@ -431,7 +431,7 @@
 
             // Append AI Response
             const aiDiv = document.createElement('div');
-            aiDiv.className = 'bg-[#F7F5EB] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
+            aiDiv.className = 'bg-[#F7F6EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
             aiDiv.innerHTML = formatAIResponse(data.response);
             container.appendChild(aiDiv);
             container.scrollTop = container.scrollHeight;
