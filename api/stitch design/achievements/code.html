@@ -18,7 +18,7 @@
           extend: {
             "colors": {
                     "primary": "#4F6478", // Updated: Modal Background / Primary Dark
-                    "background": "#F5F5D8", // Updated: Main Background
+                    "background": "#F7F5EB", // Updated: Main Background
                     "surface": "#4B5D70", // Updated: Achievement Cards (Neutral Surface)
                     "accent": "#A9B79C", // Updated: Accent (Active state)
                     "on-background": "#2E3133", // Updated: Primary Text
@@ -27,9 +27,9 @@
                     "outline": "#69717A",
                     "outline-variant": "#A9B79C",
                     "primary-container": "#A9B79C",
-                    "on-primary-container": "#F1EFDF",
-                    "surface-container": "#F5F5D8",
-                    "surface-container-low": "#F5F5D8",
+                    "on-primary-container": "#F7F6EF",
+                    "surface-container": "#F7F5EB",
+                    "surface-container-low": "#F7F5EB",
                     "on-primary": "#FFFFFF"
             },
             "borderRadius": {
@@ -77,14 +77,14 @@
     </script>
 <style>
         body {
-            background-color: #F5F5D8;
+            background-color: #F7F5EB;
             color: #2E3133;
             -webkit-font-smoothing: antialiased;
         }
         .achievement-card {
             transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             background-color: #4B5D70;
-            color: #F1EFDF;
+            color: #F7F6EF;
             border: 1px solid rgba(241, 239, 223, 0.1);
             border-radius: 24px;
         }
@@ -192,16 +192,16 @@
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
-<div class="p-stack-lg text-[#F1EFDF]">
+<div class="p-stack-lg text-[#F7F6EF]">
 <div class="flex items-center gap-2 mb-unit">
 <span class="font-label-sm text-label-sm text-accent uppercase tracking-widest" id="modal-category">CATEGORY</span>
 <span class="text-accent/40">•</span>
-<span class="font-label-sm text-label-sm text-[#F1EFDF]/60" id="modal-date">DATE</span>
+<span class="font-label-sm text-label-sm text-[#F7F6EF]/60" id="modal-date">DATE</span>
 </div>
 <h2 class="font-headline-xl text-headline-xl mb-stack-sm leading-tight" id="modal-title">Achievement Title</h2>
 <div class="space-y-stack-sm">
-<p class="font-body-lg text-body-lg text-[#F1EFDF]/80 leading-relaxed" id="modal-highlight">Detailed significance and context about the achievement goes here.</p>
-                <div class="pt-stack-sm border-t border-[#F1EFDF]/10 flex flex-wrap gap-stack-sm">
+<p class="font-body-lg text-body-lg text-[#F7F6EF]/80 leading-relaxed" id="modal-highlight">Detailed significance and context about the achievement goes here.</p>
+                <div class="pt-stack-sm border-t border-[#F7F6EF]/10 flex flex-wrap gap-stack-sm">
                     <a class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:brightness-110 transition-all" href="#" id="modal-certificate-link" target="_blank">
                         <span class="material-symbols-outlined text-sm">verified_user</span> Certificate
                     </a>
@@ -223,7 +223,7 @@
     </div>
     <!-- Chat Messages -->
     <div class="p-6 h-80 overflow-y-auto space-y-4 bg-[#BFC4C8] text-on-surface-variant text-[15px]" id="chat-messages">
-      <div class="bg-[#F5F5D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
+      <div class="bg-[#F7F5EB] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
         Greetings. I am Manya Khandelwal's AI assistant.
       </div>
     </div>
@@ -237,7 +237,7 @@
   <!-- FAB Trigger Button -->
   <button class="w-16 h-16 bg-[#A9B79C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" onclick="toggleChat()">
     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
-    <div class="absolute right-20 bg-[#2D4150] border border-[#F5F5D8]/10 px-4 py-2 rounded-xl text-[#E8E6D8] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+    <div class="absolute right-20 bg-[#2D4150] border border-[#F7F5EB]/10 px-4 py-2 rounded-xl text-[#F7F6EF] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
       Ask my AI Assistant
     </div>
   </button>
@@ -328,10 +328,10 @@
                         <div>
                             <div class="flex justify-between items-start mb-stack-sm">
                                 <span class="font-label-sm text-label-sm text-accent uppercase tracking-widest bg-accent/10 px-3 py-1 rounded-full">${ach.category}</span>
-                                <span class="font-label-sm text-label-sm text-[#F1EFDF]/60">${ach.date}</span>
+                                <span class="font-label-sm text-label-sm text-[#F7F6EF]/60">${ach.date}</span>
                             </div>
-                            <h3 class="font-headline-lg text-headline-lg text-[#F1EFDF] mb-stack-sm leading-tight">${ach.title}</h3>
-                            <p class="font-body-md text-body-md text-[#F1EFDF]/80 line-clamp-3">${ach.description}</p>
+                            <h3 class="font-headline-lg text-headline-lg text-[#F7F6EF] mb-stack-sm leading-tight">${ach.title}</h3>
+                            <p class="font-body-md text-body-md text-[#F7F6EF]/80 line-clamp-3">${ach.description}</p>
                         </div>
                         <div class="mt-stack-md flex items-center text-accent group-hover:gap-2 transition-all">
                             <span class="font-label-sm text-label-sm uppercase tracking-widest">View Details</span>
@@ -426,7 +426,7 @@
 
             // Append AI Response
             const aiDiv = document.createElement('div');
-            aiDiv.className = 'bg-[#F5F5D8] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
+            aiDiv.className = 'bg-[#F7F5EB] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
             aiDiv.innerHTML = formatAIResponse(data.response);
             container.appendChild(aiDiv);
             container.scrollTop = container.scrollHeight;
