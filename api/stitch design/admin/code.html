@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | Portfolio Management</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2E4251",      // Deep steel blue
+                        background: "#F7F6EF",   // Warm beige
+                        surface: "#FAF9F5",      // Lighter beige card background
+                        accent: "#A9B79C",       // Green/olive accent
+                        "text-main": "#2D3133",  // Dark body text
+                        border: "#E2E1CC"        // Subtle border
+                    },
+                    fontFamily: {
+                        sans: ["DM Sans", "sans-serif"],
+                        display: ["Hanken Grotesk", "sans-serif"],
+                        space: ["Space Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F7F6EF;
+            color: #2D3133;
+        }
+        .tab-btn.active {
+            background-color: #2E4251;
+            color: #F7F6EF;
+        }
+        /* Glassmorphism scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(46, 66, 81, 0.05);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(46, 66, 81, 0.2);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(46, 66, 81, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen font-sans flex flex-col">
+    <!-- Top Header -->
+    <header class="bg-primary text-[#F7F6EF] shadow-lg py-5 px-6 md:px-12 flex items-center justify-between z-10">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-3xl text-accent">dashboard</span>
+            <h1 class="text-xl md:text-2xl font-display font-bold tracking-tight">MANYA KHANDELWAL <span class="text-accent font-light text-sm tracking-widest uppercase ml-3">Admin Portal</span></h1>
+        </div>
+        <a href="/" class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 transition-all rounded-full text-sm font-medium">
+            <span class="material-symbols-outlined text-sm">open_in_new</span> View Portfolio
+        </a>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 md:p-12 flex flex-col md:flex-row gap-8">
+        <!-- Sidebar Tabs -->
+        <aside class="md:w-64 flex-shrink-0 flex flex-col gap-2">
+            <button onclick="switchTab('projects')" id="tab-btn-projects" class="tab-btn active w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                <span class="material-symbols-outlined">grid_view</span> Pinned &amp; Featured Work
+            </button>
+            <button onclick="switchTab('experience')" id="tab-btn-experience" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                <span class="material-symbols-outlined">work</span> Experience
+            </button>
+            <button onclick="switchTab('certifications')" id="tab-btn-certifications" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                <span class="material-symbols-outlined">verified</span> Certifications
+            </button>
+            <button onclick="switchTab('achievements')" id="tab-btn-achievements" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                <span class="material-symbols-outlined">military_tech</span> Achievements
+            </button>
+            <button onclick="switchTab('images')" id="tab-btn-images" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                <span class="material-symbols-outlined">image</span> Profile Photos
+            </button>
+        </aside>
+
+        <!-- Content Area -->
+        <section class="flex-1 bg-surface p-6 md:p-8 rounded-[32px] border border-border shadow-sm">
+            <!-- Loader -->
+            <div id="section-loader" class="hidden flex items-center justify-center py-20">
+                <div class="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-accent"></div>
+            </div>
+
+            <!-- Tab: Projects -->
+            <div id="tab-content-projects" class="tab-content space-y-6">
+                <div class="flex justify-between items-center pb-4 border-b border-border">
+                    <div>
+                        <h2 class="text-2xl font-display font-bold text-primary">Featured Work &amp; Projects</h2>
+                        <p class="text-sm text-text-main/70 mt-1">Manage project records and decide which projects are pinned to the home page.</p>
+                    </div>
+                    <button onclick="openAddModal('projects')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                        <span class="material-symbols-outlined text-lg">add</span> Add Project
+                    </button>
+                </div>
+                <div id="projects-list" class="grid grid-cols-1 gap-6"></div>
+            </div>
+
+            <!-- Tab: Experience -->
+            <div id="tab-content-experience" class="tab-content hidden space-y-6">
+                <div class="flex justify-between items-center pb-4 border-b border-border">
+                    <div>
+                        <h2 class="text-2xl font-display font-bold text-primary">Professional Journey</h2>
+                        <p class="text-sm text-text-main/70 mt-1">Manage your experience and select which entries represent featured history on the homepage.</p>
+                    </div>
+                    <button onclick="openAddModal('experience')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                        <span class="material-symbols-outlined text-lg">add</span> Add Experience
+                    </button>
+                </div>
+                <div id="experience-list" class="grid grid-cols-1 gap-6"></div>
+            </div>
+
+            <!-- Tab: Certifications -->
+            <div id="tab-content-certifications" class="tab-content hidden space-y-6">
+                <div class="flex justify-between items-center pb-4 border-b border-border">
+                    <div>
+                        <h2 class="text-2xl font-display font-bold text-primary">Accredited Credentials</h2>
+                        <p class="text-sm text-text-main/70 mt-1">Manage certifications and pin high-priority certificates to the home slider showcase.</p>
+                    </div>
+                    <button onclick="openAddModal('certifications')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                        <span class="material-symbols-outlined text-lg">add</span> Add Certificate
+                    </button>
+                </div>
+                <div id="certifications-list" class="grid grid-cols-1 gap-6"></div>
+            </div>
+
+            <!-- Tab: Achievements -->
+            <div id="tab-content-achievements" class="tab-content hidden space-y-6">
+                <div class="flex justify-between items-center pb-4 border-b border-border">
+                    <div>
+                        <h2 class="text-2xl font-display font-bold text-primary">Achievements &amp; Leadership</h2>
+                        <p class="text-sm text-text-main/70 mt-1">Add details about hackathons, club lead roles, and honors. Pin select milestones to the home page.</p>
+                    </div>
+                    <button onclick="openAddModal('achievements')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                        <span class="material-symbols-outlined text-lg">add</span> Add Achievement
+                    </button>
+                </div>
+                <div id="achievements-list" class="grid grid-cols-1 gap-6"></div>
+            </div>
+
+            <!-- Tab: Images -->
+            <div id="tab-content-images" class="tab-content hidden space-y-8">
+                <div class="pb-4 border-b border-border">
+                    <h2 class="text-2xl font-display font-bold text-primary">Profile Artwork &amp; Images</h2>
+                    <p class="text-sm text-text-main/70 mt-1">Upload files to directly overwrite your main portfolio visuals.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Avatar Upload -->
+                    <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
+                        <h3 class="font-display font-bold text-primary mb-4">Hero Page Avatar Circle</h3>
+                        <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-md mb-6 relative group">
+                            <img id="avatar-preview" src="/lux_editorial/manya_avatar.jpg" alt="Hero Avatar" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="w-full">
+                            <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Avatar (overwrites existing)</label>
+                            <input type="file" id="avatar-file-input" onchange="uploadImage('avatar')" accept="image/*" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
+                        </div>
+                        <div id="avatar-upload-status" class="text-xs font-medium mt-3"></div>
+                    </div>
+
+                    <!-- Portrait Upload -->
+                    <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
+                        <h3 class="font-display font-bold text-primary mb-4">About Me Portrait</h3>
+                        <div class="w-36 aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-6 relative group">
+                            <img id="portrait-preview" src="/lux_editorial/manya_portrait.jpg" alt="About Portrait" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="w-full">
+                            <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Portrait (overwrites existing)</label>
+                            <input type="file" id="portrait-file-input" onchange="uploadImage('portrait')" accept="image/*" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
+                        </div>
+                        <div id="portrait-upload-status" class="text-xs font-medium mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Form Modal -->
+    <div id="form-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm hidden">
+        <div class="bg-surface rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto border border-border shadow-2xl p-6 md:p-8" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center pb-4 border-b border-border mb-6">
+                <h3 id="modal-form-title" class="text-xl font-display font-bold text-primary">Add New Item</h3>
+                <button onclick="closeFormModal()" class="w-8 h-8 rounded-full hover:bg-primary/10 text-primary flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-lg">close</span>
+                </button>
+            </div>
+            
+            <form id="resource-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                <input type="hidden" id="form-item-id"/>
+                <input type="hidden" id="form-resource-type"/>
+                
+                <!-- Dynamic fields container -->
+                <div id="form-fields" class="space-y-4"></div>
+
+                <!-- Pinned Status -->
+                <div class="flex items-center gap-3 pt-2">
+                    <input type="checkbox" id="form-item-pinned" class="w-5 h-5 text-primary border-primary/20 rounded focus:ring-primary/40"/>
+                    <label for="form-item-pinned" class="text-sm font-semibold text-primary">Pin to Home Page</label>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex justify-end gap-3 pt-6 border-t border-border mt-8">
+                    <button type="button" onclick="closeFormModal()" class="px-5 py-3 border border-primary/20 text-primary hover:bg-primary/5 rounded-2xl text-sm font-bold transition-all">Cancel</button>
+                    <button type="submit" id="form-submit-btn" class="px-6 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl text-sm font-bold shadow-md transition-all">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Alert Banner / Notifications -->
+    <div id="notification-toast" class="fixed bottom-6 right-6 z-50 px-6 py-4 rounded-2xl text-sm font-medium shadow-xl translate-y-20 opacity-0 transition-all duration-500 bg-primary text-white flex items-center gap-3">
+        <span id="notification-icon" class="material-symbols-outlined text-lg">info</span>
+        <span id="notification-message">Notification details</span>
+    </div>
+
+    <script>
+        let currentTab = 'projects';
+        let itemsCache = {};
+
+        // Tab fields config mapping
+        const tabConfigs = {
+            projects: {
+                fields: [
+                    { name: 'title', label: 'Project Title', type: 'text', placeholder: 'e.g. F1 Strategy Engine', required: true },
+                    { name: 'category', label: 'Category', type: 'text', placeholder: 'e.g. AI Systems & Agents', required: true },
+                    { name: 'subtitle', label: 'Short Subtitle / Hook', type: 'text', placeholder: 'Brief summary for previews', required: true },
+                    { name: 'description', label: 'Detailed Description (Markdown supported)', type: 'textarea', placeholder: 'Describe key achievements, architecture...', required: true },
+                    { name: 'tech_stack', label: 'Tech Stack (comma separated)', type: 'text', placeholder: 'e.g. Python, FastAPI, MongoDB', required: true },
+                    { name: 'status', label: 'Project Status', type: 'text', placeholder: 'e.g. Completed, In Progress', required: true },
+                    { name: 'github_link', label: 'GitHub Repository URL', type: 'text', placeholder: 'https://github.com/...', required: false },
+                    { name: 'live_link', label: 'Live Demo Link', type: 'text', placeholder: 'https://...', required: false },
+                    { name: 'preview_image', label: 'Showcase Image URL', type: 'text', placeholder: 'e.g. /lux_editorial/project.png', required: false }
+                ]
+            },
+            experience: {
+                fields: [
+                    { name: 'role', label: 'Role / Job Title', type: 'text', placeholder: 'e.g. AI Software Engineer Intern', required: true },
+                    { name: 'company', label: 'Company / Organization', type: 'text', placeholder: 'e.g. Sartorial Labs', required: true },
+                    { name: 'start_date', label: 'Start Date', type: 'text', placeholder: 'e.g. June 2025', required: true },
+                    { name: 'end_date', label: 'End Date', type: 'text', placeholder: 'e.g. Present, Dec 2025', required: false },
+                    { name: 'description', label: 'Key Duties & Accomplishments (one bullet point per line)', type: 'textarea', placeholder: 'Line 1\nLine 2\nLine 3', required: true },
+                    { name: 'tech_stack', label: 'Tech Stack utilized (comma separated)', type: 'text', placeholder: 'e.g. React, Python, PostgreSQL', required: true },
+                    { name: 'related_project_id', label: 'Related Project DB ID (Optional)', type: 'text', placeholder: 'DB ID string', required: false }
+                ]
+            },
+            certifications: {
+                fields: [
+                    { name: 'name', label: 'Certification Name', type: 'text', placeholder: 'e.g. Deep Learning Specialization', required: true },
+                    { name: 'issuer', label: 'Issuing Organization', type: 'text', placeholder: 'e.g. Coursera (DeepLearning.AI)', required: true },
+                    { name: 'date_earned', label: 'Date Earned', type: 'text', placeholder: 'e.g. 2025', required: true },
+                    { name: 'tags', label: 'Skills Learned (comma separated)', type: 'text', placeholder: 'e.g. Neural Networks, PyTorch', required: false },
+                    { name: 'certificate_link', label: 'Credential Verification Link', type: 'text', placeholder: 'https://...', required: false }
+                ]
+            },
+            achievements: {
+                fields: [
+                    { name: 'title', label: 'Achievement / Award Title', type: 'text', placeholder: 'e.g. 1st Place - GenAI Hackathon', required: true },
+                    { name: 'organization', label: 'Awarding Entity / Event', type: 'text', placeholder: 'e.g. VIT Bhopal University', required: true },
+                    { name: 'date', label: 'Date / Period', type: 'text', placeholder: 'e.g. Oct 2025, 2023 - 2026', required: true },
+                    { name: 'description', label: 'Context / Impact details', type: 'textarea', placeholder: 'Summarize your key contribution or the event scale...', required: true },
+                    { name: 'category', label: 'Category', type: 'text', placeholder: 'e.g. Hackathons, Leadership', required: true }
+                ]
+            }
+        };
+
+        // --- Notification Helper ---
+        function showNotification(message, isSuccess = true) {
+            const toast = document.getElementById('notification-toast');
+            const icon = document.getElementById('notification-icon');
+            const msg = document.getElementById('notification-message');
+            
+            msg.innerText = message;
+            if (isSuccess) {
+                toast.className = toast.className.replace(/bg-[a-zA-Z]+/g, '') + ' bg-primary text-white';
+                icon.innerText = 'check_circle';
+            } else {
+                toast.className = toast.className.replace(/bg-[a-zA-Z]+/g, '') + ' bg-rose-600 text-white';
+                icon.innerText = 'error';
+            }
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+        }
+
+        // --- Switch Tabs ---
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+            
+            document.getElementById(`tab-btn-${tab}`).classList.add('active');
+            document.getElementById(`tab-content-${tab}`).classList.remove('hidden');
+            
+            if (tab !== 'images') {
+                loadTabItems(tab);
+            }
+        }
+
+        // --- Load items from API ---
+        async function loadTabItems(tab) {
+            const loader = document.getElementById('section-loader');
+            const container = document.getElementById(`${tab}-list`);
+            
+            loader.classList.remove('hidden');
+            container.innerHTML = '';
+            
+            try {
+                const endpoint = `/api/${tab === 'projects' ? 'projects' : tab}/`;
+                const response = await fetch(endpoint);
+                if (!response.ok) throw new Error(`Fetch failed: ${response.statusText}`);
+                const items = await response.json();
+                
+                itemsCache[tab] = items;
+                loader.classList.add('hidden');
+                
+                if (items.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-12 border-2 border-dashed border-border rounded-3xl text-text-main/50">
+                            <span class="material-symbols-outlined text-4xl mb-2">inbox</span>
+                            <p class="text-sm font-medium">No items registered in this collection yet.</p>
+                        </div>`;
+                    return;
+                }
+                
+                container.innerHTML = items.map((item, idx) => renderItemCard(tab, item, idx)).join('');
+            } catch (err) {
+                loader.classList.add('hidden');
+                container.innerHTML = `
+                    <div class="text-center py-12 text-rose-600 font-semibold text-sm">
+                        <span class="material-symbols-outlined text-3xl mb-1">warning</span>
+                        <p>Error loading items: ${err.message}</p>
+                    </div>`;
+                showNotification(err.message, false);
+            }
+        }
+
+        // --- Render Cards ---
+        function renderItemCard(tab, item, idx) {
+            let title = '';
+            let subtitle = '';
+            
+            if (tab === 'projects') {
+                title = item.title;
+                subtitle = `${item.category} • ${item.status}`;
+            } else if (tab === 'experience') {
+                title = `${item.role} @ ${item.company}`;
+                subtitle = `${item.start_date} - ${item.end_date || 'Present'}`;
+            } else if (tab === 'certifications') {
+                title = item.name;
+                subtitle = `${item.issuer} (${item.date_earned})`;
+            } else if (tab === 'achievements') {
+                title = item.title;
+                subtitle = `${item.organization} (${item.date})`;
+            }
+
+            return `
+                <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl hover:shadow-md transition-shadow flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-1">
+                            <h4 class="font-display font-bold text-lg text-primary">${title}</h4>
+                            ${item.pinned ? `<span class="px-2.5 py-0.5 bg-accent/25 text-primary border border-accent/40 text-[10px] font-bold tracking-widest uppercase rounded-full flex items-center gap-1"><span class="material-symbols-outlined text-[10px]" style="font-variation-settings:'FILL' 1">push_pin</span> Pinned</span>` : ''}
+                        </div>
+                        <p class="text-xs font-semibold text-primary/75 tracking-wider uppercase">${subtitle}</p>
+                    </div>
+                    <div class="flex items-center gap-3 self-end sm:self-auto">
+                        <!-- Pin/Unpin Toggle -->
+                        <button onclick="togglePin('${tab}', '${item.id}', ${idx})" class="w-10 h-10 rounded-full border border-primary/10 text-primary flex items-center justify-center hover:bg-primary/5 transition-all" title="${item.pinned ? 'Unpin from home page' : 'Pin to home page'}">
+                            <span class="material-symbols-outlined text-lg ${item.pinned ? 'text-accent fill-1' : ''}" style="font-variation-settings: 'FILL' ${item.pinned ? 1 : 0}">push_pin</span>
+                        </button>
+                        <!-- Edit -->
+                        <button onclick="openEditModal('${tab}', ${idx})" class="w-10 h-10 rounded-full border border-primary/10 text-primary flex items-center justify-center hover:bg-primary/5 transition-all" title="Edit Item">
+                            <span class="material-symbols-outlined text-lg">edit</span>
+                        </button>
+                        <!-- Delete -->
+                        <button onclick="deleteItem('${tab}', '${item.id}')" class="w-10 h-10 rounded-full border border-rose-200 text-rose-600 flex items-center justify-center hover:bg-rose-50 transition-all" title="Delete Item">
+                            <span class="material-symbols-outlined text-lg">delete</span>
+                        </button>
+                    </div>
+                </div>`;
+        }
+
+        // --- Toggle Pin Status ---
+        async function togglePin(tab, id, idx) {
+            const item = itemsCache[tab][idx];
+            if (!item) return;
+
+            item.pinned = !item.pinned;
+            const endpoint = `/api/${tab === 'projects' ? 'projects' : tab}/${id}`;
+            
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(item)
+                });
+                if (!response.ok) throw new Error('Failed to update pinned status');
+                
+                showNotification(`Successfully ${item.pinned ? 'pinned' : 'unpinned'} item!`);
+                loadTabItems(tab);
+            } catch (err) {
+                item.pinned = !item.pinned; // revert on fail
+                showNotification(err.message, false);
+            }
+        }
+
+        // --- Delete Item ---
+        async function deleteItem(tab, id) {
+            if (!confirm('Are you sure you want to permanently delete this item?')) return;
+            
+            try {
+                const endpoint = `/api/${tab === 'projects' ? 'projects' : tab}/${id}`;
+                const response = await fetch(endpoint, { method: 'DELETE' });
+                
+                if (!response.ok) throw new Error('Failed to delete item');
+                
+                showNotification('Item deleted successfully.');
+                loadTabItems(tab);
+            } catch (err) {
+                showNotification(err.message, false);
+            }
+        }
+
+        // --- Image Upload Handles ---
+        async function uploadImage(type) {
+            const fileInput = document.getElementById(`${type}-file-input`);
+            const statusDiv = document.getElementById(`${type}-upload-status`);
+            const previewImg = document.getElementById(`${type}-preview`);
+            
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            statusDiv.innerText = 'Uploading...';
+            statusDiv.className = 'text-xs font-semibold text-primary mt-3';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const endpoint = `/api/admin/upload-${type}`;
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Upload failed');
+                
+                statusDiv.innerText = data.message || 'Image uploaded successfully!';
+                statusDiv.className = 'text-xs font-semibold text-emerald-600 mt-3';
+                
+                // Bust browser cache to reload image
+                previewImg.src = `${data.url}?t=${Date.now()}`;
+                showNotification(`${type === 'avatar' ? 'Avatar' : 'Portrait'} updated!`);
+            } catch (err) {
+                statusDiv.innerText = err.message;
+                statusDiv.className = 'text-xs font-semibold text-rose-600 mt-3';
+                showNotification(err.message, false);
+            }
+        }
+
+        // --- Modal Handling ---
+        function openFormModal(title, resourceType) {
+            document.getElementById('modal-form-title').innerText = title;
+            document.getElementById('form-resource-type').value = resourceType;
+            document.getElementById('form-modal').classList.remove('hidden');
+        }
+
+        function closeFormModal() {
+            document.getElementById('form-modal').classList.add('hidden');
+            document.getElementById('resource-form').reset();
+            document.getElementById('form-item-id').value = '';
+        }
+
+        function buildFormFields(tab, item = null) {
+            const config = tabConfigs[tab];
+            const fieldsContainer = document.getElementById('form-fields');
+            fieldsContainer.innerHTML = '';
+
+            config.fields.forEach(field => {
+                const inputId = `field-${field.name}`;
+                let value = '';
+                
+                if (item) {
+                    if (Array.isArray(item[field.name])) {
+                        value = item[field.name].join('\n');
+                    } else {
+                        value = item[field.name] || '';
+                    }
+                }
+
+                let fieldHtml = `<div>
+                    <label class="block text-[11px] uppercase tracking-widest font-bold text-primary/70 mb-2 block" for="${inputId}">${field.label}</label>`;
+
+                if (field.type === 'textarea') {
+                    fieldHtml += `<textarea id="${inputId}" class="w-full px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main h-32 resize-none" placeholder="${field.placeholder}" ${field.required ? 'required' : ''}>${value}</textarea>`;
+                } else {
+                    fieldHtml += `<input type="text" id="${inputId}" value="${value}" class="w-full px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main" placeholder="${field.placeholder}" ${field.required ? 'required' : ''}/>`;
+                }
+
+                fieldHtml += `</div>`;
+                fieldsContainer.insertAdjacentHTML('beforeend', fieldHtml);
+            });
+
+            document.getElementById('form-item-pinned').checked = item ? !!item.pinned : false;
+        }
+
+        function openAddModal(tab) {
+            buildFormFields(tab);
+            openFormModal(`Add New ${tab.slice(0, -1).toUpperCase()}`, tab);
+        }
+
+        function openEditModal(tab, idx) {
+            const item = itemsCache[tab][idx];
+            if (!item) return;
+
+            document.getElementById('form-item-id').value = item.id;
+            buildFormFields(tab, item);
+            openFormModal(`Edit ${tab.slice(0, -1).toUpperCase()}`, tab);
+        }
+
+        // --- Handle Form Submits ---
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const id = document.getElementById('form-item-id').value;
+            const resource = document.getElementById('form-resource-type').value;
+            const config = tabConfigs[resource];
+            const submitBtn = document.getElementById('form-submit-btn');
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Saving...';
+
+            const itemPayload = {};
+            config.fields.forEach(field => {
+                const val = document.getElementById(`field-${field.name}`).value.trim();
+                
+                // Parse arrays (tech_stack, tags, experience description)
+                if (field.name === 'tech_stack' || field.name === 'tags') {
+                    itemPayload[field.name] = val ? val.split(',').map(s => s.trim()) : [];
+                } else if (field.name === 'description' && resource === 'experience') {
+                    itemPayload[field.name] = val ? val.split('\n').map(s => s.trim()).filter(s => s) : [];
+                } else {
+                    itemPayload[field.name] = val;
+                }
+            });
+
+            itemPayload.pinned = document.getElementById('form-item-pinned').checked;
+
+            try {
+                let endpoint = `/api/${resource === 'projects' ? 'projects' : resource}/`;
+                let method = 'POST';
+
+                if (id) {
+                    endpoint += id;
+                    method = 'PUT';
+                    itemPayload.id = id;
+                }
+
+                const response = await fetch(endpoint, {
+                    method: method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(itemPayload)
+                });
+
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Failed to save item');
+
+                showNotification(`Successfully saved ${resource.slice(0, -1)}!`);
+                closeFormModal();
+                loadTabItems(resource);
+            } catch (err) {
+                showNotification(err.message, false);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Save Changes';
+            }
+        }
+
+        // --- Initial Load ---
+        window.addEventListener('DOMContentLoaded', () => {
+            loadTabItems('projects');
+        });
+    </script>
+</body>
+</html>

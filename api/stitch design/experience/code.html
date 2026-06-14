@@ -165,8 +165,11 @@
 <div class="flex flex-col gap-stack-sm cinematic-reveal">
 <h1 class="font-display-lg text-[36px] md:text-display-lg text-[#3C5063] tracking-tighter uppercase">EXPERIENCE</h1>
 </div>
-<!-- Experience Message -->
-<div class="py-12 border-t border-primary/10 mt-stack-lg cinematic-reveal">
+<!-- Experience Grid Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md pt-stack-md hidden" id="experience-container">
+</div>
+<!-- Empty State / Fallback -->
+<div class="py-12 border-t border-primary/10 mt-stack-lg cinematic-reveal" id="empty-state">
 <p class="font-body-lg text-xl text-[#3C5063] leading-relaxed">
     No industry experience yet, but currently gaining practical experience by building real world projects.
 </p>
@@ -461,7 +464,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            // fetchExperience();
+            fetchExperience();
         });
 
         window.addEventListener('keydown', (e) => {

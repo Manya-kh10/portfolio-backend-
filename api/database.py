@@ -22,3 +22,17 @@ def get_db():
     if db is None:
         raise RuntimeError("Database connection is not initialized. Please set MONGO_URI in your environment variables.")
     return db
+
+def serialize_doc(doc):
+    if not doc:
+        return None
+    doc["id"] = str(doc["_id"])
+    if "_id" in doc:
+        del doc["_id"]
+    if "pinned" not in doc:
+        doc["pinned"] = False
+    return doc
+
+def serialize_docs(docs):
+    return [serialize_doc(doc) for doc in docs if doc]
+

@@ -8,3 +8,4 @@ langgraph
 dnspython
 email-validator
 langsmith
+python-multipart

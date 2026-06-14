@@ -7,6 +7,7 @@ from api.experience import router as experience_router
 from api.achievements import router as achievements_router
 from api.skills import router as skills_router
 from api.chat import router as chat_router
+from api.admin import router as admin_router
 
 app = FastAPI(
     title="Manya Khandelwal Portfolio Backend",
@@ -33,6 +34,7 @@ app.include_router(certs_router, prefix="/api/certifications", tags=["Certificat
 app.include_router(projects_router, prefix="/api/projects", tags=["Projects Collection"])
 app.include_router(contact_router, prefix="/api/contact", tags=["Contact Submissions"])
 app.include_router(chat_router, prefix="/api/chat", tags=["Digital Twin Conversational Intelligence"])
+app.include_router(admin_router, prefix="/api/admin", tags=["Administrative Management"])
 
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -42,6 +44,15 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Mount the static assets folder to serve background artwork and styling files
 app.mount("/lux_editorial", StaticFiles(directory=os.path.join(BASE_DIR, "stitch design", "lux_editorial")), name="lux_editorial")
+
+@app.get("/admin", response_class=HTMLResponse)
+async def serve_admin():
+    """
+    Serves Manya's Admin Portal dashboard panel.
+    """
+    path = os.path.join(BASE_DIR, "stitch design", "admin", "code.html")
+    with open(path, "r", encoding="utf-8") as f:
+        return HTMLResponse(content=f.read())
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_home():

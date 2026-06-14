@@ -2,6 +2,8 @@ from pydantic import BaseModel, EmailStr, Field
 from typing import Optional, List
 
 class AchievementSchema(BaseModel):
+    id: Optional[str] = Field(None, description="String representation of MongoDB ObjectId")
+    pinned: bool = Field(False, description="Flag indicating if the item is pinned to the homepage")
     title: str = Field(..., description="Title of the achievement or award")
     organization: str = Field(..., description="Issuing organization or institution")
     date: Optional[str] = Field(None, description="Date or time period when earned (e.g. 'Oct 2025')")
@@ -20,6 +22,8 @@ class AchievementSchema(BaseModel):
         }
 
 class ExperienceSchema(BaseModel):
+    id: Optional[str] = Field(None, description="String representation of MongoDB ObjectId")
+    pinned: bool = Field(False, description="Flag indicating if the item is pinned to the homepage")
     role: str = Field(..., description="Professional role or job title")
     company: str = Field(..., description="Organization or company name")
     start_date: str = Field(..., description="Starting date of employment (e.g., 'Jan 2024')")
@@ -60,6 +64,8 @@ class SkillSchema(BaseModel):
         }
 
 class CertificationSchema(BaseModel):
+    id: Optional[str] = Field(None, description="String representation of MongoDB ObjectId")
+    pinned: bool = Field(False, description="Flag indicating if the item is pinned to the homepage")
     name: str = Field(..., description="Name of the professional certification")
     issuer: str = Field(..., description="The body that issued the certification")
     date_earned: str = Field(..., description="Date when the certification was successfully earned")
@@ -92,6 +98,8 @@ class ContactSchema(BaseModel):
         }
 
 class ProjectSchema(BaseModel):
+    id: Optional[str] = Field(None, description="String representation of MongoDB ObjectId")
+    pinned: bool = Field(False, description="Flag indicating if the item is pinned to the homepage")
     title: str = Field(..., description="Title of the project")
     category: str = Field(..., description="Classification category (e.g., 'AI Automations', 'Data Analysis', or 'LLM & NLP')")
     subtitle: str = Field(..., description="One-sentence hook displayed on front widgets")
