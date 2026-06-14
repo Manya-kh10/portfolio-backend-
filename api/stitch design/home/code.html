@@ -141,7 +141,7 @@
 <span class="font-headline-lg text-headline-lg text-[#F7F6EF] tracking-tighter px-6">MK</span>
 </div>
 <nav class="flex flex-col gap-6 w-full">
-<a class="flex items-center gap-4 px-6 py-3 bg-primary-container/30 text-on-primary-container rounded-full mx-2 transition-all duration-500 scale-95" href="#home">
+<a class="flex items-center gap-4 px-6 py-3 bg-white/20 text-[#F7F6EF] rounded-full mx-2 transition-all duration-500 scale-95" href="#home">
 <span class="material-symbols-outlined">home</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Home</span>
 </a>
@@ -211,21 +211,30 @@
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop" id="home">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover object-[25%_center] md:object-center" src="/lux_editorial/background_shadow.jpg" alt="Background shadow artwork"/>
+<img class="w-full h-full object-cover object-[25%_center] md:object-center" src="/lux_editorial/background_shadow.png" alt="Background shadow artwork"/>
 </div>
-<div class="relative z-10 max-w-5xl text-center">
-<p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-6 reveal-on-scroll">Engineer • Developer • Problem Solver</p>
-<h1 class="text-[32px] md:text-[72px] font-bold text-[#2D4150] mb-stack-md reveal-on-scroll" style="transition-delay: 200ms; line-height: 1.15; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em;">
-                    Building What's Next
-</h1>
-<div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-10 reveal-on-scroll" style="transition-delay: 400ms">
-<a class="px-8 py-4 bg-primary text-[#F7F6EF] rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-all duration-500 shadow-xl" href="#contact">Connect</a>
-<a class="px-8 py-4 border border-outline/30 text-on-surface rounded-full font-label-sm uppercase tracking-widest hover:bg-surface-variant transition-all duration-500" href="#projects">View Projects</a>
-</div>
+<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center md:justify-evenly gap-12">
+  <!-- Left Column: Content -->
+  <div class="flex flex-col items-start justify-center text-left md:max-w-2xl w-fit">
+    <p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-6 reveal-on-scroll">Engineer • Developer • Problem Solver</p>
+    <h1 class="text-[32px] md:text-[72px] font-bold text-[#2D4150] mb-stack-md reveal-on-scroll" style="transition-delay: 200ms; line-height: 1.15; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em;">
+      Manya Khandelwal
+    </h1>
+    <div class="flex flex-col sm:flex-row items-center sm:items-start justify-start gap-6 mt-10 reveal-on-scroll w-fit" style="transition-delay: 400ms">
+      <a class="px-8 py-4 bg-primary text-[#F7F6EF] rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-all duration-500 shadow-xl text-center w-full sm:w-auto" href="#contact">Connect</a>
+      <a class="px-8 py-4 border border-outline/30 text-on-surface rounded-full font-label-sm uppercase tracking-widest hover:bg-surface-variant transition-all duration-500 text-center w-full sm:w-auto" href="#projects">View Projects</a>
+    </div>
+  </div>
+  <!-- Right Column: Avatar -->
+  <div class="flex items-center justify-center">
+    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#2E4251]/20 shadow-[0_20px_50px_rgba(0,0,0,0.15)] reveal-on-scroll" style="transition-delay: 300ms">
+      <img class="w-full h-full object-cover animate-fade-in" src="/lux_editorial/manya_avatar.jpg" alt="Manya's Avatar"/>
+    </div>
+  </div>
 </div>
 </section>
 <!-- Portrait & Intro -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop reveal-on-scroll bg-[#43576A]">
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop reveal-on-scroll bg-[#2E4251]">
 <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center bg-[#F7F6EF] p-8 md:p-16 rounded-[40px] border border-white/20 shadow-sm">
 <div class="md:col-span-5 relative">
 <div class="aspect-[4/5] rounded-[30px] overflow-hidden shadow-2xl">
@@ -244,12 +253,12 @@
 </div>
 </section>
 <!-- Education -->
-<section class="pt-6 pb-28 px-margin-mobile md:px-margin-desktop bg-[#43576A]">
+<section class="pt-6 pb-28 px-margin-mobile md:px-margin-desktop bg-[#2E4251]">
 <div class="max-w-4xl mx-auto text-center reveal-on-scroll">
 <h2 class="font-headline-xl text-[28px] md:text-[56px] leading-snug mb-stack-md text-[#F7F6EF]">
                     Education
                 </h2>
-<div class="text-left max-w-3xl mx-auto font-body-lg text-body-lg text-[#43576A] leading-relaxed bg-[#F7F6EF] p-8 rounded-3xl border border-[#43576A]/20">
+<div class="text-left max-w-3xl mx-auto font-body-lg text-body-lg text-[#2E4251] leading-relaxed bg-[#F7F6EF] p-8 rounded-3xl border border-[#2E4251]/20">
     <ul class="space-y-4 list-disc list-inside">
         <li>B.Tech in CSE (AI &amp; ML), VIT Bhopal University | 2023–2027 | CGPA: 8.90</li>
         <li>Class 12th, CBSE Board | 2023 | 88.4%</li>
@@ -299,11 +308,11 @@
 </div>
 </section>
 <!-- Projects Preview -->
-<section class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop bg-[#43576A]" id="projects">
+<section class="pt-24 pb-20 px-margin-mobile md:px-margin-desktop bg-[#2E4251]" id="projects">
 <div class="max-w-container-max mx-auto reveal-on-scroll">
 <div class="flex justify-between items-center mb-stack-lg">
 <div>
-<h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#F7F6EF]">Projects</h2>
+<h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#F7F6EF]">Featured Work</h2>
 </div>
 <a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F7F6EF] group" href="/projects">
                         EXPLORE ALL PROJECTS 
@@ -322,9 +331,9 @@
 <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">NEXUS — Multi-Agent Data Analysis Platform</h3>
 <p class="text-[#F7F6EF]/80 font-body-md mb-4">Built a full-stack AI platform orchestrating 3 specialized LLM agents via LangGraph.</p>
 <div class="flex flex-wrap gap-2">
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#F7F6EF] rounded-full">LangGraph</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#F7F6EF] rounded-full">Groq</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#F7F6EF] rounded-full">FastAPI</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">LangGraph</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">Groq</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">FastAPI</span>
 </div>
 </div>
 <!-- Project Card 2 (Personal RAG Chatbot) -->
@@ -338,9 +347,9 @@
 <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">Personal RAG Chatbot – Document Q&A with Local LLM</h3>
 <p class="text-[#F7F6EF]/80 font-body-md mb-4">Interactive document Q&A vector embeddings platform running fully offline.</p>
 <div class="flex flex-wrap gap-2">
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#F7F6EF] rounded-full">HuggingFace</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#F7F6EF] rounded-full">ChromaDB</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#F7F6EF] rounded-full">Streamlit</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">HuggingFace</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">ChromaDB</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">Streamlit</span>
 </div>
 </div>
 </div>
@@ -368,7 +377,7 @@
 </div>
 </section>
 <!-- Certifications -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop overflow-hidden bg-[#4B5D70] text-[#F7F6EF]" id="certifications">
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop overflow-hidden bg-[#2E4251] text-[#F7F6EF]" id="certifications">
 <div class="max-w-container-max mx-auto reveal-on-scroll">
 <div class="flex justify-between items-center mb-stack-lg">
     <div>
@@ -380,25 +389,25 @@
     </a>
 </div>
 <div class="flex gap-gutter overflow-x-auto pb-8 snap-x no-scrollbar" id="certifications-list">
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
-        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">school</span>
-        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">Deep Learning Specialization</h4>
-        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">Coursera • 2023</p>
+    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">school</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">Deep Learning Specialization</h4>
+        <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">Coursera • 2023</p>
     </div>
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
-        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">cloud_done</span>
-        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">AWS Certified Solutions Architect</h4>
-        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">Amazon • 2022</p>
+    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">cloud_done</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">AWS Certified Solutions Architect</h4>
+        <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">Amazon • 2022</p>
     </div>
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
-        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">security</span>
-        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">Cybersecurity Analyst</h4>
-        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">IBM • 2021</p>
+    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">security</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">Cybersecurity Analyst</h4>
+        <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">IBM • 2021</p>
     </div>
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#4B5D70]" onclick="window.location.href='/certifications'">
-        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">analytics</span>
-        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70]">Google Data Analytics</h4>
-        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">Google • 2021</p>
+    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+        <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">analytics</span>
+        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">Google Data Analytics</h4>
+        <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">Google • 2021</p>
     </div>
 </div>
 <div class="mt-stack-md md:hidden text-center">
@@ -407,31 +416,93 @@
 </div>
 </section>
 <!-- Contact CTA -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F7F6EF] text-[#4B5D70]" id="contact">
-<div class="max-w-container-max mx-auto text-center reveal-on-scroll">
-<h2 class="font-display-lg text-[24px] md:text-[64px] leading-tight mb-stack-md text-[#4B5D70]">
-                    Let's build something <br/>
-<span class="italic font-light">meaningful.</span>
-</h2>
-<p class="font-body-lg text-[#4B5D70]/80 max-w-xl mx-auto mb-stack-lg">
-                    Always open to discussing innovative projects, AI research, and exciting collaborations. Feel free to reach out anytime.
-                </p>
-<div class="flex flex-wrap justify-center gap-12 font-label-sm text-label-sm uppercase tracking-widest text-[#4B5D70]">
-<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="mailto:khandelwalmanya8@gmail.com">
-<span class="material-symbols-outlined text-sm">mail</span> EMAIL
-                    </a>
-<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/manya-khandelwal-b821492a3" target="_blank">
-<span class="material-symbols-outlined text-sm">link</span> LINKEDIN
-                    </a>
-<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="https://github.com/Manya-kh10" target="_blank">
-<span class="material-symbols-outlined text-sm">code</span> GITHUB
-                    </a>
-<a class="hover:text-[#4B5D70]/60 transition-colors flex items-center gap-2" href="https://github.com/Manya-kh10/Manya-resume/blob/main/Manya_Khandelwal_resume%20%282%29.pdf" target="_blank">
-<span class="material-symbols-outlined text-sm">description</span> RESUME
-                    </a>
-</div>
-</div>
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-[#F7F6EF]" id="contact">
+  <div class="max-w-5xl mx-auto bg-[#FAF9F5] p-8 md:p-16 rounded-[40px] border border-[#2E4251]/10 shadow-xl reveal-on-scroll">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Left Column: Get in Touch -->
+      <div class="space-y-8 flex flex-col justify-between">
+        <div class="space-y-6">
+          <h2 class="font-headline-xl text-[36px] md:text-[48px] text-[#2E4251] font-bold tracking-tight">
+            Get in Touch
+          </h2>
+          <p class="font-body-lg text-body-lg text-[#2E4251]/80 leading-relaxed max-w-md">
+            Always open to discussing innovative projects, AI research, and exciting collaborations. Feel free to reach out anytime.
+          </p>
+        </div>
+        
+        <div class="flex flex-col gap-6 pt-4">
+          <!-- Email Link -->
+          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="mailto:khandelwalmanya8@gmail.com">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-[20px]">mail</span>
+            </div>
+            <span class="font-medium text-sm md:text-base">khandelwalmanya8@gmail.com</span>
+          </a>
+          
+          <!-- LinkedIn Link -->
+          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://www.linkedin.com/in/manya-khandelwal-b821492a3" target="_blank">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-[20px]">link</span>
+            </div>
+            <span class="font-medium text-sm md:text-base">Linkedin / Manya Khandelwal</span>
+          </a>
+          
+          <!-- GitHub Link -->
+          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://github.com/Manya-kh10" target="_blank">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-[20px]">code</span>
+            </div>
+            <span class="font-medium text-sm md:text-base">Github / Manya-kh10</span>
+          </a>
+
+          <!-- Resume Link -->
+          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://github.com/Manya-kh10/Manya-resume/blob/main/Manya_Khandelwal_resume%20%282%29.pdf" target="_blank">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+              <span class="material-symbols-outlined text-[20px]">description</span>
+            </div>
+            <span class="font-medium text-sm md:text-base">Resume / Download CV</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Column: Form -->
+      <div>
+        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+          <div>
+            <label class="text-[11px] uppercase tracking-widest font-bold text-[#2E4251]/70 mb-2 block" for="contact-name">Name</label>
+            <input class="w-full px-5 py-4 bg-white border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/30 shadow-inner" placeholder="Your Name" type="text" id="contact-name" required/>
+          </div>
+          <div>
+            <label class="text-[11px] uppercase tracking-widest font-bold text-[#2E4251]/70 mb-2 block" for="contact-email">Email</label>
+            <input class="w-full px-5 py-4 bg-white border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/30 shadow-inner" placeholder="your@email.com" type="email" id="contact-email" required/>
+          </div>
+          <div>
+            <label class="text-[11px] uppercase tracking-widest font-bold text-[#2E4251]/70 mb-2 block" for="contact-message">Message</label>
+            <textarea class="w-full px-5 py-4 bg-white border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/30 shadow-inner h-36 resize-none" placeholder="How can I help you?" id="contact-message" required></textarea>
+          </div>
+          <button type="submit" id="contact-submit-btn" class="w-full py-4 bg-[#2E4251] hover:bg-primary text-[#F7F6EF] font-bold text-xs uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+            Send Message <span class="material-symbols-outlined text-[16px]">send</span>
+          </button>
+          <div id="contact-status-text" class="text-center text-xs mt-2"></div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- Footer Section -->
+<footer class="py-20 bg-[#2D4150] text-[#F7F6EF]">
+  <div class="max-w-container-max mx-auto text-center px-margin-mobile md:px-margin-desktop reveal-on-scroll">
+    <h2 class="font-display-lg text-[24px] md:text-[64px] leading-tight mb-8 text-[#F7F6EF]">
+      Let's build something <br/>
+      <span class="italic font-light">meaningful.</span>
+    </h2>
+    <div class="w-12 h-[1px] bg-white/20 mx-auto mb-8"></div>
+    <p class="text-xs uppercase tracking-widest text-white/50">
+      &copy; 2026 MANYA KHANDELWAL &bull; DESIGN &amp; NARRATIVE
+    </p>
+  </div>
+</footer>
 </main>
 
 <!-- AI Chatbot FAB & Window -->
@@ -605,7 +676,7 @@
                         <p class="text-[#F7F6EF]/80 font-body-md mb-4">${proj.subtitle}</p>
                         <div class="flex flex-wrap gap-2">
                             ${proj.tech_stack.slice(0, 3).map(tech => `
-                                <span class="text-[10px] tracking-widest font-bold uppercase text-[#43576A] px-3 py-1 bg-[#F7F6EF] rounded-full">${tech}</span>
+                                <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">${tech}</span>
                             `).join('')}
                         </div>
                     </div>
@@ -651,13 +722,13 @@
                 // Slice to display up to 4 certifications on the home page
                 const displayedCerts = certifications.slice(0, 4);
                 list.innerHTML = displayedCerts.map(cert => `
-                    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm hover:shadow-lg border border-outline-variant/10 hover:border-[#4B5D70]/20 snap-start cursor-pointer text-[#4B5D70] hover:-translate-y-1 transition-all duration-300" onclick="window.location.href='/certifications'">
-                        <span class="material-symbols-outlined text-[#4B5D70] text-4xl mb-6">${
+                    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm hover:shadow-lg border border-outline-variant/10 hover:border-[#2E4251]/20 snap-start cursor-pointer text-[#2E4251] hover:-translate-y-1 transition-all duration-300" onclick="window.location.href='/certifications'">
+                        <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">${
                             cert.name.toLowerCase().includes('cloud') ? 'cloud_done' : 
                             cert.name.toLowerCase().includes('generative ai') || cert.name.toLowerCase().includes('machine learning') ? 'psychology' : 'school'
                         }</span>
-                        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#4B5D70] font-bold">${cert.name}</h4>
-                        <p class="text-[#4B5D70]/80 text-sm uppercase tracking-widest mb-4">${cert.issuer} • ${cert.date_earned.split(' ').pop()}</p>
+                        <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251] font-bold">${cert.name}</h4>
+                        <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">${cert.issuer} • ${cert.date_earned.split(' ').pop()}</p>
                     </div>
                 `).join('');
             }
@@ -789,6 +860,46 @@
             }
         }
     });
+
+    async function handleContactSubmit(event) {
+        event.preventDefault();
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+        const btn = document.getElementById('contact-submit-btn');
+        const statusText = document.getElementById('contact-status-text');
+
+        if (!name || !email || !message) return;
+
+        btn.disabled = true;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        statusText.innerText = '';
+
+        try {
+            const response = await fetch('/api/contact/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                statusText.innerText = data.message || 'Message received! Manya will get back to you shortly.';
+                statusText.className = 'text-center text-xs mt-3 text-emerald-600 font-semibold';
+                document.getElementById('contact-form').reset();
+            } else {
+                statusText.innerText = data.detail || 'Failed to send message. Please try again.';
+                statusText.className = 'text-center text-xs mt-3 text-rose-600 font-semibold';
+            }
+        } catch (err) {
+            console.error(err);
+            statusText.innerText = 'Unable to send message. Please try again later.';
+            statusText.className = 'text-center text-xs mt-3 text-rose-600 font-semibold';
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+        }
+    }
 
     // Load data on page launch
     window.addEventListener('DOMContentLoaded', () => {

@@ -7,3 +7,4 @@ langchain-core
 langgraph
 dnspython
 email-validator
+langsmith

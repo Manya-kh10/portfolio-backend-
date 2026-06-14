@@ -102,30 +102,30 @@
 <div class="fixed inset-0 bg-text-primary/40 backdrop-blur-sm z-[55] opacity-0 pointer-events-none transition-opacity duration-500" id="drawer-overlay" onclick="toggleDrawer()"></div>
 <aside class="fixed left-0 top-0 h-full w-80 z-[60] glass-sidebar -translate-x-full cinematic-ease transition-transform duration-500 shadow-2xl flex flex-col p-8 gap-8" id="navigation-drawer">
 <div class="flex items-center justify-between">
-<span class="font-headline-lg text-headline-lg text-white tracking-tight">Portfolio</span>
-<button class="p-2 text-white/70 hover:text-white" onclick="toggleDrawer()">
+<span class="font-headline-lg text-headline-lg text-[#F7F6EF] tracking-tight">Portfolio</span>
+<button class="p-2 text-[#F7F6EF]/70 hover:text-[#F7F6EF]" onclick="toggleDrawer()">
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
 <nav class="flex flex-col gap-2">
-<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/">
+<a class="flex items-center gap-4 px-4 py-4 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/">
 <span class="material-symbols-outlined">home</span> Home
         </a>
-<a class="flex items-center gap-4 px-4 py-4 text-white bg-white/10 rounded-xl cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/projects">
+<a class="flex items-center gap-4 px-4 py-4 text-[#F7F6EF] bg-white/20 rounded-xl cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/projects">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">grid_view</span> Projects
         </a>
-<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/experience">
+<a class="flex items-center gap-4 px-4 py-4 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/experience">
 <span class="material-symbols-outlined">work</span> Experience
         </a>
-<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/certifications">
+<a class="flex items-center gap-4 px-4 py-4 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/certifications">
 <span class="material-symbols-outlined">verified</span> Certifications
         </a>
-<a class="flex items-center gap-4 px-4 py-4 text-white/70 hover:text-accent hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/achievements">
+<a class="flex items-center gap-4 px-4 py-4 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-2 cinematic-ease transition-all duration-300 font-body-lg text-[19.5px]" href="/achievements">
 <span class="material-symbols-outlined">military_tech</span> Achievements
         </a>
 </nav>
-<div class="mt-auto pt-8 border-t border-white/10">
-<p class="text-white/40 text-xs uppercase tracking-widest leading-loose">
+<div class="mt-auto pt-8 border-t border-[#F7F6EF]/10">
+<p class="text-[#F7F6EF]/40 text-xs uppercase tracking-widest leading-loose">
             Dreams demand discipline.
         </p>
 </div>
@@ -315,7 +315,7 @@
                         let imgHeight = "h-full";
 
                         return `
-                            <div class="${colSpan} group cursor-pointer relative bg-[#4B5D70] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-2xl cinematic-ease transition-all duration-500 opacity-0 animate-fade-slide-up" style="animation-delay: ${idx * 0.1}s; animation-fill-mode: forwards;" onclick="openModal(${idx})">
+                            <div class="${colSpan} group cursor-pointer relative bg-[#2E4251] rounded-xl overflow-hidden border border-white/10 shadow-sm hover:shadow-2xl cinematic-ease transition-all duration-500 opacity-0 animate-fade-slide-up" style="animation-delay: ${idx * 0.1}s; animation-fill-mode: forwards;" onclick="openModal(${idx})">
                                 <div class="${aspectClass} w-full overflow-hidden">
                                     <img alt="${proj.title}" class="w-full ${imgHeight} object-cover group-hover:scale-105 cinematic-ease transition-transform duration-1000" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
                                 </div>
