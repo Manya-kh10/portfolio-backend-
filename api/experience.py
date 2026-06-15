@@ -1,8 +1,9 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Depends
 from typing import List, Optional
 from api.database import get_db, serialize_doc, serialize_docs
 from api.models import ExperienceSchema
 from bson import ObjectId
+from api.auth import verify_admin
 
 router = APIRouter()
 
@@ -20,7 +21,7 @@ async def get_experience(pinned: Optional[bool] = Query(None)):
     return serialize_docs(experience_cursor)
 
 @router.post("/", status_code=201)
-async def add_new_experience(exp: ExperienceSchema):
+async def add_new_experience(exp: ExperienceSchema, authenticated: bool = Depends(verify_admin)):
     """
     Endpoint to append new professional experience records.
     """
@@ -34,7 +35,7 @@ async def add_new_experience(exp: ExperienceSchema):
     return {"message": f"Successfully injected experience: '{exp.role} at {exp.company}'!"}
 
 @router.put("/{id}")
-async def update_experience(id: str, exp: ExperienceSchema):
+async def update_experience(id: str, exp: ExperienceSchema, authenticated: bool = Depends(verify_admin)):
     """
     Update an existing experience record by MongoDB ID.
     """
@@ -51,7 +52,7 @@ async def update_experience(id: str, exp: ExperienceSchema):
     return {"message": f"Successfully updated experience: '{exp.role} at {exp.company}'."}
 
 @router.delete("/{id}")
-async def delete_experience(id: str):
+async def delete_experience(id: str, authenticated: bool = Depends(verify_admin)):
     """
     Delete an experience record by MongoDB ID.
     """

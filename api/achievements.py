@@ -1,8 +1,9 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Depends
 from typing import List, Optional
 from api.database import get_db, serialize_doc, serialize_docs
 from api.models import AchievementSchema
 from bson import ObjectId
+from api.auth import verify_admin
 
 router = APIRouter()
 
@@ -20,7 +21,7 @@ async def get_achievements(pinned: Optional[bool] = Query(None)):
     return serialize_docs(achievement_cursor)
 
 @router.post("/", status_code=201)
-async def add_new_achievement(achievement: AchievementSchema):
+async def add_new_achievement(achievement: AchievementSchema, authenticated: bool = Depends(verify_admin)):
     """
     Endpoint to append new achievements and hackathon records.
     """
@@ -34,7 +35,7 @@ async def add_new_achievement(achievement: AchievementSchema):
     return {"message": f"Successfully injected achievement: '{achievement.title}'!"}
 
 @router.put("/{id}")
-async def update_achievement(id: str, achievement: AchievementSchema):
+async def update_achievement(id: str, achievement: AchievementSchema, authenticated: bool = Depends(verify_admin)):
     """
     Update an existing achievement record by MongoDB ID.
     """
@@ -51,7 +52,7 @@ async def update_achievement(id: str, achievement: AchievementSchema):
     return {"message": f"Successfully updated achievement '{achievement.title}'."}
 
 @router.delete("/{id}")
-async def delete_achievement(id: str):
+async def delete_achievement(id: str, authenticated: bool = Depends(verify_admin)):
     """
     Delete an achievement record by MongoDB ID.
     """

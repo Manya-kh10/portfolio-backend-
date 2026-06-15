@@ -1,8 +1,9 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Depends
 from api.database import get_db, serialize_doc, serialize_docs
 from api.models import ProjectSchema
 from typing import List, Optional
 from bson import ObjectId
+from api.auth import verify_admin
 
 router = APIRouter()
 
@@ -20,7 +21,7 @@ async def get_all_projects(pinned: Optional[bool] = Query(None)):
     return serialize_docs(projects_cursor)
 
 @router.post("/", status_code=201)
-async def add_new_project(project: ProjectSchema):
+async def add_new_project(project: ProjectSchema, authenticated: bool = Depends(verify_admin)):
     """
     Endpoint to easily add a new project to your portfolio database via JSON.
     """
@@ -35,7 +36,7 @@ async def add_new_project(project: ProjectSchema):
     return {"message": f"Successfully injected project: '{project.title}' into the cluster!"}
 
 @router.put("/{id}")
-async def update_project(id: str, project: ProjectSchema):
+async def update_project(id: str, project: ProjectSchema, authenticated: bool = Depends(verify_admin)):
     """
     Update an existing project by MongoDB ID.
     """
@@ -53,7 +54,7 @@ async def update_project(id: str, project: ProjectSchema):
     return {"message": f"Successfully updated project '{project.title}'."}
 
 @router.delete("/{id}")
-async def delete_project(id: str):
+async def delete_project(id: str, authenticated: bool = Depends(verify_admin)):
     """
     Delete a project by MongoDB ID.
     """

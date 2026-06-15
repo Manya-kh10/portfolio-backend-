@@ -140,7 +140,7 @@
 <div class="mb-12">
 <span class="font-headline-lg text-headline-lg text-[#F7F6EF] tracking-tighter px-6">MK</span>
 </div>
-<nav class="flex flex-col gap-6 w-full">
+<nav class="flex flex-col gap-6 w-full flex-grow">
 <a class="flex items-center gap-4 px-6 py-3 bg-white/20 text-[#F7F6EF] rounded-full mx-2 transition-all duration-500 scale-95" href="#home">
 <span class="material-symbols-outlined">home</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Home</span>
@@ -160,6 +160,10 @@
 <a class="flex items-center gap-4 px-6 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/achievements">
 <span class="material-symbols-outlined">military_tech</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Achievements</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#F7F6EF]/40 hover:text-[#F7F6EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2 mt-auto" href="/admin" title="Admin Portal">
+<span class="material-symbols-outlined">lock</span>
+<span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Admin Login</span>
 </a>
 </nav>
 </div>
@@ -181,7 +185,7 @@
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
-<div class="flex flex-col gap-2">
+<div class="flex flex-col gap-2 flex-grow">
 <a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF] font-medium bg-white/20 rounded-xl" href="/">
 <span class="material-symbols-outlined">home</span>
 <span class="font-body-lg text-[19.5px]">Home</span>
@@ -201,6 +205,10 @@
 <a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/achievements">
 <span class="material-symbols-outlined">military_tech</span>
 <span class="font-body-lg text-[19.5px]">Achievements</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF]/40 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl mt-auto" href="/admin" title="Admin Portal">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-body-lg text-[19.5px]">Admin Login</span>
 </a>
 </div>
 </div>
@@ -680,8 +688,8 @@
                                 <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
                             </div>
                         </div>
-                        <h3 class="font-headline-lg text-headline-lg mb-2 text-primary">${proj.title}</h3>
-                        <p class="text-on-surface-variant font-body-md mb-4">${proj.subtitle}</p>
+                        <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">${proj.title}</h3>
+                        <p class="text-[#F7F6EF]/80 font-body-md mb-4">${proj.subtitle}</p>
                         <div class="flex flex-wrap gap-2">
                             ${proj.tech_stack.slice(0, 3).map(tech => `
                                 <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full border border-primary/10">${tech}</span>

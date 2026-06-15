@@ -58,137 +58,145 @@
     </style>
 </head>
 <body class="min-h-screen font-sans flex flex-col">
-    <!-- Top Header -->
-    <header class="bg-primary text-[#F7F6EF] shadow-lg py-5 px-6 md:px-12 flex items-center justify-between z-10">
-        <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-3xl text-accent">dashboard</span>
-            <h1 class="text-xl md:text-2xl font-display font-bold tracking-tight">MANYA KHANDELWAL <span class="text-accent font-light text-sm tracking-widest uppercase ml-3">Admin Portal</span></h1>
-        </div>
-        <a href="/" class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 transition-all rounded-full text-sm font-medium">
-            <span class="material-symbols-outlined text-sm">open_in_new</span> View Portfolio
-        </a>
-    </header>
-
-    <!-- Main Workspace -->
-    <main class="flex-1 max-w-7xl w-full mx-auto p-6 md:p-12 flex flex-col md:flex-row gap-8">
-        <!-- Sidebar Tabs -->
-        <aside class="md:w-64 flex-shrink-0 flex flex-col gap-2">
-            <button onclick="switchTab('projects')" id="tab-btn-projects" class="tab-btn active w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
-                <span class="material-symbols-outlined">grid_view</span> Pinned &amp; Featured Work
-            </button>
-            <button onclick="switchTab('experience')" id="tab-btn-experience" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
-                <span class="material-symbols-outlined">work</span> Experience
-            </button>
-            <button onclick="switchTab('certifications')" id="tab-btn-certifications" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
-                <span class="material-symbols-outlined">verified</span> Certifications
-            </button>
-            <button onclick="switchTab('achievements')" id="tab-btn-achievements" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
-                <span class="material-symbols-outlined">military_tech</span> Achievements
-            </button>
-            <button onclick="switchTab('images')" id="tab-btn-images" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
-                <span class="material-symbols-outlined">image</span> Profile Photos
-            </button>
-        </aside>
-
-        <!-- Content Area -->
-        <section class="flex-1 bg-surface p-6 md:p-8 rounded-[32px] border border-border shadow-sm">
-            <!-- Loader -->
-            <div id="section-loader" class="hidden flex items-center justify-center py-20">
-                <div class="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-accent"></div>
+    <!-- Admin Workspace Wrapper (hidden until authenticated) -->
+    <div id="admin-workspace" class="min-h-screen flex flex-col hidden">
+        <!-- Top Header -->
+        <header class="bg-primary text-[#F7F6EF] shadow-lg py-5 px-6 md:px-12 flex items-center justify-between z-10">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-3xl text-accent">dashboard</span>
+                <h1 class="text-xl md:text-2xl font-display font-bold tracking-tight">MANYA KHANDELWAL <span class="text-accent font-light text-sm tracking-widest uppercase ml-3">Admin Portal</span></h1>
             </div>
-
-            <!-- Tab: Projects -->
-            <div id="tab-content-projects" class="tab-content space-y-6">
-                <div class="flex justify-between items-center pb-4 border-b border-border">
-                    <div>
-                        <h2 class="text-2xl font-display font-bold text-primary">Featured Work &amp; Projects</h2>
-                        <p class="text-sm text-text-main/70 mt-1">Manage project records and decide which projects are pinned to the home page.</p>
-                    </div>
-                    <button onclick="openAddModal('projects')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
-                        <span class="material-symbols-outlined text-lg">add</span> Add Project
-                    </button>
-                </div>
-                <div id="projects-list" class="grid grid-cols-1 gap-6"></div>
+            <div class="flex items-center gap-3">
+                <a href="/" class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 transition-all rounded-full text-sm font-medium">
+                    <span class="material-symbols-outlined text-sm">open_in_new</span> View Portfolio
+                </a>
+                <button onclick="handleSignOut()" class="flex items-center gap-2 px-4 py-2 bg-rose-600/80 hover:bg-rose-600 transition-all rounded-full text-sm font-medium">
+                    <span class="material-symbols-outlined text-sm">logout</span> Sign Out
+                </button>
             </div>
+        </header>
 
-            <!-- Tab: Experience -->
-            <div id="tab-content-experience" class="tab-content hidden space-y-6">
-                <div class="flex justify-between items-center pb-4 border-b border-border">
-                    <div>
-                        <h2 class="text-2xl font-display font-bold text-primary">Professional Journey</h2>
-                        <p class="text-sm text-text-main/70 mt-1">Manage your experience and select which entries represent featured history on the homepage.</p>
-                    </div>
-                    <button onclick="openAddModal('experience')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
-                        <span class="material-symbols-outlined text-lg">add</span> Add Experience
-                    </button>
-                </div>
-                <div id="experience-list" class="grid grid-cols-1 gap-6"></div>
-            </div>
+        <!-- Main Workspace -->
+        <main class="flex-grow max-w-7xl w-full mx-auto p-6 md:p-12 flex flex-col md:flex-row gap-8">
+            <!-- Sidebar Tabs -->
+            <aside class="md:w-64 flex-shrink-0 flex flex-col gap-2">
+                <button onclick="switchTab('projects')" id="tab-btn-projects" class="tab-btn active w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                    <span class="material-symbols-outlined">grid_view</span> Pinned &amp; Featured Work
+                </button>
+                <button onclick="switchTab('experience')" id="tab-btn-experience" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                    <span class="material-symbols-outlined">work</span> Experience
+                </button>
+                <button onclick="switchTab('certifications')" id="tab-btn-certifications" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                    <span class="material-symbols-outlined">verified</span> Certifications
+                </button>
+                <button onclick="switchTab('achievements')" id="tab-btn-achievements" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                    <span class="material-symbols-outlined">military_tech</span> Achievements
+                </button>
+                <button onclick="switchTab('images')" id="tab-btn-images" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                    <span class="material-symbols-outlined">image</span> Profile Photos
+                </button>
+            </aside>
 
-            <!-- Tab: Certifications -->
-            <div id="tab-content-certifications" class="tab-content hidden space-y-6">
-                <div class="flex justify-between items-center pb-4 border-b border-border">
-                    <div>
-                        <h2 class="text-2xl font-display font-bold text-primary">Accredited Credentials</h2>
-                        <p class="text-sm text-text-main/70 mt-1">Manage certifications and pin high-priority certificates to the home slider showcase.</p>
-                    </div>
-                    <button onclick="openAddModal('certifications')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
-                        <span class="material-symbols-outlined text-lg">add</span> Add Certificate
-                    </button>
+            <!-- Content Area -->
+            <section class="flex-grow bg-surface p-6 md:p-8 rounded-[32px] border border-border shadow-sm">
+                <!-- Loader -->
+                <div id="section-loader" class="hidden flex items-center justify-center py-20">
+                    <div class="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-accent"></div>
                 </div>
-                <div id="certifications-list" class="grid grid-cols-1 gap-6"></div>
-            </div>
 
-            <!-- Tab: Achievements -->
-            <div id="tab-content-achievements" class="tab-content hidden space-y-6">
-                <div class="flex justify-between items-center pb-4 border-b border-border">
-                    <div>
-                        <h2 class="text-2xl font-display font-bold text-primary">Achievements &amp; Leadership</h2>
-                        <p class="text-sm text-text-main/70 mt-1">Add details about hackathons, club lead roles, and honors. Pin select milestones to the home page.</p>
-                    </div>
-                    <button onclick="openAddModal('achievements')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
-                        <span class="material-symbols-outlined text-lg">add</span> Add Achievement
-                    </button>
-                </div>
-                <div id="achievements-list" class="grid grid-cols-1 gap-6"></div>
-            </div>
-
-            <!-- Tab: Images -->
-            <div id="tab-content-images" class="tab-content hidden space-y-8">
-                <div class="pb-4 border-b border-border">
-                    <h2 class="text-2xl font-display font-bold text-primary">Profile Artwork &amp; Images</h2>
-                    <p class="text-sm text-text-main/70 mt-1">Upload files to directly overwrite your main portfolio visuals.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Avatar Upload -->
-                    <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
-                        <h3 class="font-display font-bold text-primary mb-4">Hero Page Avatar Circle</h3>
-                        <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-md mb-6 relative group">
-                            <img id="avatar-preview" src="/lux_editorial/manya_avatar.jpg" alt="Hero Avatar" class="w-full h-full object-cover"/>
+                <!-- Tab: Projects -->
+                <div id="tab-content-projects" class="tab-content space-y-6">
+                    <div class="flex justify-between items-center pb-4 border-b border-border">
+                        <div>
+                            <h2 class="text-2xl font-display font-bold text-primary">Featured Work &amp; Projects</h2>
+                            <p class="text-sm text-text-main/70 mt-1">Manage project records and decide which projects are pinned to the home page.</p>
                         </div>
-                        <div class="w-full">
-                            <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Avatar (overwrites existing)</label>
-                            <input type="file" id="avatar-file-input" onchange="uploadImage('avatar')" accept="image/*" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
-                        </div>
-                        <div id="avatar-upload-status" class="text-xs font-medium mt-3"></div>
+                        <button onclick="openAddModal('projects')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                            <span class="material-symbols-outlined text-lg">add</span> Add Project
+                        </button>
                     </div>
+                    <div id="projects-list" class="grid grid-cols-1 gap-6"></div>
+                </div>
 
-                    <!-- Portrait Upload -->
-                    <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
-                        <h3 class="font-display font-bold text-primary mb-4">About Me Portrait</h3>
-                        <div class="w-36 aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-6 relative group">
-                            <img id="portrait-preview" src="/lux_editorial/manya_portrait.jpg" alt="About Portrait" class="w-full h-full object-cover"/>
+                <!-- Tab: Experience -->
+                <div id="tab-content-experience" class="tab-content hidden space-y-6">
+                    <div class="flex justify-between items-center pb-4 border-b border-border">
+                        <div>
+                            <h2 class="text-2xl font-display font-bold text-primary">Professional Journey</h2>
+                            <p class="text-sm text-text-main/70 mt-1">Manage your experience and select which entries represent featured history on the homepage.</p>
                         </div>
-                        <div class="w-full">
-                            <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Portrait (overwrites existing)</label>
-                            <input type="file" id="portrait-file-input" onchange="uploadImage('portrait')" accept="image/*" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
+                        <button onclick="openAddModal('experience')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                            <span class="material-symbols-outlined text-lg">add</span> Add Experience
+                        </button>
+                    </div>
+                    <div id="experience-list" class="grid grid-cols-1 gap-6"></div>
+                </div>
+
+                <!-- Tab: Certifications -->
+                <div id="tab-content-certifications" class="tab-content hidden space-y-6">
+                    <div class="flex justify-between items-center pb-4 border-b border-border">
+                        <div>
+                            <h2 class="text-2xl font-display font-bold text-primary">Accredited Credentials</h2>
+                            <p class="text-sm text-text-main/70 mt-1">Manage certifications and pin high-priority certificates to the home slider showcase.</p>
                         </div>
-                        <div id="portrait-upload-status" class="text-xs font-medium mt-3"></div>
+                        <button onclick="openAddModal('certifications')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                            <span class="material-symbols-outlined text-lg">add</span> Add Certificate
+                        </button>
+                    </div>
+                    <div id="certifications-list" class="grid grid-cols-1 gap-6"></div>
+                </div>
+
+                <!-- Tab: Achievements -->
+                <div id="tab-content-achievements" class="tab-content hidden space-y-6">
+                    <div class="flex justify-between items-center pb-4 border-b border-border">
+                        <div>
+                            <h2 class="text-2xl font-display font-bold text-primary">Achievements &amp; Leadership</h2>
+                            <p class="text-sm text-text-main/70 mt-1">Add details about hackathons, club lead roles, and honors. Pin select milestones to the home page.</p>
+                        </div>
+                        <button onclick="openAddModal('achievements')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                            <span class="material-symbols-outlined text-lg">add</span> Add Achievement
+                        </button>
+                    </div>
+                    <div id="achievements-list" class="grid grid-cols-1 gap-6"></div>
+                </div>
+
+                <!-- Tab: Images -->
+                <div id="tab-content-images" class="tab-content hidden space-y-8">
+                    <div class="pb-4 border-b border-border">
+                        <h2 class="text-2xl font-display font-bold text-primary">Profile Artwork &amp; Images</h2>
+                        <p class="text-sm text-text-main/70 mt-1">Upload files to directly overwrite your main portfolio visuals.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Avatar Upload -->
+                        <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
+                            <h3 class="font-display font-bold text-primary mb-4">Hero Page Avatar Circle</h3>
+                            <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-md mb-6 relative group">
+                                <img id="avatar-preview" src="/lux_editorial/manya_avatar.jpg" alt="Hero Avatar" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="w-full">
+                                <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Avatar (overwrites existing)</label>
+                                <input type="file" id="avatar-file-input" onchange="uploadImage('avatar')" accept="image/*" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
+                            </div>
+                            <div id="avatar-upload-status" class="text-xs font-medium mt-3"></div>
+                        </div>
+
+                        <!-- Portrait Upload -->
+                        <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
+                            <h3 class="font-display font-bold text-primary mb-4">About Me Portrait</h3>
+                            <div class="w-36 aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-6 relative group">
+                                <img id="portrait-preview" src="/lux_editorial/manya_portrait.jpg" alt="About Portrait" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="w-full">
+                                <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Portrait (overwrites existing)</label>
+                                <input type="file" id="portrait-file-input" onchange="uploadImage('portrait')" accept="image/*" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
+                            </div>
+                            <div id="portrait-upload-status" class="text-xs font-medium mt-3"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
     <!-- Unified Form Modal -->
     <div id="form-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm hidden">
@@ -226,6 +234,33 @@
     <div id="notification-toast" class="fixed bottom-6 right-6 z-50 px-6 py-4 rounded-2xl text-sm font-medium shadow-xl translate-y-20 opacity-0 transition-all duration-500 bg-primary text-white flex items-center gap-3">
         <span id="notification-icon" class="material-symbols-outlined text-lg">info</span>
         <span id="notification-message">Notification details</span>
+    </div>
+
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/45 backdrop-blur-md">
+        <div class="bg-surface rounded-3xl max-w-md w-full border border-border shadow-2xl p-8 flex flex-col items-center">
+            <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-3xl text-primary">lock</span>
+            </div>
+            <h2 class="text-2xl font-display font-bold text-primary mb-2 text-center">Admin Access</h2>
+            <p class="text-sm text-text-main/70 mb-6 text-center">Please enter your password to unlock the portfolio management dashboard.</p>
+            
+            <form onsubmit="handleLoginSubmit(event)" class="w-full space-y-5">
+                <div>
+                    <label class="block text-[11px] uppercase tracking-widest font-bold text-primary/70 mb-2" for="login-password">Password</label>
+                    <input type="password" id="login-password" required class="w-full px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main" placeholder="••••••••"/>
+                </div>
+                <div id="login-error" class="text-xs font-semibold text-rose-600 text-center hidden">Incorrect admin password.</div>
+                
+                <button type="submit" id="login-submit-btn" class="w-full py-4 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-lg">vpn_key</span> Authenticate
+                </button>
+            </form>
+            
+            <a href="/" class="mt-6 text-xs font-semibold text-primary/70 hover:text-primary flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">arrow_back</span> Return to Portfolio
+            </a>
+        </div>
     </div>
 
     <script>
@@ -278,6 +313,89 @@
             }
         };
 
+        // --- Admin Authenticated Fetch Wrapper ---
+        async function adminFetch(url, options = {}) {
+            try {
+                const response = await fetch(url, options);
+                if (response.status === 401) {
+                    showNotification("Admin session expired. Please log in again.", false);
+                    document.getElementById('login-overlay').classList.remove('hidden');
+                    document.getElementById('admin-workspace').classList.add('hidden');
+                    throw new Error("Unauthorized");
+                }
+                return response;
+            } catch (err) {
+                if (err.message === "Unauthorized") throw err;
+                throw err;
+            }
+        }
+
+        // --- Authentication Check & Login ---
+        async function checkSession() {
+            try {
+                const response = await fetch('/api/admin/session');
+                if (response.status === 200) {
+                    document.getElementById('login-overlay').classList.add('hidden');
+                    document.getElementById('admin-workspace').classList.remove('hidden');
+                    loadTabItems(currentTab);
+                } else {
+                    document.getElementById('login-overlay').classList.remove('hidden');
+                    document.getElementById('admin-workspace').classList.add('hidden');
+                }
+            } catch (err) {
+                document.getElementById('login-overlay').classList.remove('hidden');
+                document.getElementById('admin-workspace').classList.add('hidden');
+            }
+        }
+
+        async function handleLoginSubmit(event) {
+            event.preventDefault();
+            const passwordInput = document.getElementById('login-password');
+            const errorDiv = document.getElementById('login-error');
+            const submitBtn = document.getElementById('login-submit-btn');
+            
+            errorDiv.classList.add('hidden');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<div class="animate-spin rounded-full h-5 w-5 border-2 border-[#F7F6EF] border-t-accent"></div> Verifying...';
+
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: passwordInput.value })
+                });
+
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.detail || 'Incorrect admin password.');
+                }
+
+                passwordInput.value = '';
+                showNotification('Welcome back, Manya!');
+                document.getElementById('login-overlay').classList.add('hidden');
+                document.getElementById('admin-workspace').classList.remove('hidden');
+                loadTabItems(currentTab);
+            } catch (err) {
+                errorDiv.innerText = err.message;
+                errorDiv.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">vpn_key</span> Authenticate';
+            }
+        }
+
+        async function handleSignOut() {
+            if (!confirm('Are you sure you want to sign out?')) return;
+            try {
+                await fetch('/api/admin/logout', { method: 'POST' });
+                showNotification('Logged out successfully.');
+                document.getElementById('login-overlay').classList.remove('hidden');
+                document.getElementById('admin-workspace').classList.add('hidden');
+            } catch (err) {
+                showNotification('Error logging out: ' + err.message, false);
+            }
+        }
+
         // --- Notification Helper ---
         function showNotification(message, isSuccess = true) {
             const toast = document.getElementById('notification-toast');
@@ -323,7 +441,7 @@
             
             try {
                 const endpoint = `/api/${tab === 'projects' ? 'projects' : tab}/`;
-                const response = await fetch(endpoint);
+                const response = await adminFetch(endpoint);
                 if (!response.ok) throw new Error(`Fetch failed: ${response.statusText}`);
                 const items = await response.json();
                 
@@ -341,6 +459,7 @@
                 
                 container.innerHTML = items.map((item, idx) => renderItemCard(tab, item, idx)).join('');
             } catch (err) {
+                if (err.message === "Unauthorized") return;
                 loader.classList.add('hidden');
                 container.innerHTML = `
                     <div class="text-center py-12 text-rose-600 font-semibold text-sm">
@@ -405,7 +524,7 @@
             const endpoint = `/api/${tab === 'projects' ? 'projects' : tab}/${id}`;
             
             try {
-                const response = await fetch(endpoint, {
+                const response = await adminFetch(endpoint, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(item)
@@ -415,6 +534,7 @@
                 showNotification(`Successfully ${item.pinned ? 'pinned' : 'unpinned'} item!`);
                 loadTabItems(tab);
             } catch (err) {
+                if (err.message === "Unauthorized") return;
                 item.pinned = !item.pinned; // revert on fail
                 showNotification(err.message, false);
             }
@@ -426,13 +546,14 @@
             
             try {
                 const endpoint = `/api/${tab === 'projects' ? 'projects' : tab}/${id}`;
-                const response = await fetch(endpoint, { method: 'DELETE' });
+                const response = await adminFetch(endpoint, { method: 'DELETE' });
                 
                 if (!response.ok) throw new Error('Failed to delete item');
                 
                 showNotification('Item deleted successfully.');
                 loadTabItems(tab);
             } catch (err) {
+                if (err.message === "Unauthorized") return;
                 showNotification(err.message, false);
             }
         }
@@ -454,7 +575,7 @@
 
             try {
                 const endpoint = `/api/admin/upload-${type}`;
-                const response = await fetch(endpoint, {
+                const response = await adminFetch(endpoint, {
                     method: 'POST',
                     body: formData
                 });
@@ -469,6 +590,7 @@
                 previewImg.src = `${data.url}?t=${Date.now()}`;
                 showNotification(`${type === 'avatar' ? 'Avatar' : 'Portrait'} updated!`);
             } catch (err) {
+                if (err.message === "Unauthorized") return;
                 statusDiv.innerText = err.message;
                 statusDiv.className = 'text-xs font-semibold text-rose-600 mt-3';
                 showNotification(err.message, false);
@@ -573,7 +695,7 @@
                     itemPayload.id = id;
                 }
 
-                const response = await fetch(endpoint, {
+                const response = await adminFetch(endpoint, {
                     method: method,
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(itemPayload)
@@ -586,6 +708,7 @@
                 closeFormModal();
                 loadTabItems(resource);
             } catch (err) {
+                if (err.message === "Unauthorized") return;
                 showNotification(err.message, false);
             } finally {
                 submitBtn.disabled = false;
@@ -595,7 +718,7 @@
 
         // --- Initial Load ---
         window.addEventListener('DOMContentLoaded', () => {
-            loadTabItems('projects');
+            checkSession();
         });
     </script>
 </body>

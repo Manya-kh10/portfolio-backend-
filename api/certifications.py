@@ -1,8 +1,9 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Depends
 from typing import List, Optional
 from api.database import get_db, serialize_doc, serialize_docs
 from api.models import CertificationSchema
 from bson import ObjectId
+from api.auth import verify_admin
 
 router = APIRouter()
 
@@ -20,7 +21,7 @@ async def get_certifications(pinned: Optional[bool] = Query(None)):
     return serialize_docs(cert_cursor)
 
 @router.post("/", status_code=201)
-async def add_new_certification(cert: CertificationSchema):
+async def add_new_certification(cert: CertificationSchema, authenticated: bool = Depends(verify_admin)):
     """
     Endpoint to easily add a new earned certification.
     """
@@ -34,7 +35,7 @@ async def add_new_certification(cert: CertificationSchema):
     return {"message": f"Successfully injected certification: '{cert.name}'!"}
 
 @router.put("/{id}")
-async def update_certification(id: str, cert: CertificationSchema):
+async def update_certification(id: str, cert: CertificationSchema, authenticated: bool = Depends(verify_admin)):
     """
     Update an existing certification record by MongoDB ID.
     """
@@ -51,7 +52,7 @@ async def update_certification(id: str, cert: CertificationSchema):
     return {"message": f"Successfully updated certification '{cert.name}'."}
 
 @router.delete("/{id}")
-async def delete_certification(id: str):
+async def delete_certification(id: str, authenticated: bool = Depends(verify_admin)):
     """
     Delete a certification record by MongoDB ID.
     """
