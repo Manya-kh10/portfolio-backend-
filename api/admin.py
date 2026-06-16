@@ -7,17 +7,25 @@ from pydantic import BaseModel
 from api.auth import verify_admin
 from api.database import get_db
 from api.models import ChatbotSettingsSchema
+from dotenv import load_dotenv
+
+load_dotenv()
 
 router = APIRouter()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 LUX_EDITORIAL_DIR = os.path.join(BASE_DIR, "stitch design", "lux_editorial")
 
-ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "manya123")
-GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
-GOOGLE_CLIENT_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
-GOOGLE_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8000/api/admin/google-callback")
-ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "khandelwalmanya8@gmail.com")
+def get_admin_password():
+    return os.getenv("ADMIN_PASSWORD", "manya123")
+
+def get_google_config():
+    return {
+        "client_id": os.getenv("GOOGLE_CLIENT_ID"),
+        "client_secret": os.getenv("GOOGLE_CLIENT_SECRET"),
+        "redirect_uri": os.getenv("GOOGLE_REDIRECT_URI", "http://localhost:8000/api/admin/google-callback"),
+        "admin_email": os.getenv("ADMIN_EMAIL", "khandelwalmanya8@gmail.com")
+    }
 
 class LoginRequest(BaseModel):
     password: str
@@ -27,12 +35,13 @@ async def admin_login(payload: LoginRequest, response: Response):
     """
     Sets a secure HttpOnly session cookie if the password matches the admin credential.
     """
-    if payload.password != ADMIN_PASSWORD:
+    admin_password = get_admin_password()
+    if payload.password != admin_password:
         raise HTTPException(status_code=401, detail="Incorrect admin password.")
     
     response.set_cookie(
         key="admin_session",
-        value=ADMIN_PASSWORD,
+        value=admin_password,
         httponly=True,
         max_age=86400,  # 1 day
         samesite="lax",
@@ -45,7 +54,10 @@ async def google_login():
     """
     Initiates Google OAuth2 sign-in flow by redirecting browser to Google Consent screen.
     """
-    if not GOOGLE_CLIENT_ID:
+    config = get_google_config()
+    client_id = config["client_id"]
+    redirect_uri = config["redirect_uri"]
+    if not client_id:
         raise HTTPException(
             status_code=400, 
             detail="Google OAuth is not configured on the server. Please set GOOGLE_CLIENT_ID in your .env file."
@@ -54,7 +66,7 @@ async def google_login():
     scope = "https://www.googleapis.com/auth/userinfo.email openid"
     auth_url = (
         f"https://accounts.google.com/o/oauth2/v2/auth?"
-        f"response_type=code&client_id={GOOGLE_CLIENT_ID}&redirect_uri={GOOGLE_REDIRECT_URI}&scope={scope}&state=google"
+        f"response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}&state=google"
     )
     return RedirectResponse(auth_url)
 
@@ -64,7 +76,14 @@ async def google_callback(code: str, response: Response):
     Receives callback code from Google, exchanges it for access token, fetches profile info,
     and logs the admin in if the email matches.
     """
-    if not GOOGLE_CLIENT_ID or not GOOGLE_CLIENT_SECRET:
+    config = get_google_config()
+    client_id = config["client_id"]
+    client_secret = config["client_secret"]
+    redirect_uri = config["redirect_uri"]
+    admin_email = config["admin_email"]
+    admin_password = get_admin_password()
+    
+    if not client_id or not client_secret:
         raise HTTPException(status_code=400, detail="Google OAuth is not configured on the server.")
     
     async with httpx.AsyncClient() as client:
@@ -73,9 +92,9 @@ async def google_callback(code: str, response: Response):
                 "https://oauth2.googleapis.com/token",
                 data={
                     "code": code,
-                    "client_id": GOOGLE_CLIENT_ID,
-                    "client_secret": GOOGLE_CLIENT_SECRET,
-                    "redirect_uri": GOOGLE_REDIRECT_URI,
+                    "client_id": client_id,
+                    "client_secret": client_secret,
+                    "redirect_uri": redirect_uri,
                     "grant_type": "authorization_code",
                 }
             )
@@ -100,13 +119,13 @@ async def google_callback(code: str, response: Response):
             if not email:
                 raise HTTPException(status_code=400, detail="Could not retrieve email address from profile.")
             
-            if email.lower() != ADMIN_EMAIL.lower():
+            if email.lower() != admin_email.lower():
                 return RedirectResponse(url="/admin?error=unauthorized_email")
             
             response_redirect = RedirectResponse(url="/admin")
             response_redirect.set_cookie(
                 key="admin_session",
-                value=ADMIN_PASSWORD,
+                value=admin_password,
                 httponly=True,
                 max_age=86400,
                 samesite="lax",
@@ -117,6 +136,7 @@ async def google_callback(code: str, response: Response):
             if isinstance(e, HTTPException):
                 raise e
             raise HTTPException(status_code=500, detail=f"Google Authentication failed: {str(e)}")
+
 
 @router.post("/logout")
 async def admin_logout(response: Response):
