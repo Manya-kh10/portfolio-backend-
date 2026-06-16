@@ -28,16 +28,20 @@ def get_google_config():
     }
 
 class LoginRequest(BaseModel):
+    email: str
     password: str
 
 @router.post("/login")
 async def admin_login(payload: LoginRequest, response: Response):
     """
-    Sets a secure HttpOnly session cookie if the password matches the admin credential.
+    Sets a secure HttpOnly session cookie if both email and password match the admin credentials.
     """
+    config = get_google_config()
+    admin_email = config["admin_email"]
     admin_password = get_admin_password()
-    if payload.password != admin_password:
-        raise HTTPException(status_code=401, detail="Incorrect admin password.")
+    
+    if payload.email.lower() != admin_email.lower() or payload.password != admin_password:
+        raise HTTPException(status_code=401, detail="Incorrect email or password.")
     
     response.set_cookie(
         key="admin_session",
