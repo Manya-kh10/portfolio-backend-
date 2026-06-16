@@ -92,8 +92,14 @@
                 <button onclick="switchTab('achievements')" id="tab-btn-achievements" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
                     <span class="material-symbols-outlined">military_tech</span> Achievements
                 </button>
+                <button onclick="switchTab('skills')" id="tab-btn-skills" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                    <span class="material-symbols-outlined">psychology</span> Technical Skills
+                </button>
+                <button onclick="switchTab('chatbot')" id="tab-btn-chatbot" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
+                    <span class="material-symbols-outlined">chat</span> Chatbot Settings
+                </button>
                 <button onclick="switchTab('images')" id="tab-btn-images" class="tab-btn w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-left font-medium transition-all duration-300 hover:bg-[#2E4251]/10 text-primary border border-primary/10">
-                    <span class="material-symbols-outlined">image</span> Profile Photos
+                    <span class="material-symbols-outlined">image</span> Profile Assets &amp; Resume
                 </button>
             </aside>
 
@@ -163,13 +169,13 @@
                 <!-- Tab: Images -->
                 <div id="tab-content-images" class="tab-content hidden space-y-8">
                     <div class="pb-4 border-b border-border">
-                        <h2 class="text-2xl font-display font-bold text-primary">Profile Artwork &amp; Images</h2>
-                        <p class="text-sm text-text-main/70 mt-1">Upload files to directly overwrite your main portfolio visuals.</p>
+                        <h2 class="text-2xl font-display font-bold text-primary">Profile Assets &amp; Resume</h2>
+                        <p class="text-sm text-text-main/70 mt-1">Upload files to directly overwrite your main portfolio visuals and PDF documents.</p>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <!-- Avatar Upload -->
                         <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
-                            <h3 class="font-display font-bold text-primary mb-4">Hero Page Avatar Circle</h3>
+                            <h3 class="font-display font-bold text-primary mb-4 text-center">Hero Page Avatar Circle</h3>
                             <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-md mb-6 relative group">
                                 <img id="avatar-preview" src="/lux_editorial/manya_avatar.jpg" alt="Hero Avatar" class="w-full h-full object-cover"/>
                             </div>
@@ -182,7 +188,7 @@
 
                         <!-- Portrait Upload -->
                         <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
-                            <h3 class="font-display font-bold text-primary mb-4">About Me Portrait</h3>
+                            <h3 class="font-display font-bold text-primary mb-4 text-center">About Me Portrait</h3>
                             <div class="w-36 aspect-[4/5] rounded-2xl overflow-hidden shadow-md mb-6 relative group">
                                 <img id="portrait-preview" src="/lux_editorial/manya_portrait.jpg" alt="About Portrait" class="w-full h-full object-cover"/>
                             </div>
@@ -192,7 +198,58 @@
                             </div>
                             <div id="portrait-upload-status" class="text-xs font-medium mt-3"></div>
                         </div>
+
+                        <!-- Resume Upload -->
+                        <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
+                            <h3 class="font-display font-bold text-primary mb-4 text-center">Resume / CV Document</h3>
+                            <div class="w-36 h-48 rounded-2xl border border-primary/10 flex flex-col items-center justify-center bg-white shadow-sm mb-6 relative group">
+                                <span class="material-symbols-outlined text-5xl text-primary/40">description</span>
+                                <a href="/lux_editorial/uploads/resume.pdf" target="_blank" class="mt-3 text-xs font-bold text-primary hover:text-accent transition-colors flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[14px]">open_in_new</span> View Current PDF
+                                </a>
+                            </div>
+                            <div class="w-full">
+                                <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Resume (overwrites existing)</label>
+                                <input type="file" id="resume-file-input" onchange="uploadResumeFile()" accept=".pdf" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
+                            </div>
+                            <div id="resume-upload-status" class="text-xs font-medium mt-3"></div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Tab: Skills -->
+                <div id="tab-content-skills" class="tab-content hidden space-y-6">
+                    <div class="flex justify-between items-center pb-4 border-b border-border">
+                        <div>
+                            <h2 class="text-2xl font-display font-bold text-primary">Technical Skills</h2>
+                            <p class="text-sm text-text-main/70 mt-1">Manage technical skills displayed in categories like Languages, Frameworks, Databases, and AI/ML.</p>
+                        </div>
+                        <button onclick="openAddModal('skills')" class="flex items-center gap-2 px-5 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl font-bold text-sm shadow-md transition-all">
+                            <span class="material-symbols-outlined text-lg">add</span> Add Skill
+                        </button>
+                    </div>
+                    <div id="skills-list" class="grid grid-cols-1 gap-6"></div>
+                </div>
+
+                <!-- Tab: Chatbot Settings -->
+                <div id="tab-content-chatbot" class="tab-content hidden space-y-6">
+                    <div class="pb-4 border-b border-border">
+                        <h2 class="text-2xl font-display font-bold text-primary">AI Twin Chatbot Settings</h2>
+                        <p class="text-sm text-text-main/70 mt-1">Configure the context data and rules driving Manya's Digital Twin conversational responses.</p>
+                    </div>
+                    <form id="chatbot-settings-form" onsubmit="handleChatbotSettingsSubmit(event)" class="space-y-6">
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-widest font-bold text-primary/70 mb-2" for="chatbot-bio">Manya's Biography Context (WHO YOU ARE)</label>
+                            <textarea id="chatbot-bio" required class="w-full px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main h-40 resize-y" placeholder="Describe Manya's background, education, and domain expertise..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-widest font-bold text-primary/70 mb-2" for="chatbot-instructions">Strict AI Behavioral Rules &amp; Links</label>
+                            <textarea id="chatbot-instructions" required class="w-full px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main h-60 resize-y" placeholder="Line-by-line constraints and instructions..."></textarea>
+                        </div>
+                        <div class="flex justify-end pt-4 border-t border-border">
+                            <button type="submit" id="chatbot-submit-btn" class="px-6 py-3 bg-primary hover:bg-primary/90 text-[#F7F6EF] rounded-2xl text-sm font-bold shadow-md transition-all">Save Chatbot Settings</button>
+                        </div>
+                    </form>
                 </div>
             </section>
         </main>
@@ -216,7 +273,7 @@
                 <div id="form-fields" class="space-y-4"></div>
 
                 <!-- Pinned Status -->
-                <div class="flex items-center gap-3 pt-2">
+                <div id="form-pinned-container" class="flex items-center gap-3 pt-2">
                     <input type="checkbox" id="form-item-pinned" class="w-5 h-5 text-primary border-primary/20 rounded focus:ring-primary/40"/>
                     <label for="form-item-pinned" class="text-sm font-semibold text-primary">Pin to Home Page</label>
                 </div>
@@ -244,6 +301,23 @@
             </div>
             <h2 class="text-2xl font-display font-bold text-primary mb-2 text-center">Admin Access</h2>
             <p class="text-sm text-text-main/70 mb-6 text-center">Please enter your password to unlock the portfolio management dashboard.</p>
+            
+            <!-- Google Sign In Button -->
+            <a href="/api/admin/login/google" class="w-full py-3.5 border border-primary/20 hover:bg-primary/5 text-primary rounded-2xl text-sm font-bold transition-all flex items-center justify-center gap-3 mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                Sign in with Google
+            </a>
+            
+            <div class="flex items-center mb-5 w-full">
+                <div class="flex-grow border-t border-primary/10"></div>
+                <span class="px-3 text-[10px] text-text-main/50 font-bold uppercase tracking-wider">Or</span>
+                <div class="flex-grow border-t border-primary/10"></div>
+            </div>
             
             <form onsubmit="handleLoginSubmit(event)" class="w-full space-y-5">
                 <div>
@@ -308,7 +382,15 @@
                     { name: 'organization', label: 'Awarding Entity / Event', type: 'text', placeholder: 'e.g. VIT Bhopal University', required: true },
                     { name: 'date', label: 'Date / Period', type: 'text', placeholder: 'e.g. Oct 2025, 2023 - 2026', required: true },
                     { name: 'description', label: 'Context / Impact details', type: 'textarea', placeholder: 'Summarize your key contribution or the event scale...', required: true },
-                    { name: 'category', label: 'Category', type: 'text', placeholder: 'e.g. Hackathons, Leadership', required: true }
+                    { name: 'category', label: 'Category', type: 'text', placeholder: 'e.g. Hackathons, Leadership', required: true },
+                    { name: 'media_url', label: 'Showcase Image / Media URL', type: 'text', placeholder: 'e.g. /lux_editorial/hackathon.png', required: false }
+                ]
+            },
+            skills: {
+                fields: [
+                    { name: 'name', label: 'Skill Name', type: 'text', placeholder: 'e.g. Python', required: true },
+                    { name: 'proficiency', label: 'Proficiency Level', type: 'text', placeholder: 'e.g. Expert, Advanced, Intermediate', required: true },
+                    { name: 'category', label: 'Category Group', type: 'text', placeholder: 'e.g. Languages, Frameworks, Databases, AI/ML', required: true }
                 ]
             }
         };
@@ -332,6 +414,14 @@
 
         // --- Authentication Check & Login ---
         async function checkSession() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errParam = urlParams.get('error');
+            if (errParam === 'unauthorized_email') {
+                const errorDiv = document.getElementById('login-error');
+                errorDiv.innerText = "Error: Your Google account email is not authorized as admin.";
+                errorDiv.classList.remove('hidden');
+            }
+
             try {
                 const response = await fetch('/api/admin/session');
                 if (response.status === 200) {
@@ -396,6 +486,89 @@
             }
         }
 
+        // --- Chatbot Settings handlers ---
+        async function loadChatbotSettings() {
+            const loader = document.getElementById('section-loader');
+            loader.classList.remove('hidden');
+            try {
+                const response = await adminFetch('/api/admin/chatbot-settings');
+                if (!response.ok) throw new Error('Failed to fetch chatbot settings.');
+                const settings = await response.json();
+                document.getElementById('chatbot-bio').value = settings.bio || '';
+                document.getElementById('chatbot-instructions').value = settings.custom_instructions || '';
+            } catch (err) {
+                if (err.message === "Unauthorized") return;
+                showNotification(err.message, false);
+            } finally {
+                loader.classList.add('hidden');
+            }
+        }
+
+        async function handleChatbotSettingsSubmit(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('chatbot-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Saving...';
+            
+            const bio = document.getElementById('chatbot-bio').value.trim();
+            const custom_instructions = document.getElementById('chatbot-instructions').value.trim();
+            
+            try {
+                const response = await adminFetch('/api/admin/chatbot-settings', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ bio, custom_instructions })
+                });
+                
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Failed to save chatbot settings.');
+                
+                showNotification('Chatbot settings saved successfully!');
+            } catch (err) {
+                if (err.message === "Unauthorized") return;
+                showNotification(err.message, false);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Save Chatbot Settings';
+            }
+        }
+
+        // --- Dynamic media upload from pop-up forms ---
+        async function uploadFormMedia(inputId) {
+            const fileInput = document.getElementById(`${inputId}-file`);
+            const textInput = document.getElementById(inputId);
+            const statusDiv = document.getElementById(`${inputId}-status`);
+            
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            statusDiv.innerText = 'Uploading...';
+            statusDiv.className = 'text-[10px] font-semibold text-primary mt-1';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await adminFetch('/api/admin/upload-media', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Upload failed');
+                
+                textInput.value = data.url;
+                statusDiv.innerText = 'Upload successful!';
+                statusDiv.className = 'text-[10px] font-semibold text-emerald-600 mt-1';
+                showNotification('Media asset uploaded successfully!');
+            } catch (err) {
+                if (err.message === "Unauthorized") return;
+                statusDiv.innerText = err.message;
+                statusDiv.className = 'text-[10px] font-semibold text-rose-600 mt-1';
+                showNotification(err.message, false);
+            }
+        }
+
         // --- Notification Helper ---
         function showNotification(message, isSuccess = true) {
             const toast = document.getElementById('notification-toast');
@@ -426,7 +599,9 @@
             document.getElementById(`tab-btn-${tab}`).classList.add('active');
             document.getElementById(`tab-content-${tab}`).classList.remove('hidden');
             
-            if (tab !== 'images') {
+            if (tab === 'chatbot') {
+                loadChatbotSettings();
+            } else if (tab !== 'images') {
                 loadTabItems(tab);
             }
         }
@@ -474,6 +649,7 @@
         function renderItemCard(tab, item, idx) {
             let title = '';
             let subtitle = '';
+            let showPin = true;
             
             if (tab === 'projects') {
                 title = item.title;
@@ -487,6 +663,10 @@
             } else if (tab === 'achievements') {
                 title = item.title;
                 subtitle = `${item.organization} (${item.date})`;
+            } else if (tab === 'skills') {
+                title = item.name;
+                subtitle = `${item.category} • ${item.proficiency}`;
+                showPin = false;
             }
 
             return `
@@ -500,9 +680,11 @@
                     </div>
                     <div class="flex items-center gap-3 self-end sm:self-auto">
                         <!-- Pin/Unpin Toggle -->
+                        ${showPin ? `
                         <button onclick="togglePin('${tab}', '${item.id}', ${idx})" class="w-10 h-10 rounded-full border border-primary/10 text-primary flex items-center justify-center hover:bg-primary/5 transition-all" title="${item.pinned ? 'Unpin from home page' : 'Pin to home page'}">
                             <span class="material-symbols-outlined text-lg ${item.pinned ? 'text-accent fill-1' : ''}" style="font-variation-settings: 'FILL' ${item.pinned ? 1 : 0}">push_pin</span>
                         </button>
+                        ` : ''}
                         <!-- Edit -->
                         <button onclick="openEditModal('${tab}', ${idx})" class="w-10 h-10 rounded-full border border-primary/10 text-primary flex items-center justify-center hover:bg-primary/5 transition-all" title="Edit Item">
                             <span class="material-symbols-outlined text-lg">edit</span>
@@ -597,6 +779,39 @@
             }
         }
 
+        async function uploadResumeFile() {
+            const fileInput = document.getElementById('resume-file-input');
+            const statusDiv = document.getElementById('resume-upload-status');
+            
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            statusDiv.innerText = 'Uploading...';
+            statusDiv.className = 'text-xs font-semibold text-primary mt-3';
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await adminFetch('/api/admin/upload-resume', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.detail || 'Upload failed');
+                
+                statusDiv.innerText = data.message || 'Resume uploaded successfully!';
+                statusDiv.className = 'text-xs font-semibold text-emerald-600 mt-3';
+                showNotification('Resume document updated successfully!');
+            } catch (err) {
+                if (err.message === "Unauthorized") return;
+                statusDiv.innerText = err.message;
+                statusDiv.className = 'text-xs font-semibold text-rose-600 mt-3';
+                showNotification(err.message, false);
+            }
+        }
+
         // --- Modal Handling ---
         function openFormModal(title, resourceType) {
             document.getElementById('modal-form-title').innerText = title;
@@ -632,6 +847,18 @@
 
                 if (field.type === 'textarea') {
                     fieldHtml += `<textarea id="${inputId}" class="w-full px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main h-32 resize-none" placeholder="${field.placeholder}" ${field.required ? 'required' : ''}>${value}</textarea>`;
+                } else if (field.name === 'preview_image' || field.name === 'media_url') {
+                    fieldHtml += `
+                    <div class="flex gap-3">
+                        <input type="text" id="${inputId}" value="${value}" class="flex-grow px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main" placeholder="${field.placeholder}" ${field.required ? 'required' : ''}/>
+                        <div class="relative flex-shrink-0">
+                            <input type="file" id="${inputId}-file" onchange="uploadFormMedia('${inputId}')" accept="image/*" class="hidden"/>
+                            <button type="button" onclick="document.getElementById('${inputId}-file').click()" class="h-full px-4 bg-primary/10 hover:bg-primary/20 text-primary rounded-2xl text-xs font-bold transition-all flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">cloud_upload</span> Upload
+                            </button>
+                        </div>
+                    </div>
+                    <div id="${inputId}-status" class="text-[10px] font-semibold text-[#2E4251]/70 mt-1"></div>`;
                 } else {
                     fieldHtml += `<input type="text" id="${inputId}" value="${value}" class="w-full px-5 py-4 bg-white border border-primary/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-text-main" placeholder="${field.placeholder}" ${field.required ? 'required' : ''}/>`;
                 }
@@ -641,6 +868,15 @@
             });
 
             document.getElementById('form-item-pinned').checked = item ? !!item.pinned : false;
+
+            const pinnedContainer = document.getElementById('form-pinned-container');
+            if (pinnedContainer) {
+                if (tab === 'skills') {
+                    pinnedContainer.classList.add('hidden');
+                } else {
+                    pinnedContainer.classList.remove('hidden');
+                }
+            }
         }
 
         function openAddModal(tab) {

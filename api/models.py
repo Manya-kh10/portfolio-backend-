@@ -9,6 +9,7 @@ class AchievementSchema(BaseModel):
     date: Optional[str] = Field(None, description="Date or time period when earned (e.g. 'Oct 2025')")
     description: Optional[str] = Field(None, description="Detailed context or impact of the achievement")
     category: str = Field(..., description="Category classification of the achievement")
+    media_url: Optional[str] = Field(None, description="Optional image/media link for the achievement")
 
     class Config:
         json_schema_extra = {
@@ -50,6 +51,7 @@ class ExperienceSchema(BaseModel):
         }
 
 class SkillSchema(BaseModel):
+    id: Optional[str] = Field(None, description="String representation of MongoDB ObjectId")
     name: str = Field(..., description="Name of the technical skill or tool")
     proficiency: str = Field(..., description="Level of expertise, e.g. 'Expert', 'Advanced', 'Intermediate'")
     category: str = Field(..., description="Category group, e.g. 'Languages', 'Frameworks', 'Databases', 'AI/ML'")
@@ -60,6 +62,18 @@ class SkillSchema(BaseModel):
                 "name": "Python",
                 "proficiency": "Advanced",
                 "category": "Languages"
+            }
+        }
+
+class ChatbotSettingsSchema(BaseModel):
+    bio: str = Field(..., description="Biography and professional context about Manya")
+    custom_instructions: str = Field(..., description="Strict instructions or rules for the chatbot to follow")
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "bio": "Manya is an engineering student working in AI/ML.",
+                "custom_instructions": "1. Keep answers short.\n2. Be friendly."
             }
         }
 

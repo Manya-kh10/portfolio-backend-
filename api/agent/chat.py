@@ -48,13 +48,9 @@ def get_portfolio_data(endpoint: str):
 
 tools = [get_portfolio_data]
 
-SYSTEM_PROMPT = """You are Manya Khandelwal's portfolio chatbot. You represent her professionally to visitors on her portfolio website.
+DEFAULT_BIO = "Manya is an engineering student working majorly in the domain of AI/ML. She builds AI systems — RAG pipelines, multi-agent platforms, automation workflows. She's skilled in Python, LangChain, and n8n."
 
-WHO YOU ARE:
-Manya is an engineering student working majorly in the domain of AI/ML. She builds AI systems — RAG pipelines, multi-agent platforms, automation workflows. She's skilled in Python, LangChain, and n8n.
-
-STRICT RULES:
-1. SHORT ANSWERS ONLY. Maximum 2-3 lines. Never write essays or long paragraphs. Be extremely concise.
+DEFAULT_INSTRUCTIONS = """1. SHORT ANSWERS ONLY. Maximum 2-3 lines. Never write essays or long paragraphs. Be extremely concise.
 2. Always fetch from your tool before answering questions about projects, skills, certifications, or achievements. Never guess or hallucinate.
 3. If someone asks what Manya has built, list project names with one-line descriptions and tell them to check the Projects section for details.
 4. Redirect naturally — if someone wants to know more, point them: "You can explore the Projects section", "Check out her Skills section", etc.
@@ -69,16 +65,33 @@ STRICT RULES:
    - Email: [Send Email](mailto:khandelwalmanya8@gmail.com)
    Always introduce the button with a professional sentence, e.g., "Please click on the button below to access Manya's resume." or "You can explore her projects on GitHub via the button below."
 10. If asked about AI projects or AI skills, suggest ONLY the properly AI-centered projects: "NEXUS — Multi-Agent Data Analysis Platform" and "Personal RAG Chatbot". Do not suggest other projects.
-11. If asked about professional experience, always reply with: "Manya has no industry experience yet, but she is currently gaining practical experience by building real world projects." Do not list any other experience.
+11. If asked about professional experience, always reply with: "Manya has no industry experience yet, but she is currently gaining practical experience by building real world projects." Do not list any other experience."""
 
-RESPONSE FORMAT:
-- Greetings: 1 line max
-- Project/skill questions: bullet points, 2 max, then redirect
-- General questions: 1-2 lines max
+def get_system_prompt() -> str:
+    try:
+        db = get_db()
+        settings = db.chatbot_settings.find_one()
+        if settings:
+            bio = settings.get("bio", DEFAULT_BIO)
+            instructions = settings.get("custom_instructions", DEFAULT_INSTRUCTIONS)
+        else:
+            bio = DEFAULT_BIO
+            instructions = DEFAULT_INSTRUCTIONS
+    except Exception:
+        bio = DEFAULT_BIO
+        instructions = DEFAULT_INSTRUCTIONS
+
+    return f"""You are Manya Khandelwal's portfolio chatbot. You represent her professionally to visitors on her portfolio website.
+
+WHO YOU ARE:
+{bio}
+
+STRICT RULES:
+{instructions}
 """
 
 if llm:
-    agent_executor = create_react_agent(llm, tools, prompt=SYSTEM_PROMPT)
+    agent_executor = create_react_agent(llm, tools)
 else:
     agent_executor = None
 
@@ -90,7 +103,8 @@ def ask_agent(question: str) -> str:
     if not agent_executor:
         return "Manya's AI Twin is currently offline as the GROQ_API_KEY is not configured. Please check back later!"
     try:
-        response = agent_executor.invoke({"messages": [("user", question)]})
+        system_prompt = get_system_prompt()
+        response = agent_executor.invoke({"messages": [("system", system_prompt), ("user", question)]})
         if "messages" in response and len(response["messages"]) > 0:
             content = response["messages"][-1].content
             

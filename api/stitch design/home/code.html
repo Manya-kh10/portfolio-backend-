@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Oswald:wght@200..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -221,16 +222,19 @@
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover object-[25%_center] md:object-center" src="/lux_editorial/background_shadow.png" alt="Background shadow artwork"/>
 </div>
-<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center md:justify-evenly gap-12">
+<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center md:justify-between gap-12">
   <!-- Left Column: Content -->
   <div class="flex flex-col items-start justify-center text-left md:max-w-2xl w-fit">
     <p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-6 reveal-on-scroll">Engineer • Developer • Problem Solver</p>
-    <h1 class="text-[32px] md:text-[72px] font-bold text-[#2D4150] mb-stack-md reveal-on-scroll" style="transition-delay: 200ms; line-height: 1.15; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.01em;">
-      Manya Khandelwal
+    <h1 class="text-[#2D4150] mb-stack-md reveal-on-scroll" style="transition-delay: 200ms; line-height: 0.95;">
+      <span class="block text-[50px] md:text-[100px]" style="font-family: 'DM Serif Display', serif; letter-spacing: -0.02em;">Manya</span>
+      <span class="block text-[54px] md:text-[110px] italic" style="font-family: 'DM Serif Display', serif; letter-spacing: -0.01em; margin-top: -0.05em;">Khandelwal</span>
     </h1>
     <div class="flex flex-col sm:flex-row items-center sm:items-start justify-start gap-6 mt-10 reveal-on-scroll w-fit" style="transition-delay: 400ms">
-      <a class="px-8 py-4 bg-primary text-[#F7F6EF] rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-all duration-500 shadow-xl text-center w-full sm:w-auto" href="#contact">Connect</a>
-      <a class="px-8 py-4 border border-outline/30 text-on-surface rounded-full font-label-sm uppercase tracking-widest hover:bg-surface-variant transition-all duration-500 text-center w-full sm:w-auto" href="#projects">View Projects</a>
+      <a class="px-8 py-4 bg-primary text-[#F7F6EF] rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-all duration-500 shadow-xl text-center w-full sm:w-auto flex items-center justify-center gap-2" href="/lux_editorial/uploads/resume.pdf" target="_blank">
+        <span class="material-symbols-outlined text-lg">download</span> Resume
+      </a>
+      <a class="px-8 py-4 border border-outline/30 text-on-surface rounded-full font-label-sm uppercase tracking-widest hover:bg-surface-variant transition-all duration-500 text-center w-full sm:w-auto" href="#contact">Connect</a>
     </div>
   </div>
   <!-- Right Column: Avatar -->
@@ -483,7 +487,7 @@
           </a>
 
           <!-- Resume Link -->
-          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://github.com/Manya-kh10/Manya-resume/blob/main/Manya_Khandelwal_resume%20%282%29.pdf" target="_blank">
+          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="/lux_editorial/uploads/resume.pdf" target="_blank">
             <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
               <span class="material-symbols-outlined text-[20px]">description</span>
             </div>
@@ -680,23 +684,46 @@
                     grid.innerHTML = `<p class="text-primary/75 text-center py-10 font-medium col-span-2">No projects pinned to the home page yet.</p>`;
                     return;
                 }
-                grid.innerHTML = projects.map((proj, idx) => `
-                    <div class="group cursor-pointer" onclick="window.location.href='/projects'">
-                        <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
-                            <img alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
-                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                                <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
+                
+                if (projects.length >= 3) {
+                    grid.className = "flex gap-stack-md overflow-x-auto pb-8 snap-x no-scrollbar";
+                    grid.innerHTML = projects.map((proj, idx) => `
+                        <div class="group cursor-pointer flex-none w-[85vw] md:w-[480px] snap-start" onclick="window.location.href='/projects'">
+                            <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
+                                <img alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
+                                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                                    <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
+                                </div>
+                            </div>
+                            <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">${proj.title}</h3>
+                            <p class="text-[#F7F6EF]/80 font-body-md mb-4">${proj.subtitle}</p>
+                            <div class="flex flex-wrap gap-2">
+                                ${proj.tech_stack.slice(0, 3).map(tech => `
+                                    <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full border border-primary/10">${tech}</span>
+                                `).join('')}
                             </div>
                         </div>
-                        <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">${proj.title}</h3>
-                        <p class="text-[#F7F6EF]/80 font-body-md mb-4">${proj.subtitle}</p>
-                        <div class="flex flex-wrap gap-2">
-                            ${proj.tech_stack.slice(0, 3).map(tech => `
-                                <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full border border-primary/10">${tech}</span>
-                            `).join('')}
+                    `).join('');
+                } else {
+                    grid.className = "grid grid-cols-1 md:grid-cols-2 gap-stack-md";
+                    grid.innerHTML = projects.map((proj, idx) => `
+                        <div class="group cursor-pointer" onclick="window.location.href='/projects'">
+                            <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
+                                <img alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
+                                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                                    <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
+                                </div>
+                            </div>
+                            <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">${proj.title}</h3>
+                            <p class="text-[#F7F6EF]/80 font-body-md mb-4">${proj.subtitle}</p>
+                            <div class="flex flex-wrap gap-2">
+                                ${proj.tech_stack.slice(0, 3).map(tech => `
+                                    <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full border border-primary/10">${tech}</span>
+                                `).join('')}
+                            </div>
                         </div>
-                    </div>
-                `).join('');
+                    `).join('');
+                }
             }
         } catch (err) {
             console.error("Error fetching projects:", err);
