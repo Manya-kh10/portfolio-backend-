@@ -222,6 +222,7 @@
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover object-[25%_center] md:object-center" src="/lux_editorial/background_shadow.png" alt="Background shadow artwork"/>
 </div>
+
 <div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center md:justify-between gap-12">
   <!-- Left Column: Content -->
   <div class="flex flex-col items-start justify-center text-left md:max-w-2xl w-fit">
@@ -237,12 +238,140 @@
       <a class="px-8 py-4 border border-outline/30 text-on-surface rounded-full font-label-sm uppercase tracking-widest hover:bg-surface-variant transition-all duration-500 text-center w-full sm:w-auto" href="#contact">Connect</a>
     </div>
   </div>
-  <!-- Right Column: Avatar -->
-  <div class="flex items-center justify-center">
-    <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#2E4251]/20 shadow-[0_20px_50px_rgba(0,0,0,0.15)] reveal-on-scroll" style="transition-delay: 300ms">
-      <img class="w-full h-full object-cover animate-fade-in" src="/lux_editorial/manya_avatar.jpg" alt="Manya's Avatar"/>
+  <!-- Right Column: Floating Code Blocks with Polaroid -->
+  <div class="hidden md:flex items-center justify-center relative w-96 h-96 reveal-on-scroll" style="transition-delay: 300ms">
+    <!-- Floating Code Block 1 (Top Left) -->
+    <div class="absolute top-0 left-0 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 0s; width: 180px;">
+      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
+        <span class="text-[#F5F4EF]">const</span> build = () => {<br/>
+        <span class="ml-4 text-[#F5F4EF]">return</span> 'AI';<br/>
+        };
+      </div>
+    </div>
+    
+    <!-- Floating Code Block 2 (Top Right) -->
+    <div class="absolute top-12 right-0 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 0.5s; width: 160px;">
+      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
+        <span class="text-[#F5F4EF]">def</span> create():<br/>
+        <span class="ml-4 text-[#F5F4EF]">return</span> magic<br/>
+      </div>
+    </div>
+    
+    <!-- Floating Code Block 3 (Bottom Left) -->
+    <div class="absolute bottom-0 left-4 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 1s; width: 170px;">
+      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
+        <span class="text-[#F5F4EF]">async</span> function<br/>
+        innovate() {<br/>
+        <span class="ml-4">// building<br/>
+        </span>}
+      </div>
+    </div>
+    
+    <!-- Floating Code Block 4 (Bottom Right) -->
+    <div class="absolute bottom-12 right-4 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 1.5s; width: 175px;">
+      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
+        <span class="text-[#F5F4EF]">build_system</span><br/>
+        = 'productive'<br/>
+        <span class="text-[#F5F4EF]">+ 'creative'</span>
+      </div>
+    </div>
+    
+    <!-- Center Polaroid Frame -->
+    <div class="absolute flex flex-col items-center justify-center bg-[#2E4251] rounded-lg shadow-2xl" style="width: 160px; height: 200px; padding: 12px; padding-bottom: 40px;">
+      <!-- Polaroid content area -->
+      <div class="w-full h-32 bg-gradient-to-br from-[#F5F4EF] to-[#F5F4EF]/90 rounded-sm flex items-center justify-center overflow-hidden relative">
+        <div class="text-center">
+          <p class="font-serif italic text-[#2E4251] text-sm leading-tight" style="font-family: 'Dancing Script', cursive; font-size: 18px; font-weight: 600;">Building</p>
+          <p class="font-serif italic text-[#2E4251] text-sm leading-tight" style="font-family: 'Dancing Script', cursive; font-size: 18px; font-weight: 600;">something new</p>
+          <p class="text-[#2E4251] text-xs mt-2 opacity-70">⚡</p>
+        </div>
+      </div>
+      <!-- Polaroid label area -->
+      <div class="w-full mt-2 text-center">
+        <p class="text-[#F5F4EF] text-[10px] font-mono tracking-wide opacity-60">// 2026</p>
+      </div>
     </div>
   </div>
+  
+  <style>
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(-2deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(2deg);
+      }
+    }
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes morph-slow {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      25% {
+        transform: translate(-10px, 15px) scale(1.05);
+      }
+      50% {
+        transform: translate(5px, 10px) scale(0.98);
+      }
+      75% {
+        transform: translate(-5px, -10px) scale(1.02);
+      }
+    }
+    .animate-morph-slow {
+      animation: morph-slow 12s ease-in-out infinite;
+    }
+
+    @keyframes morph-medium {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      25% {
+        transform: translate(15px, -10px) scale(1.03);
+      }
+      50% {
+        transform: translate(-10px, 5px) scale(0.97);
+      }
+      75% {
+        transform: translate(8px, 12px) scale(1.01);
+      }
+    }
+    .animate-morph-medium {
+      animation: morph-medium 14s ease-in-out infinite;
+    }
+
+    @keyframes morph-fast {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      25% {
+        transform: translate(-12px, -8px) scale(1.04);
+      }
+      50% {
+        transform: translate(10px, 10px) scale(0.96);
+      }
+      75% {
+        transform: translate(-8px, 8px) scale(1.02);
+      }
+    }
+    .animate-morph-fast {
+      animation: morph-fast 10s ease-in-out infinite;
+    }
+
+    @keyframes pulse-subtle {
+      0%, 100% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 0.8;
+      }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 6s ease-in-out infinite;
+    }
+  </style>
 </div>
 </section>
 <!-- Portrait & Intro -->

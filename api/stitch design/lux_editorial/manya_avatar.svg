@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width="400" height="400">
+  <defs>
+    <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#475764;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a474f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background fill -->
+  <rect width="400" height="400" fill="#fbf8fc"/>
+  
+  <!-- Head geometric shape -->
+  <ellipse cx="200" cy="150" rx="80" ry="95" fill="url(#headGrad)"/>
+  
+  <!-- Hair volume -->
+  <path d="M 140 100 Q 120 110 115 140 L 285 140 Q 280 110 260 100 Q 240 85 200 80 Q 160 85 140 100" fill="url(#headGrad)" opacity="0.9"/>
+  
+  <!-- Face highlights -->
+  <ellipse cx="200" cy="150" rx="75" ry="90" fill="url(#headGrad)" opacity="0.95"/>
+  
+  <!-- Eyes - geometric circles -->
+  <circle cx="165" cy="130" r="10" fill="#fbf8fc" opacity="0.85"/>
+  <circle cx="165" cy="130" r="6" fill="#475764"/>
+  <circle cx="167" cy="128" r="3" fill="#fbf8fc"/>
+  
+  <circle cx="235" cy="130" r="10" fill="#fbf8fc" opacity="0.85"/>
+  <circle cx="235" cy="130" r="6" fill="#475764"/>
+  <circle cx="237" cy="128" r="3" fill="#fbf8fc"/>
+  
+  <!-- Nose line -->
+  <line x1="200" y1="125" x2="200" y2="170" stroke="#fbf8fc" stroke-width="2.5" opacity="0.7"/>
+  
+  <!-- Mouth curve -->
+  <path d="M 175 185 Q 200 198 225 185" stroke="#fbf8fc" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+  
+  <!-- Shoulders -->
+  <path d="M 130 245 L 160 260 L 240 260 L 270 245 L 260 290 L 140 290 Z" fill="url(#headGrad)" opacity="0.7"/>
+  
+  <!-- Tech accent elements - left side -->
+  <circle cx="80" cy="140" r="3" fill="#b8c8d8" opacity="0.7"/>
+  <circle cx="70" cy="200" r="2.5" fill="#b8c8d8" opacity="0.6"/>
+  <circle cx="80" cy="260" r="3" fill="#b8c8d8" opacity="0.7"/>
+  
+  <polyline points="80,140 110,150 140,165" stroke="#b8c8d8" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <polyline points="70,200 100,205 130,215" stroke="#b8c8d8" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <polyline points="80,260 110,250 140,235" stroke="#b8c8d8" stroke-width="1.5" fill="none" opacity="0.5"/>
+  
+  <!-- Tech accent elements - right side -->
+  <circle cx="320" cy="140" r="3" fill="#b8c8d8" opacity="0.7"/>
+  <circle cx="330" cy="200" r="2.5" fill="#b8c8d8" opacity="0.6"/>
+  <circle cx="320" cy="260" r="3" fill="#b8c8d8" opacity="0.7"/>
+  
+  <polyline points="320,140 290,150 260,165" stroke="#b8c8d8" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <polyline points="330,200 300,205 270,215" stroke="#b8c8d8" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <polyline points="320,260 290,250 260,235" stroke="#b8c8d8" stroke-width="1.5" fill="none" opacity="0.5"/>
+  
+  <!-- Top accent node -->
+  <circle cx="200" cy="40" r="2.5" fill="#b8c8d8" opacity="0.6"/>
+  <line x1="200" y1="40" x2="200" y2="80" stroke="#b8c8d8" stroke-width="1.2" opacity="0.4"/>
+  
+  <!-- Geometric frame lines -->
+  <line x1="100" y1="120" x2="100" y2="270" stroke="#5f5f4f" stroke-width="1" opacity="0.2"/>
+  <line x1="300" y1="120" x2="300" y2="270" stroke="#5f5f4f" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Subtle dashed border -->
+  <circle cx="200" cy="200" r="190" fill="none" stroke="#475764" stroke-width="1" opacity="0.3" stroke-dasharray="4,6"/>
+</svg>
