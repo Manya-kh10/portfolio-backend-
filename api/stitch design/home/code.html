@@ -192,13 +192,10 @@
 </div>
 </aside>
 <!-- Top AppBar (Mobile Only) -->
-<header class="fixed top-0 w-full z-40 md:hidden flex items-center justify-between px-margin-mobile h-20 bg-[#2E4251] backdrop-blur-xl shadow-lg border-b border-white/5">
-<div class="flex items-center gap-3">
-<button class="p-2 hover:bg-white/10 rounded-full transition-colors text-[#F5F4EF]" id="menu-toggle" onclick="toggleDrawer()">
-<span class="material-symbols-outlined">menu</span>
-</button>
-<span class="font-headline-lg-mobile text-headline-lg-mobile text-[#F5F4EF] font-bold tracking-tighter">Manya Khandelwal</span>
-</div>
+<header class="fixed top-0 left-0 w-full z-40 md:hidden flex items-center justify-between px-margin-mobile h-20 bg-transparent pointer-events-none">
+  <button class="p-3 bg-[#2E4251]/90 backdrop-blur-md border border-white/10 text-[#F5F4EF] rounded-full transition-all duration-300 pointer-events-auto shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center w-12 h-12" id="menu-toggle" onclick="toggleDrawer()">
+    <span class="material-symbols-outlined text-2xl">menu</span>
+  </button>
 </header>
 <!-- Side Navigation Drawer (Mobile Only) -->
 <div class="fixed left-0 top-0 h-full w-72 z-[60] bg-[#2E4251]/95 backdrop-blur-2xl -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-2xl flex md:hidden flex-col p-stack-sm gap-unit text-[#F5F4EF]" id="side-drawer">
@@ -245,13 +242,13 @@
 <img class="w-full h-full object-cover object-[25%_center] md:object-center" src="/lux_editorial/background_shadow.png" alt="Background shadow artwork"/>
 </div>
 
-<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col-reverse md:flex-row items-center md:justify-between gap-12 md:gap-6 pt-24 md:pt-0">
+<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center md:justify-between gap-12 md:gap-6 pt-24 md:pt-0">
   <!-- Left Column: Content -->
   <div class="flex flex-col items-start justify-center text-left md:max-w-2xl w-fit">
     <p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-6 reveal-on-scroll">Engineer • Developer • Problem Solver</p>
     <h1 class="text-[#2E4251] mb-4 reveal-on-scroll" style="transition-delay: 200ms; line-height: 0.95;">
-      <span class="block text-[50px] md:text-[100px] font-serif-display" style="letter-spacing: -0.02em;">Manya</span>
-      <span class="block text-[54px] md:text-[110px] italic font-serif-display" style="letter-spacing: -0.01em; margin-top: -0.05em;">Khandelwal</span>
+      <span class="block text-[38px] md:text-[100px] font-serif-display" style="letter-spacing: -0.02em;">Manya</span>
+      <span class="block text-[42px] md:text-[110px] italic font-serif-display" style="letter-spacing: -0.01em; margin-top: -0.05em;">Khandelwal</span>
     </h1>
     <p class="font-body-lg text-[20px] text-on-surface-variant max-w-xl mt-0 reveal-on-scroll" style="transition-delay: 300ms">
       Detail-driven, deadline-respecting, and genuinely excited by what I build. Not chasing the title. Chasing the craft.
