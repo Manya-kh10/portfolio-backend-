@@ -190,7 +190,7 @@ async def save_chatbot_settings(payload: ChatbotSettingsSchema, authenticated: b
 @router.post("/upload-media")
 async def upload_media(file: UploadFile = File(...), authenticated: bool = Depends(verify_admin)):
     """
-    Uploads generic media images, storing them in stitch design/lux_editorial/uploads/
+    Uploads generic media images, storing them in MongoDB
     and returns the public URL.
     """
     if not file.content_type.startswith("image/"):
@@ -199,13 +199,18 @@ async def upload_media(file: UploadFile = File(...), authenticated: bool = Depen
     ext = os.path.splitext(file.filename)[1]
     filename = f"{uuid.uuid4().hex}{ext}"
     
-    uploads_dir = os.path.join(LUX_EDITORIAL_DIR, "uploads")
-    os.makedirs(uploads_dir, exist_ok=True)
-    
-    media_path = os.path.join(uploads_dir, filename)
     try:
-        with open(media_path, "wb") as buffer:
-            buffer.write(await file.read())
+        content = await file.read()
+        db = get_db()
+        db.media_assets.update_one(
+            {"filename": filename},
+            {"$set": {
+                "filename": filename,
+                "content": content,
+                "content_type": file.content_type
+            }},
+            upsert=True
+        )
         return {"url": f"/lux_editorial/uploads/{filename}"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to save uploaded media: {str(e)}")
@@ -213,15 +218,23 @@ async def upload_media(file: UploadFile = File(...), authenticated: bool = Depen
 @router.post("/upload-avatar")
 async def upload_avatar(file: UploadFile = File(...), authenticated: bool = Depends(verify_admin)):
     """
-    Overwrites the homepage hero avatar image file (manya_avatar.jpg).
+    Overwrites the homepage hero avatar image file in MongoDB (manya_avatar.jpg).
     """
     if not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Only image file uploads are permitted.")
     
-    avatar_path = os.path.join(LUX_EDITORIAL_DIR, "manya_avatar.jpg")
     try:
-        with open(avatar_path, "wb") as buffer:
-            buffer.write(await file.read())
+        content = await file.read()
+        db = get_db()
+        db.media_assets.update_one(
+            {"filename": "manya_avatar.jpg"},
+            {"$set": {
+                "filename": "manya_avatar.jpg",
+                "content": content,
+                "content_type": file.content_type
+            }},
+            upsert=True
+        )
         return {"message": "Hero avatar successfully updated!", "url": "/lux_editorial/manya_avatar.jpg"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to save avatar image: {str(e)}")
@@ -229,15 +242,23 @@ async def upload_avatar(file: UploadFile = File(...), authenticated: bool = Depe
 @router.post("/upload-portrait")
 async def upload_portrait(file: UploadFile = File(...), authenticated: bool = Depends(verify_admin)):
     """
-    Overwrites the about me portrait image file (manya_portrait.jpg).
+    Overwrites the about me portrait image file in MongoDB (manya_portrait.jpg).
     """
     if not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Only image file uploads are permitted.")
     
-    portrait_path = os.path.join(LUX_EDITORIAL_DIR, "manya_portrait.jpg")
     try:
-        with open(portrait_path, "wb") as buffer:
-            buffer.write(await file.read())
+        content = await file.read()
+        db = get_db()
+        db.media_assets.update_one(
+            {"filename": "manya_portrait.jpg"},
+            {"$set": {
+                "filename": "manya_portrait.jpg",
+                "content": content,
+                "content_type": file.content_type
+            }},
+            upsert=True
+        )
         return {"message": "About Me portrait successfully updated!", "url": "/lux_editorial/manya_portrait.jpg"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to save portrait image: {str(e)}")
@@ -245,18 +266,23 @@ async def upload_portrait(file: UploadFile = File(...), authenticated: bool = De
 @router.post("/upload-resume")
 async def upload_resume(file: UploadFile = File(...), authenticated: bool = Depends(verify_admin)):
     """
-    Overwrites the resume PDF document (resume.pdf).
+    Overwrites the resume PDF document in MongoDB (resume.pdf).
     """
     if file.content_type != "application/pdf" and not file.filename.endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Only PDF document uploads are permitted.")
     
-    uploads_dir = os.path.join(LUX_EDITORIAL_DIR, "uploads")
-    os.makedirs(uploads_dir, exist_ok=True)
-    
-    resume_path = os.path.join(uploads_dir, "resume.pdf")
     try:
-        with open(resume_path, "wb") as buffer:
-            buffer.write(await file.read())
+        content = await file.read()
+        db = get_db()
+        db.media_assets.update_one(
+            {"filename": "resume.pdf"},
+            {"$set": {
+                "filename": "resume.pdf",
+                "content": content,
+                "content_type": "application/pdf"
+            }},
+            upsert=True
+        )
         return {"message": "Resume PDF successfully updated!", "url": "/lux_editorial/uploads/resume.pdf"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to save resume document: {str(e)}")

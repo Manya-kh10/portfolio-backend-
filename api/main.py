@@ -42,6 +42,48 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+from fastapi import Response
+import mimetypes
+from api.database import get_db
+
+@app.get("/lux_editorial/uploads/{filename}")
+async def serve_uploaded_media(filename: str):
+    try:
+        db = get_db()
+        asset = db.media_assets.find_one({"filename": filename})
+        if asset:
+            return Response(content=asset["content"], media_type=asset.get("content_type", "image/jpeg"))
+    except Exception:
+        pass
+    
+    # Fallback to local file if it exists
+    local_path = os.path.join(BASE_DIR, "stitch design", "lux_editorial", "uploads", filename)
+    if os.path.exists(local_path):
+        mime_type, _ = mimetypes.guess_type(local_path)
+        with open(local_path, "rb") as f:
+            return Response(content=f.read(), media_type=mime_type or "application/octet-stream")
+    
+    return Response(status_code=404, content="File not found")
+
+@app.get("/lux_editorial/{filename}")
+async def serve_root_media(filename: str):
+    try:
+        db = get_db()
+        asset = db.media_assets.find_one({"filename": filename})
+        if asset:
+            return Response(content=asset["content"], media_type=asset.get("content_type", "image/jpeg"))
+    except Exception:
+        pass
+    
+    # Fallback to local file if it exists
+    local_path = os.path.join(BASE_DIR, "stitch design", "lux_editorial", filename)
+    if os.path.exists(local_path):
+        mime_type, _ = mimetypes.guess_type(local_path)
+        with open(local_path, "rb") as f:
+            return Response(content=f.read(), media_type=mime_type or "application/octet-stream")
+    
+    return Response(status_code=404, content="File not found")
+
 # Mount the static assets folder to serve background artwork and styling files
 app.mount("/lux_editorial", StaticFiles(directory=os.path.join(BASE_DIR, "stitch design", "lux_editorial")), name="lux_editorial")
 
