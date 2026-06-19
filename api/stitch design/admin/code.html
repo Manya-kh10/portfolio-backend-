@@ -175,19 +175,7 @@
                         <h2 class="text-2xl font-display font-bold text-primary">Profile Assets &amp; Resume</h2>
                         <p class="text-sm text-text-main/70 mt-1">Upload files to directly overwrite your main portfolio visuals and PDF documents.</p>
                     </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <!-- Avatar Upload -->
-                        <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
-                            <h3 class="font-display font-bold text-primary mb-4 text-center">Hero Page Avatar Circle</h3>
-                            <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-md mb-6 relative group">
-                                <img id="avatar-preview" src="/lux_editorial/manya_avatar.jpg" alt="Hero Avatar" class="w-full h-full object-cover"/>
-                            </div>
-                            <div class="w-full">
-                                <label class="block text-xs font-bold text-primary/75 uppercase tracking-wider mb-2">Upload New Avatar (overwrites existing)</label>
-                                <input type="file" id="avatar-file-input" onchange="uploadImage('avatar')" accept="image/*" class="w-full text-sm text-text-main file:mr-4 file:py-2.5 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-[#F7F6EF] hover:file:bg-primary/90 cursor-pointer"/>
-                            </div>
-                            <div id="avatar-upload-status" class="text-xs font-medium mt-3"></div>
-                        </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                         <!-- Portrait Upload -->
                         <div class="bg-[#FAF9F5] border border-border p-6 rounded-3xl flex flex-col items-center">
@@ -380,7 +368,8 @@
                     { name: 'end_date', label: 'End Date', type: 'text', placeholder: 'e.g. Present, Dec 2025', required: false },
                     { name: 'description', label: 'Key Duties & Accomplishments (one bullet point per line)', type: 'textarea', placeholder: 'Line 1\nLine 2\nLine 3', required: true },
                     { name: 'tech_stack', label: 'Tech Stack utilized (comma separated)', type: 'text', placeholder: 'e.g. React, Python, PostgreSQL', required: true },
-                    { name: 'related_project_id', label: 'Related Project DB ID (Optional)', type: 'text', placeholder: 'DB ID string', required: false }
+                    { name: 'related_project_id', label: 'Related Project DB ID (Optional)', type: 'text', placeholder: 'DB ID string', required: false },
+                    { name: 'certificate_link', label: 'Certificate / Proof Link', type: 'text', placeholder: 'https://...', required: false }
                 ]
             },
             certifications: {

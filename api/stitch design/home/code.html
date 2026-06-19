@@ -11,7 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Oswald:wght@200..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,626;1,626&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -20,29 +21,29 @@
             "colors": {
                     "on-tertiary-fixed-variant": "#394954",
                     "on-secondary-container": "#646353",
-                    "surface-bright": "#fbf8fc",
+                    "surface-bright": "#F5F4EF",
                     "on-primary-container": "#e5f2ff",
-                    "primary-container": "#5f6f7d",
+                    "primary-container": "#2E4251",
                     "tertiary-fixed-dim": "#b7c9d7",
                     "tertiary": "#465762",
-                    "surface": "#fbf8fc",
+                    "surface": "#F5F4EF",
                     "secondary": "#5f5f4f",
                     "on-primary": "#ffffff",
                     "inverse-primary": "#b8c8d8",
                     "outline": "#74777c",
-                    "on-surface": "#1b1b1e",
+                    "on-surface": "#2E4251",
                     "error": "#ba1a1a",
                     "on-tertiary-fixed": "#0c1d27",
                     "inverse-on-surface": "#f2f0f3",
                     "primary-fixed-dim": "#b8c8d8",
-                    "surface-container-low": "#f5f3f6",
+                    "surface-container-low": "#F5F4EF",
                     "on-tertiary-container": "#e2f2ff",
                     "primary-fixed": "#d4e5f5",
                     "secondary-container": "#e2e1cc",
                     "on-error-container": "#93000a",
                     "on-error": "#ffffff",
                     "surface-container-highest": "#e4e2e5",
-                    "on-surface-variant": "#43474b",
+                    "on-surface-variant": "#2E4251",
                     "on-secondary": "#ffffff",
                     "secondary-fixed": "#e5e3cf",
                     "on-tertiary": "#ffffff",
@@ -54,22 +55,22 @@
                     "surface-container-high": "#eae7eb",
                     "on-secondary-fixed": "#1c1c10",
                     "surface-dim": "#dbd9dd",
-                    "on-background": "#1b1b1e",
-                    "primary": "#475764",
+                    "on-background": "#2E4251",
+                    "primary": "#2E4251",
                     "secondary-fixed-dim": "#c9c7b4",
                     "on-secondary-fixed-variant": "#474839",
                     "on-primary-fixed": "#0d1d29",
                     "on-primary-fixed-variant": "#394956",
-                    "background": "#fbf8fc",
+                    "background": "#F5F4EF",
                     "outline-variant": "#c3c7cc",
-                    "tertiary-container": "#5e6f7b",
+                    "tertiary-container": "#2E4251",
                     "tertiary-fixed": "#d3e5f3",
                     "error-container": "#ffdad6"
             },
             "borderRadius": {
                     "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
+                    "lg": "16px",
+                    "xl": "24px",
                     "full": "9999px"
             },
             "spacing": {
@@ -85,18 +86,19 @@
             },
             "fontFamily": {
                     "label-sm": ["Hanken Grotesk"],
-                    "body-lg": ["DM Sans"],
-                    "display-lg": ["Hanken Grotesk"],
-                    "headline-xl": ["Hanken Grotesk"],
+                    "body-lg": ["DM Sans", "sans-serif"],
+                    "display-lg": ["Playfair Display", "serif"],
+                    "headline-xl": ["Playfair Display", "serif"],
                     "headline-lg-mobile": ["Hanken Grotesk"],
                     "headline-lg": ["Hanken Grotesk"],
-                    "body-md": ["DM Sans"]
+                    "body-md": ["DM Sans", "sans-serif"],
+                    "serif-display": ["DM Serif Display", "serif"]
             },
             "fontSize": {
                     "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
                     "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "300"}],
-                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "626"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "626"}],
                     "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
                     "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
                     "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
@@ -126,6 +128,26 @@
         .asymmetric-shape {
             clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
         }
+        
+        /* Custom styled scrollbars for horizontal sliding areas */
+        .no-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .no-scrollbar::-webkit-scrollbar-track {
+            background: #2E4251;
+            border-radius: 9999px;
+        }
+        .no-scrollbar::-webkit-scrollbar-thumb {
+            background: #4A6070;
+            border-radius: 9999px;
+        }
+        .no-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #5C7282;
+        }
+        .no-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #4A6070 #2E4251;
+        }
     </style>
 <style>
     body {
@@ -136,33 +158,33 @@
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
 <div class="fixed inset-0 grain-overlay z-50"></div>
 <!-- Navigation Drawer (Desktop) -->
-<aside class="fixed left-0 top-0 h-full w-20 hover:w-64 transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] z-50 hidden md:flex flex-col bg-[#2D4150] backdrop-blur-2xl border-r border-white/10 shadow-2xl group overflow-hidden">
+<aside class="fixed left-0 top-0 h-full w-20 hover:w-64 transition-all duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] z-50 hidden md:flex flex-col bg-[#2E4251] backdrop-blur-2xl border-r border-white/10 shadow-2xl group overflow-hidden">
 <div class="flex flex-col py-stack-lg items-center h-full">
 <div class="mb-12">
-<span class="font-headline-lg text-headline-lg text-[#F7F6EF] tracking-tighter px-6">MK</span>
+<span class="font-headline-lg text-headline-lg text-[#F5F4EF] tracking-tighter px-6">MK</span>
 </div>
 <nav class="flex flex-col gap-6 w-full flex-grow">
-<a class="flex items-center gap-4 px-6 py-3 bg-white/20 text-[#F7F6EF] rounded-full mx-2 transition-all duration-500 scale-95" href="#home">
+<a class="flex items-center gap-4 px-6 py-3 bg-white/20 text-[#F5F4EF] rounded-full mx-2 transition-all duration-500 scale-95" href="#home">
 <span class="material-symbols-outlined">home</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Home</span>
 </a>
-<a class="flex items-center gap-4 px-6 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/projects">
+<a class="flex items-center gap-4 px-6 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/projects">
 <span class="material-symbols-outlined">grid_view</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Projects</span>
 </a>
-<a class="flex items-center gap-4 px-6 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/experience">
+<a class="flex items-center gap-4 px-6 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/experience">
 <span class="material-symbols-outlined">work</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Experience</span>
 </a>
-<a class="flex items-center gap-4 px-6 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/certifications">
+<a class="flex items-center gap-4 px-6 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/certifications">
 <span class="material-symbols-outlined">verified</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Certifications</span>
 </a>
-<a class="flex items-center gap-4 px-6 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/achievements">
+<a class="flex items-center gap-4 px-6 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2" href="/achievements">
 <span class="material-symbols-outlined">military_tech</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Achievements</span>
 </a>
-<a class="flex items-center gap-4 px-6 py-3 text-[#F7F6EF]/40 hover:text-[#F7F6EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2 mt-auto" href="/admin" title="Admin Portal">
+<a class="flex items-center gap-4 px-6 py-3 text-[#F5F4EF]/40 hover:text-[#F5F4EF] hover:bg-white/10 transition-all duration-500 rounded-full mx-2 mt-auto" href="/admin" title="Admin Portal">
 <span class="material-symbols-outlined">lock</span>
 <span class="opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap font-label-sm text-[15px] uppercase tracking-widest">Admin Login</span>
 </a>
@@ -170,44 +192,44 @@
 </div>
 </aside>
 <!-- Top AppBar (Mobile Only) -->
-<header class="fixed top-0 w-full z-40 md:hidden flex items-center justify-between px-margin-mobile h-20 bg-[#2D4150] backdrop-blur-xl shadow-lg border-b border-white/5">
+<header class="fixed top-0 w-full z-40 md:hidden flex items-center justify-between px-margin-mobile h-20 bg-[#2E4251] backdrop-blur-xl shadow-lg border-b border-white/5">
 <div class="flex items-center gap-3">
-<button class="p-2 hover:bg-white/10 rounded-full transition-colors text-[#F7F6EF]" id="menu-toggle" onclick="toggleDrawer()">
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors text-[#F5F4EF]" id="menu-toggle" onclick="toggleDrawer()">
 <span class="material-symbols-outlined">menu</span>
 </button>
-<span class="font-headline-lg-mobile text-headline-lg-mobile text-[#F7F6EF] font-bold tracking-tighter">Manya Khandelwal</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-[#F5F4EF] font-bold tracking-tighter">Manya Khandelwal</span>
 </div>
 </header>
 <!-- Side Navigation Drawer (Mobile Only) -->
-<div class="fixed left-0 top-0 h-full w-72 z-[60] bg-[#2D4150]/95 backdrop-blur-2xl -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-2xl flex md:hidden flex-col p-stack-sm gap-unit text-[#F7F6EF]" id="side-drawer">
+<div class="fixed left-0 top-0 h-full w-72 z-[60] bg-[#2E4251]/95 backdrop-blur-2xl -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-2xl flex md:hidden flex-col p-stack-sm gap-unit text-[#F5F4EF]" id="side-drawer">
 <div class="flex justify-between items-center px-4 py-6">
-<span class="font-headline-lg text-headline-lg text-[#F7F6EF]">Portfolio</span>
-<button class="text-[#F7F6EF]/70 hover:text-[#F7F6EF]" id="close-drawer" onclick="toggleDrawer()">
+<span class="font-headline-lg text-headline-lg text-[#F5F4EF]">Portfolio</span>
+<button class="text-[#F5F4EF]/70 hover:text-[#F5F4EF]" id="close-drawer" onclick="toggleDrawer()">
 <span class="material-symbols-outlined">close</span>
 </button>
 </div>
 <div class="flex flex-col gap-2 flex-grow">
-<a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF] font-medium bg-white/20 rounded-xl" href="/">
+<a class="flex items-center gap-4 px-4 py-3 text-[#F5F4EF] font-medium bg-white/20 rounded-xl" href="/">
 <span class="material-symbols-outlined">home</span>
 <span class="font-body-lg text-[19.5px]">Home</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/projects">
+<a class="flex items-center gap-4 px-4 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/projects">
 <span class="material-symbols-outlined">grid_view</span>
 <span class="font-body-lg text-[19.5px]">Projects</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/experience">
+<a class="flex items-center gap-4 px-4 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/experience">
 <span class="material-symbols-outlined">work</span>
 <span class="font-body-lg text-[19.5px]">Experience</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/certifications">
+<a class="flex items-center gap-4 px-4 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/certifications">
 <span class="material-symbols-outlined">verified</span>
 <span class="font-body-lg text-[19.5px]">Certifications</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF]/70 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/achievements">
+<a class="flex items-center gap-4 px-4 py-3 text-[#F5F4EF]/70 hover:text-[#F5F4EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl" href="/achievements">
 <span class="material-symbols-outlined">military_tech</span>
 <span class="font-body-lg text-[19.5px]">Achievements</span>
 </a>
-<a class="flex items-center gap-4 px-4 py-3 text-[#F7F6EF]/40 hover:text-[#F7F6EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl mt-auto" href="/admin" title="Admin Portal">
+<a class="flex items-center gap-4 px-4 py-3 text-[#F5F4EF]/40 hover:text-[#F5F4EF] hover:bg-white/10 hover:translate-x-1 transition-all duration-500 rounded-xl mt-auto" href="/admin" title="Admin Portal">
 <span class="material-symbols-outlined">lock</span>
 <span class="font-body-lg text-[19.5px]">Admin Login</span>
 </a>
@@ -223,167 +245,163 @@
 <img class="w-full h-full object-cover object-[25%_center] md:object-center" src="/lux_editorial/background_shadow.png" alt="Background shadow artwork"/>
 </div>
 
-<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center md:justify-between gap-12">
+<div class="relative z-10 max-w-container-max mx-auto w-full flex flex-col-reverse md:flex-row items-center md:justify-between gap-12 md:gap-6 pt-24 md:pt-0">
   <!-- Left Column: Content -->
   <div class="flex flex-col items-start justify-center text-left md:max-w-2xl w-fit">
     <p class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-6 reveal-on-scroll">Engineer • Developer • Problem Solver</p>
-    <h1 class="text-[#2D4150] mb-stack-md reveal-on-scroll" style="transition-delay: 200ms; line-height: 0.95;">
-      <span class="block text-[50px] md:text-[100px]" style="font-family: 'DM Serif Display', serif; letter-spacing: -0.02em;">Manya</span>
-      <span class="block text-[54px] md:text-[110px] italic" style="font-family: 'DM Serif Display', serif; letter-spacing: -0.01em; margin-top: -0.05em;">Khandelwal</span>
+    <h1 class="text-[#2E4251] mb-4 reveal-on-scroll" style="transition-delay: 200ms; line-height: 0.95;">
+      <span class="block text-[50px] md:text-[100px] font-serif-display" style="letter-spacing: -0.02em;">Manya</span>
+      <span class="block text-[54px] md:text-[110px] italic font-serif-display" style="letter-spacing: -0.01em; margin-top: -0.05em;">Khandelwal</span>
     </h1>
-    <div class="flex flex-col sm:flex-row items-center sm:items-start justify-start gap-6 mt-10 reveal-on-scroll w-fit" style="transition-delay: 400ms">
-      <a class="px-8 py-4 bg-primary text-[#F7F6EF] rounded-full font-label-sm uppercase tracking-widest hover:scale-105 transition-all duration-500 shadow-xl text-center w-full sm:w-auto flex items-center justify-center gap-2" href="/lux_editorial/uploads/resume.pdf" target="_blank">
+    <p class="font-body-lg text-[20px] text-on-surface-variant max-w-xl mt-0 reveal-on-scroll" style="transition-delay: 300ms">
+      Detail-driven, deadline-respecting, and genuinely excited by what I build. Not chasing the title. Chasing the craft.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center sm:items-start justify-start gap-6 mt-6 reveal-on-scroll w-fit" style="transition-delay: 400ms">
+      <a class="px-8 py-4 bg-primary text-[#F5F4EF] rounded-full font-label-sm uppercase tracking-widest hover:scale-105 active:scale-[0.98] transition-all duration-500 shadow-xl hover:bg-[#2E4251]/95 text-center w-full sm:w-auto flex items-center justify-center gap-2" href="/lux_editorial/uploads/resume.pdf" target="_blank">
         <span class="material-symbols-outlined text-lg">download</span> Resume
       </a>
       <a class="px-8 py-4 border border-outline/30 text-on-surface rounded-full font-label-sm uppercase tracking-widest hover:bg-surface-variant transition-all duration-500 text-center w-full sm:w-auto" href="#contact">Connect</a>
     </div>
   </div>
-  <!-- Right Column: Floating Code Blocks with Polaroid -->
-  <div class="hidden md:flex items-center justify-center relative w-96 h-96 reveal-on-scroll" style="transition-delay: 300ms">
-    <!-- Floating Code Block 1 (Top Left) -->
-    <div class="absolute top-0 left-0 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 0s; width: 180px;">
-      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
-        <span class="text-[#F5F4EF]">const</span> build = () => {<br/>
-        <span class="ml-4 text-[#F5F4EF]">return</span> 'AI';<br/>
-        };
-      </div>
-    </div>
+  <!-- Right Column: Interactive Creative Tech Collage Dashboard -->
+  <div class="flex items-center justify-center relative w-full h-[340px] min-[390px]:h-[380px] sm:h-[450px] md:w-[500px] md:h-[500px] reveal-on-scroll" style="transition-delay: 300ms">
+    <div class="scale-[0.65] min-[390px]:scale-[0.75] sm:scale-[0.9] md:scale-100 origin-center absolute w-[500px] h-[500px] flex items-center justify-center">
     
-    <!-- Floating Code Block 2 (Top Right) -->
-    <div class="absolute top-12 right-0 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 0.5s; width: 160px;">
-      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
-        <span class="text-[#F5F4EF]">def</span> create():<br/>
-        <span class="ml-4 text-[#F5F4EF]">return</span> magic<br/>
-      </div>
-    </div>
-    
-    <!-- Floating Code Block 3 (Bottom Left) -->
-    <div class="absolute bottom-0 left-4 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 1s; width: 170px;">
-      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
-        <span class="text-[#F5F4EF]">async</span> function<br/>
-        innovate() {<br/>
-        <span class="ml-4">// building<br/>
-        </span>}
-      </div>
-    </div>
-    
-    <!-- Floating Code Block 4 (Bottom Right) -->
-    <div class="absolute bottom-12 right-4 p-4 rounded-2xl backdrop-blur-xl bg-[#2E4251]/20 border border-[#2E4251]/30 shadow-2xl animate-float" style="animation-delay: 1.5s; width: 175px;">
-      <div class="text-[#2E4251] font-mono text-xs leading-relaxed">
-        <span class="text-[#F5F4EF]">build_system</span><br/>
-        = 'productive'<br/>
-        <span class="text-[#F5F4EF]">+ 'creative'</span>
-      </div>
-    </div>
-    
-    <!-- Center Polaroid Frame -->
-    <div class="absolute flex flex-col items-center justify-center bg-[#2E4251] rounded-lg shadow-2xl" style="width: 160px; height: 200px; padding: 12px; padding-bottom: 40px;">
-      <!-- Polaroid content area -->
-      <div class="w-full h-32 bg-gradient-to-br from-[#F5F4EF] to-[#F5F4EF]/90 rounded-sm flex items-center justify-center overflow-hidden relative">
-        <div class="text-center">
-          <p class="font-serif italic text-[#2E4251] text-sm leading-tight" style="font-family: 'Dancing Script', cursive; font-size: 18px; font-weight: 600;">Building</p>
-          <p class="font-serif italic text-[#2E4251] text-sm leading-tight" style="font-family: 'Dancing Script', cursive; font-size: 18px; font-weight: 600;">something new</p>
-          <p class="text-[#2E4251] text-xs mt-2 opacity-70">⚡</p>
+    <!-- 1. Top Left Block: System Metrics -->
+    <div class="absolute top-6 left-0 w-[220px] h-[220px] rounded-[36px] bg-[#B0BFCC] border border-[#2E4251]/18 shadow-[0_20px_45px_rgba(46,66,81,0.06),_inset_0_1px_1px_rgba(255,255,255,0.4)] p-6 flex flex-col justify-center animate-float z-10" style="animation-delay: 0s;">
+      <p class="text-[10px] font-body-md font-semibold tracking-[0.15em] text-[#2E4251]/60 uppercase mb-4">// ARCHITECTURE</p>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-[11px] font-body-md font-semibold text-[#2E4251] mb-1.5 tracking-wide">
+            <span>Agents & AI</span>
+            <span class="text-[#7B8B77] font-bold">95%</span>
+          </div>
+          <div class="h-1.5 w-full bg-[#2E4251]/10 rounded-full overflow-hidden">
+            <div class="h-full bg-[#7B8B77] rounded-full" style="width: 95%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-[11px] font-body-md font-semibold text-[#2E4251] mb-1.5 tracking-wide">
+            <span>Full Stack</span>
+            <span class="text-[#A09063] font-bold">88%</span>
+          </div>
+          <div class="h-1.5 w-full bg-[#2E4251]/10 rounded-full overflow-hidden">
+            <div class="h-full bg-[#A09063] rounded-full" style="width: 88%;"></div>
+          </div>
         </div>
       </div>
-      <!-- Polaroid label area -->
-      <div class="w-full mt-2 text-center">
-        <p class="text-[#F5F4EF] text-[10px] font-mono tracking-wide opacity-60">// 2026</p>
+    </div>
+    
+    <!-- 2. Top Right Block: Vision Card -->
+    <div class="absolute top-16 right-0 w-[220px] h-[220px] rounded-[36px] bg-[#B8BCBE] border border-[#2E4251]/18 shadow-[0_20px_45px_rgba(46,66,81,0.06),_inset_0_1px_1px_rgba(255,255,255,0.4)] p-6 flex flex-col justify-center gap-2 animate-float-delay z-10" style="animation-delay: 1s;">
+      <p class="text-[10px] font-body-md font-semibold tracking-[0.15em] text-[#2E4251]/60 uppercase mb-1">// MISSION</p>
+      <h3 class="font-serif-display text-2xl text-[#2E4251] leading-tight font-medium">
+        Building <br/>
+        what's <span class="italic font-light text-[#A09063]">next.</span>
+      </h3>
+      <div class="flex items-center gap-1.5 mt-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#7B8B77]"></span>
+        <span class="text-[10px] font-body-md font-semibold tracking-[0.12em] uppercase text-[#2E4251]/65">Agentic Systems</span>
       </div>
+    </div>
+    
+    <!-- 3. Bottom Left Block: Terminal Stats -->
+    <div class="absolute bottom-0 left-4 w-[220px] h-[220px] rounded-[36px] bg-[#2E4251] border border-white/10 shadow-[0_25px_60px_rgba(46,66,81,0.2),_inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 flex flex-col justify-center animate-float z-10" style="animation-delay: 2s;">
+      <div class="flex items-center gap-1.5 mb-3 pb-2 border-b border-white/5">
+        <span class="w-2 h-2 rounded-full bg-[#EA4335]/85"></span>
+        <span class="w-2 h-2 rounded-full bg-[#FBBC05]/85"></span>
+        <span class="w-2 h-2 rounded-full bg-[#34A853]/85"></span>
+        <span class="text-[8px] font-mono text-white/40 ml-1.5">manya@twin</span>
+      </div>
+      <div class="font-mono text-[9px] leading-relaxed text-[#F5F4EF]/90 space-y-1.5">
+        <p class="text-[#7B8B77]">$ <span class="text-[#F5F4EF]">init_twin.sh</span></p>
+        <p class="text-white/40">Linking LangGraph... OK</p>
+        <p class="text-white/40">Active DB: MongoDB</p>
+        <p class="flex items-center gap-1.5 text-[#7B8B77]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#7B8B77] animate-pulse"></span>
+          System Online
+        </p>
+      </div>
+    </div>
+    
+    <!-- Overlapping Badge Circle (Top Center) -->
+    <div class="absolute top-0 left-[190px] w-14 h-14 rounded-full bg-[#2E4251] text-[#F5F4EF] flex items-center justify-center font-body-md font-bold text-xs tracking-[0.15em] shadow-[0_12px_28px_rgba(46,66,81,0.15)] border border-white/10 z-20 animate-float-delay" style="animation-delay: 0.5s;">
+      MK
+    </div>
+    
+    <!-- Overlapping Oval Capsule (Middle) -->
+    <div class="absolute top-[216px] left-[155px] px-5 py-3 rounded-full bg-[#FAF9F5] text-[#2E4251] font-body-md font-bold text-[10px] tracking-[0.16em] uppercase shadow-[0_12px_28px_rgba(46,66,81,0.06),_inset_0_1px_0_rgba(255,255,255,0.8)] border border-[#2E4251]/18 z-20 flex items-center justify-center gap-1.5 animate-pulse-subtle">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7B8B77] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#7B8B77]"></span>
+      </span>
+      <span>Building Now</span>
+    </div>
+    
+    <!-- Decorative Elements (SVG Sparkles & Accent Dots) -->
+    <svg class="absolute top-[180px] -left-6 text-[#7B8B77] w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+    </svg>
+    <svg class="absolute bottom-[130px] right-12 text-[#A09063]/50 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+    </svg>
+    <span class="absolute top-[70px] right-[40px] w-3 h-3 rounded-full bg-[#7B8B77]/35"></span>
+    <span class="absolute bottom-[50px] right-[80px] w-4 h-4 rounded-full bg-[#A09063]/35"></span>
+    
     </div>
   </div>
   
   <style>
     @keyframes float {
       0%, 100% {
-        transform: translateY(0px) rotate(-2deg);
+        transform: translateY(0px) rotate(-1deg);
       }
       50% {
-        transform: translateY(-20px) rotate(2deg);
+        transform: translateY(-12px) rotate(1deg);
       }
     }
     .animate-float {
-      animation: float 4s ease-in-out infinite;
+      animation: float 5s ease-in-out infinite;
     }
 
-    @keyframes morph-slow {
+    @keyframes float-delay {
       0%, 100% {
-        transform: translate(0, 0) scale(1);
-      }
-      25% {
-        transform: translate(-10px, 15px) scale(1.05);
+        transform: translateY(0px) rotate(1deg);
       }
       50% {
-        transform: translate(5px, 10px) scale(0.98);
-      }
-      75% {
-        transform: translate(-5px, -10px) scale(1.02);
+        transform: translateY(-8px) rotate(-1deg);
       }
     }
-    .animate-morph-slow {
-      animation: morph-slow 12s ease-in-out infinite;
-    }
-
-    @keyframes morph-medium {
-      0%, 100% {
-        transform: translate(0, 0) scale(1);
-      }
-      25% {
-        transform: translate(15px, -10px) scale(1.03);
-      }
-      50% {
-        transform: translate(-10px, 5px) scale(0.97);
-      }
-      75% {
-        transform: translate(8px, 12px) scale(1.01);
-      }
-    }
-    .animate-morph-medium {
-      animation: morph-medium 14s ease-in-out infinite;
-    }
-
-    @keyframes morph-fast {
-      0%, 100% {
-        transform: translate(0, 0) scale(1);
-      }
-      25% {
-        transform: translate(-12px, -8px) scale(1.04);
-      }
-      50% {
-        transform: translate(10px, 10px) scale(0.96);
-      }
-      75% {
-        transform: translate(-8px, 8px) scale(1.02);
-      }
-    }
-    .animate-morph-fast {
-      animation: morph-fast 10s ease-in-out infinite;
+    .animate-float-delay {
+      animation: float-delay 6s ease-in-out infinite;
     }
 
     @keyframes pulse-subtle {
       0%, 100% {
-        opacity: 0.5;
+        opacity: 0.9;
+        transform: scale(1);
       }
       50% {
-        opacity: 0.8;
+        opacity: 1;
+        transform: scale(1.03);
       }
     }
     .animate-pulse-subtle {
-      animation: pulse-subtle 6s ease-in-out infinite;
+      animation: pulse-subtle 4s ease-in-out infinite;
     }
   </style>
 </div>
 </section>
 <!-- Portrait & Intro -->
 <section class="py-stack-lg px-margin-mobile md:px-margin-desktop reveal-on-scroll bg-[#2E4251]">
-<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center bg-[#F7F6EF] p-8 md:p-16 rounded-[40px] border border-white/20 shadow-sm">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center bg-[#F5F4EF] p-8 md:p-16 rounded-[40px] border border-white/20 shadow-sm">
 <div class="md:col-span-5 relative">
 <div class="aspect-[4/5] rounded-[30px] overflow-hidden shadow-2xl">
 <img alt="Manya's Professional Portrait" class="w-full h-full object-cover" data-alt="A striking and professional portrait of a tech-focused woman." src="/lux_editorial/manya_portrait.jpg"/>
 </div>
 </div>
 <div class="md:col-span-7 space-y-stack-md">
-<h2 class="font-headline-xl text-headline-xl text-primary">Hello, I’m Manya</h2>
+<h2 class="font-headline-xl text-headline-xl text-primary">About <span class="italic">Me</span></h2>
 <p class="font-body-lg text-[20px] text-on-surface-variant max-w-xl">
                         I’m a developer focused on AI, automation, and agentic systems. I enjoy building practical applications powered by modern AI tools, intelligent workflows, and scalable technologies while continuously learning and experimenting with emerging tech.
                     </p>
@@ -396,10 +414,10 @@
 <!-- Education -->
 <section class="pt-6 pb-28 px-margin-mobile md:px-margin-desktop bg-[#2E4251]">
 <div class="max-w-4xl mx-auto text-center reveal-on-scroll">
-<h2 class="font-headline-xl text-[28px] md:text-[56px] leading-snug mb-stack-md text-[#F7F6EF]">
+<h2 class="font-headline-xl text-[28px] md:text-[56px] leading-snug mb-stack-md text-[#F5F4EF]">
                     Education
                 </h2>
-<div class="text-left max-w-3xl mx-auto font-body-lg text-body-lg text-[#2E4251] leading-relaxed bg-[#F7F6EF] p-8 rounded-3xl border border-[#2E4251]/20">
+<div class="text-left max-w-3xl mx-auto font-body-lg text-body-lg text-[#2E4251] leading-relaxed bg-[#F5F4EF] p-8 rounded-3xl border border-[#2E4251]/20">
     <ul class="space-y-4 list-disc list-inside">
         <li>B.Tech in CSE (AI &amp; ML), VIT Bhopal University | 2023–2027 | CGPA: 8.90</li>
         <li>Class 12th, CBSE Board | 2023 | 88.4%</li>
@@ -409,7 +427,7 @@
 </div>
 </section>
 <!-- Skills -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F7F6EF]">
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F5F4EF]">
 <div class="max-w-container-max mx-auto reveal-on-scroll">
 <div class="mb-stack-lg">
 <h2 class="font-headline-xl text-[28px] md:text-[56px] text-primary">Expertise</h2>
@@ -453,11 +471,11 @@
 <div class="max-w-container-max mx-auto reveal-on-scroll">
 <div class="flex justify-between items-center mb-stack-lg">
 <div>
-<h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#F7F6EF]">Featured Work</h2>
+<h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#F5F4EF]">Featured <span class="italic">Work</span></h2>
 </div>
-<a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F7F6EF] group" href="/projects">
+<a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F5F4EF] group" href="/projects">
                         EXPLORE ALL PROJECTS 
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform text-[#F7F6EF]">arrow_forward</span>
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform text-[#F5F4EF]">arrow_forward</span>
 </a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md" id="projects-grid">
@@ -465,32 +483,32 @@
 <div class="group cursor-pointer" onclick="window.location.href='/projects'">
 <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
 <img alt="NEXUS — Multi-Agent Data Analysis Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="/lux_editorial/nexus_logo.png"/>
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+<div class="absolute inset-0 bg-[#2E4251]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[4px]">
 <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
 </div>
 </div>
-<h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">NEXUS — Multi-Agent Data Analysis Platform</h3>
-<p class="text-[#F7F6EF]/80 font-body-md mb-4">Built a full-stack AI platform orchestrating 3 specialized LLM agents via LangGraph.</p>
+<h3 class="font-headline-lg text-headline-lg mb-2 text-[#F5F4EF]">NEXUS — Multi-Agent Data Analysis Platform</h3>
+<p class="text-[#F5F4EF]/80 font-body-md mb-4">Built a full-stack AI platform orchestrating 3 specialized LLM agents via LangGraph.</p>
 <div class="flex flex-wrap gap-2">
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">LangGraph</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">Groq</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">FastAPI</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full">LangGraph</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full">Groq</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full">FastAPI</span>
 </div>
 </div>
 <!-- Project Card 2 (Personal RAG Chatbot) -->
 <div class="group cursor-pointer" onclick="window.location.href='/projects'">
 <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
 <img alt="Personal RAG Chatbot – Document Q&A with Local LLM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="/lux_editorial/rag_logo.png"/>
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+<div class="absolute inset-0 bg-[#2E4251]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[4px]">
 <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
 </div>
 </div>
-<h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">Personal RAG Chatbot – Document Q&A with Local LLM</h3>
-<p class="text-[#F7F6EF]/80 font-body-md mb-4">Interactive document Q&A vector embeddings platform running fully offline.</p>
+<h3 class="font-headline-lg text-headline-lg mb-2 text-[#F5F4EF]">Personal RAG Chatbot – Document Q&A with Local LLM</h3>
+<p class="text-[#F5F4EF]/80 font-body-md mb-4">Interactive document Q&A vector embeddings platform running fully offline.</p>
 <div class="flex flex-wrap gap-2">
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">HuggingFace</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">ChromaDB</span>
-<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full">Streamlit</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full">HuggingFace</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full">ChromaDB</span>
+<span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full">Streamlit</span>
 </div>
 </div>
 </div>
@@ -500,10 +518,10 @@
 </div>
 </section>
 <!-- Experience Preview -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F7F6EF]" id="experience">
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F5F4EF]" id="experience">
 <div class="max-w-4xl mx-auto reveal-on-scroll">
 <div class="text-center mb-stack-lg">
-<h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#2D4150]">Experience</h2>
+<h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#2E4251]">Experience</h2>
 </div>
 <div class="space-y-stack-md" id="experience-list">
 <div class="flex flex-col md:flex-row gap-8 bg-[#DCE0E4] p-8 rounded-[32px] shadow-sm border border-outline-variant/10 hover:shadow-lg transition-shadow group cursor-pointer" onclick="window.location.href='/experience'">
@@ -518,46 +536,46 @@
 </div>
 </section>
 <!-- Certifications -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop overflow-hidden bg-[#2E4251] text-[#F7F6EF]" id="certifications">
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop overflow-hidden bg-[#2E4251] text-[#F5F4EF]" id="certifications">
 <div class="max-w-container-max mx-auto reveal-on-scroll">
 <div class="flex justify-between items-center mb-stack-lg">
     <div>
-        <h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#F7F6EF]">Certifications</h2>
+        <h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#F5F4EF]">Certifications</h2>
     </div>
-    <a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F7F6EF] group" href="/certifications">
+    <a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F5F4EF] group" href="/certifications">
         EXPLORE ALL CERTIFICATIONS
-        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform text-[#F7F6EF]">arrow_forward</span>
+        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform text-[#F5F4EF]">arrow_forward</span>
     </a>
 </div>
 <div class="flex gap-gutter overflow-x-auto pb-8 snap-x no-scrollbar" id="certifications-list">
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+    <div class="flex-none w-72 bg-[#F5F4EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
         <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">school</span>
         <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">Deep Learning Specialization</h4>
         <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">Coursera • 2023</p>
     </div>
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+    <div class="flex-none w-72 bg-[#F5F4EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
         <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">cloud_done</span>
         <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">AWS Certified Solutions Architect</h4>
         <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">Amazon • 2022</p>
     </div>
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+    <div class="flex-none w-72 bg-[#F5F4EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
         <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">security</span>
         <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">Cybersecurity Analyst</h4>
         <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">IBM • 2021</p>
     </div>
-    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
+    <div class="flex-none w-72 bg-[#F5F4EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 snap-start cursor-pointer text-[#2E4251]" onclick="window.location.href='/certifications'">
         <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">analytics</span>
         <h4 class="font-headline-lg text-headline-lg-mobile mb-2 text-[#2E4251]">Google Data Analytics</h4>
         <p class="text-[#2E4251]/80 text-sm uppercase tracking-widest mb-4">Google • 2021</p>
     </div>
 </div>
 <div class="mt-stack-md md:hidden text-center">
-    <a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F7F6EF]" href="/certifications">EXPLORE ALL CERTIFICATIONS <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+    <a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F5F4EF]" href="/certifications">EXPLORE ALL CERTIFICATIONS <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
 </div>
 </div>
 </section>
 <!-- Achievements Preview -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F7F6EF] hidden" id="achievements-section">
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F5F4EF] hidden" id="achievements-section">
 <div class="max-w-container-max mx-auto reveal-on-scroll">
 <div class="flex justify-between items-center mb-stack-lg">
     <div>
@@ -576,71 +594,74 @@
 </div>
 </section>
 <!-- Contact CTA -->
-<section class="py-20 px-margin-mobile md:px-margin-desktop bg-[#F7F6EF]" id="contact">
-  <div class="max-w-5xl mx-auto bg-[#FAF9F5] p-8 md:p-16 rounded-[40px] border border-[#2E4251]/10 shadow-xl reveal-on-scroll">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-      <!-- Left Column: Get in Touch -->
-      <div class="space-y-8 flex flex-col justify-between">
-        <div class="space-y-6">
-          <h2 class="font-headline-xl text-[36px] md:text-[48px] text-[#2E4251] font-bold tracking-tight">
-            Get in Touch
-          </h2>
-          <p class="font-body-lg text-body-lg text-[#2E4251]/80 leading-relaxed max-w-md">
-            Always open to discussing innovative projects, AI research, and exciting collaborations. Feel free to reach out anytime.
-          </p>
-        </div>
-        
-        <div class="flex flex-col gap-6 pt-4">
-          <!-- Email Link -->
-          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="mailto:khandelwalmanya8@gmail.com">
-            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
-              <span class="material-symbols-outlined text-[20px]">mail</span>
-            </div>
-            <span class="font-medium text-sm md:text-base">khandelwalmanya8@gmail.com</span>
-          </a>
-          
-          <!-- LinkedIn Link -->
-          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://www.linkedin.com/in/manya-khandelwal-b821492a3" target="_blank">
-            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
-              <span class="material-symbols-outlined text-[20px]">link</span>
-            </div>
-            <span class="font-medium text-sm md:text-base">Linkedin / Manya Khandelwal</span>
-          </a>
-          
-          <!-- GitHub Link -->
-          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://github.com/Manya-kh10" target="_blank">
-            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
-              <span class="material-symbols-outlined text-[20px]">code</span>
-            </div>
-            <span class="font-medium text-sm md:text-base">Github / Manya-kh10</span>
-          </a>
-
-          <!-- Resume Link -->
-          <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="/lux_editorial/uploads/resume.pdf" target="_blank">
-            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
-              <span class="material-symbols-outlined text-[20px]">description</span>
-            </div>
-            <span class="font-medium text-sm md:text-base">Resume / Download CV</span>
-          </a>
-        </div>
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-[#F5F4EF]" id="contact">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+    <!-- Left Card: Get in Touch -->
+    <div class="bg-[#E5E2D9] p-8 md:p-12 rounded-[40px] border border-[#2E4251]/10 shadow-xl flex flex-col justify-between reveal-on-scroll">
+      <div class="space-y-6">
+        <h2 class="font-headline-xl text-[36px] md:text-[48px] text-[#2E4251] font-bold tracking-tight">
+          Get in Touch
+        </h2>
+        <p class="font-body-lg text-body-lg text-[#2E4251]/80 leading-relaxed">
+          Always open to discussing innovative projects, AI research, and exciting collaborations. Feel free to reach out anytime.
+        </p>
       </div>
       
-      <!-- Right Column: Form -->
+      <div class="flex flex-col gap-6 pt-8">
+        <!-- Email Link -->
+        <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="mailto:khandelwalmanya8@gmail.com">
+          <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+            <span class="material-symbols-outlined text-[20px]">mail</span>
+          </div>
+          <span class="font-medium text-sm md:text-base">khandelwalmanya8@gmail.com</span>
+        </a>
+        
+        <!-- LinkedIn Link -->
+        <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://www.linkedin.com/in/manya-khandelwal-b821492a3" target="_blank">
+          <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+            <span class="material-symbols-outlined text-[20px]">link</span>
+          </div>
+          <span class="font-medium text-sm md:text-base">Linkedin / Manya Khandelwal</span>
+        </a>
+        
+        <!-- GitHub Link -->
+        <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="https://github.com/Manya-kh10" target="_blank">
+          <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+            <span class="material-symbols-outlined text-[20px]">code</span>
+          </div>
+          <span class="font-medium text-sm md:text-base">Github / Manya-kh10</span>
+        </a>
+
+        <!-- Resume Link -->
+        <a class="flex items-center gap-4 text-[#2E4251] hover:text-primary transition-colors group" href="/lux_editorial/uploads/resume.pdf" target="_blank">
+          <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md text-[#2E4251] group-hover:text-white group-hover:bg-primary transition-all duration-300">
+            <span class="material-symbols-outlined text-[20px]">description</span>
+          </div>
+          <span class="font-medium text-sm md:text-base">Resume / Download CV</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Right Card: Send Me a Message -->
+    <div class="bg-[#E5E2D9] p-8 md:p-12 rounded-[40px] border border-[#2E4251]/10 shadow-xl flex flex-col justify-between reveal-on-scroll" style="transition-delay: 150ms;">
       <div>
+        <h2 class="font-headline-xl italic text-[36px] md:text-[48px] text-[#2E4251] font-bold tracking-tight mb-8">
+          Send Me a Message
+        </h2>
         <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
           <div>
             <label class="text-[11px] uppercase tracking-widest font-bold text-[#2E4251]/70 mb-2 block" for="contact-name">Name</label>
-            <input class="w-full px-5 py-4 bg-white border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/30 shadow-inner" placeholder="Your Name" type="text" id="contact-name" required/>
+            <input class="w-full px-5 py-4 bg-[#FAF9F5] border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#2E4251] placeholder:text-[#2E4251]/30 shadow-inner" placeholder="Your Name" type="text" id="contact-name" required/>
           </div>
           <div>
             <label class="text-[11px] uppercase tracking-widest font-bold text-[#2E4251]/70 mb-2 block" for="contact-email">Email</label>
-            <input class="w-full px-5 py-4 bg-white border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/30 shadow-inner" placeholder="your@email.com" type="email" id="contact-email" required/>
+            <input class="w-full px-5 py-4 bg-[#FAF9F5] border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#2E4251] placeholder:text-[#2E4251]/30 shadow-inner" placeholder="your@email.com" type="email" id="contact-email" required/>
           </div>
           <div>
             <label class="text-[11px] uppercase tracking-widest font-bold text-[#2E4251]/70 mb-2 block" for="contact-message">Message</label>
-            <textarea class="w-full px-5 py-4 bg-white border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/30 shadow-inner h-36 resize-none" placeholder="How can I help you?" id="contact-message" required></textarea>
+            <textarea class="w-full px-5 py-4 bg-[#FAF9F5] border border-[#2E4251]/15 rounded-2xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none text-[#2E4251] placeholder:text-[#2E4251]/30 shadow-inner h-36 resize-none" placeholder="How can I help you?" id="contact-message" required></textarea>
           </div>
-          <button type="submit" id="contact-submit-btn" class="w-full py-4 bg-[#2E4251] hover:bg-primary text-[#F7F6EF] font-bold text-xs uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+          <button type="submit" id="contact-submit-btn" class="w-full py-4 bg-[#2E4251] hover:bg-primary text-[#F5F4EF] font-bold text-xs uppercase tracking-widest rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
             Send Message <span class="material-symbols-outlined text-[16px]">send</span>
           </button>
           <div id="contact-status-text" class="text-center text-xs mt-2"></div>
@@ -651,9 +672,9 @@
 </section>
 
 <!-- Footer Section -->
-<footer class="py-20 bg-[#2D4150] text-[#F7F6EF]">
+<footer class="py-20 bg-[#2E4251] text-[#F5F4EF]">
   <div class="max-w-container-max mx-auto text-center px-margin-mobile md:px-margin-desktop reveal-on-scroll">
-    <h2 class="font-display-lg text-[24px] md:text-[64px] leading-tight mb-8 text-[#F7F6EF]">
+    <h2 class="font-display-lg text-[24px] md:text-[64px] leading-tight mb-8 text-[#F5F4EF]">
       Let's build something <br/>
       <span class="italic font-light">meaningful.</span>
     </h2>
@@ -678,13 +699,13 @@
     </div>
     <!-- Chat Messages -->
     <div class="p-6 h-80 overflow-y-auto space-y-4 bg-[#BFC4C8] text-on-surface-variant text-[15px]" id="chat-messages">
-      <div class="bg-[#F7F6EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#1b1b1e] break-words">
+      <div class="bg-[#F5F4EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm leading-relaxed text-[#2E4251] break-words">
         Greetings. I am Manya Khandelwal's AI assistant.
       </div>
     </div>
     <!-- Chat Input -->
     <div class="p-4 bg-[#BFC4C8] border-t border-outline-variant/20 flex gap-3 items-center">
-      <input class="flex-1 border-none bg-white px-4 py-3 rounded-xl text-sm focus:ring-1 focus:ring-[#A9B79C] outline-none text-[#1b1b1e] placeholder:text-[#1b1b1e]/50" placeholder="Ask my AI Twin..." type="text" id="chat-input" onkeydown="handleChatKey(event)"/>
+      <input class="flex-1 border-none bg-white px-4 py-3 rounded-xl text-sm focus:ring-1 focus:ring-[#A9B79C] outline-none text-[#2E4251] placeholder:text-[#2E4251]/50" placeholder="Ask my AI Twin..." type="text" id="chat-input" onkeydown="handleChatKey(event)"/>
       <button class="text-white w-12 h-12 bg-[#A9B79C] rounded-xl flex items-center justify-center hover:bg-[#97a58a] transition-colors" onclick="sendChatMessage()"><span class="material-symbols-outlined">send</span></button>
     </div>
   </div>
@@ -692,7 +713,7 @@
   <!-- FAB Trigger Button -->
   <button class="w-16 h-16 bg-[#A9B79C] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 group" onclick="toggleChat()">
     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
-    <div class="absolute right-20 bg-[#2D4150] border border-[#F7F6EF]/10 px-4 py-2 rounded-xl text-[#F7F6EF] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+    <div class="absolute right-20 bg-[#2E4251] border border-[#F5F4EF]/10 px-4 py-2 rounded-xl text-[#F5F4EF] text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
       Ask my AI Assistant
     </div>
   </button>
@@ -820,15 +841,15 @@
                         <div class="group cursor-pointer flex-none w-[85vw] md:w-[480px] snap-start" onclick="window.location.href='/projects'">
                             <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
                                 <img alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
-                                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="absolute inset-0 bg-[#2E4251]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[4px]">
                                     <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
                                 </div>
                             </div>
-                            <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">${proj.title}</h3>
-                            <p class="text-[#F7F6EF]/80 font-body-md mb-4">${proj.subtitle}</p>
+                            <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F5F4EF]">${proj.title}</h3>
+                            <p class="text-[#F5F4EF]/80 font-body-md mb-4">${proj.subtitle}</p>
                             <div class="flex flex-wrap gap-2">
                                 ${proj.tech_stack.slice(0, 3).map(tech => `
-                                    <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full border border-primary/10">${tech}</span>
+                                    <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full border border-primary/10">${tech}</span>
                                 `).join('')}
                             </div>
                         </div>
@@ -839,15 +860,15 @@
                         <div class="group cursor-pointer" onclick="window.location.href='/projects'">
                             <div class="relative aspect-video rounded-3xl overflow-hidden mb-6 shadow-sm border border-outline-variant/20">
                                 <img alt="${proj.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${proj.preview_image || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600'}"/>
-                                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="absolute inset-0 bg-[#2E4251]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[4px]">
                                     <span class="bg-white text-on-surface px-6 py-2 rounded-full font-label-sm">VIEW DETAILS</span>
                                 </div>
                             </div>
-                            <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F7F6EF]">${proj.title}</h3>
-                            <p class="text-[#F7F6EF]/80 font-body-md mb-4">${proj.subtitle}</p>
+                            <h3 class="font-headline-lg text-headline-lg mb-2 text-[#F5F4EF]">${proj.title}</h3>
+                            <p class="text-[#F5F4EF]/80 font-body-md mb-4">${proj.subtitle}</p>
                             <div class="flex flex-wrap gap-2">
                                 ${proj.tech_stack.slice(0, 3).map(tech => `
-                                    <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F7F6EF] rounded-full border border-primary/10">${tech}</span>
+                                    <span class="text-[10px] tracking-widest font-bold uppercase text-[#2E4251] px-3 py-1 bg-[#F5F4EF] rounded-full border border-primary/10">${tech}</span>
                                 `).join('')}
                             </div>
                         </div>
@@ -901,11 +922,11 @@
             const list = document.getElementById("certifications-list");
             if (list) {
                 if (certifications.length === 0) {
-                    list.innerHTML = `<p class="text-[#F7F6EF]/70 text-center py-10 font-medium w-full">No certifications pinned to the home page yet.</p>`;
+                    list.innerHTML = `<p class="text-[#F5F4EF]/70 text-center py-10 font-medium w-full">No certifications pinned to the home page yet.</p>`;
                     return;
                 }
                 list.innerHTML = certifications.map(cert => `
-                    <div class="flex-none w-72 bg-[#F7F6EF] p-8 rounded-3xl shadow-sm hover:shadow-lg border border-outline-variant/10 hover:border-[#2E4251]/20 snap-start cursor-pointer text-[#2E4251] hover:-translate-y-1 transition-all duration-300" onclick="window.location.href='/certifications'">
+                    <div class="flex-none w-72 bg-[#F5F4EF] p-8 rounded-3xl shadow-sm hover:shadow-lg border border-outline-variant/10 hover:border-[#2E4251]/20 snap-start cursor-pointer text-[#2E4251] hover:-translate-y-1 transition-all duration-300" onclick="window.location.href='/certifications'">
                         <span class="material-symbols-outlined text-[#2E4251] text-4xl mb-6">${
                             cert.name.toLowerCase().includes('cloud') ? 'cloud_done' : 
                             cert.name.toLowerCase().includes('generative ai') || cert.name.toLowerCase().includes('machine learning') ? 'psychology' : 'school'
@@ -932,14 +953,14 @@
             if (achievements.length > 0 && section && container) {
                 section.classList.remove("hidden");
                 container.innerHTML = achievements.map((ach, idx) => `
-                    <div class="bg-[#2E4251] p-8 rounded-3xl shadow-sm border border-white/10 hover:-translate-y-1 hover:shadow-xl hover:border-accent/20 transition-all duration-500 ease-out flex flex-col justify-between text-[#F7F6EF] cursor-pointer" onclick="window.location.href='/achievements'">
+                    <div class="bg-[#2E4251] p-8 rounded-3xl shadow-sm border border-white/10 hover:-translate-y-1 hover:shadow-xl hover:border-accent/20 transition-all duration-500 ease-out flex flex-col justify-between text-[#F5F4EF] cursor-pointer" onclick="window.location.href='/achievements'">
                         <div>
                             <div class="flex justify-between items-start mb-6">
-                                <span class="font-label-sm text-[10px] text-accent uppercase tracking-widest bg-[#F7F6EF]/10 px-3 py-1 rounded-full">${ach.category}</span>
-                                <span class="font-label-sm text-xs text-[#F7F6EF]/60">${ach.date}</span>
+                                <span class="font-label-sm text-[10px] text-accent uppercase tracking-widest bg-[#F5F4EF]/10 px-3 py-1 rounded-full">${ach.category}</span>
+                                <span class="font-label-sm text-xs text-[#F5F4EF]/60">${ach.date}</span>
                             </div>
-                            <h3 class="font-headline-lg text-headline-lg text-[#F7F6EF] mb-4 leading-tight">${ach.title}</h3>
-                            <p class="font-body-md text-sm text-[#F7F6EF]/80 line-clamp-3">${ach.description}</p>
+                            <h3 class="font-headline-lg text-headline-lg text-[#F5F4EF] mb-4 leading-tight">${ach.title}</h3>
+                            <p class="font-body-md text-sm text-[#F5F4EF]/80 line-clamp-3">${ach.description}</p>
                         </div>
                         <div class="mt-6 flex items-center text-accent">
                             <span class="font-label-sm text-xs uppercase tracking-widest">View Details</span>
@@ -1031,7 +1052,7 @@
 
             // Append AI Response
             const aiDiv = document.createElement('div');
-            aiDiv.className = 'bg-[#F7F6EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#1b1b1e] break-words animate-fade-in-up';
+            aiDiv.className = 'bg-[#F5F4EF] p-4 rounded-2xl rounded-tl-none border border-outline-variant/10 shadow-sm mr-auto max-w-[90%] leading-relaxed text-[#2E4251] break-words animate-fade-in-up';
             aiDiv.innerHTML = formatAIResponse(data.response);
             container.appendChild(aiDiv);
             container.scrollTop = container.scrollHeight;

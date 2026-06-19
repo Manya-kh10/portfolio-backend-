@@ -32,6 +32,7 @@ class ExperienceSchema(BaseModel):
     description: List[str] = Field(..., description="Bullet points of key accomplishments and duties")
     tech_stack: List[str] = Field(..., description="List of technologies utilized during the tenure")
     related_project_id: Optional[str] = Field(None, description="Optional DB ID linking to a project showcase item")
+    certificate_link: Optional[str] = Field(None, description="Optional link to certificate or proof of experience")
 
     class Config:
         json_schema_extra = {
@@ -46,7 +47,8 @@ class ExperienceSchema(BaseModel):
                     "Improved API latency by 35% through custom indexation on high-frequency collections."
                 ],
                 "tech_stack": ["Python", "FastAPI", "MongoDB", "LangChain", "Gemini API"],
-                "related_project_id": "6a1570384a1fbbd0b9377eca"
+                "related_project_id": "6a1570384a1fbbd0b9377eca",
+                "certificate_link": "https://credentials.com/exp-proof"
             }
         }
 
