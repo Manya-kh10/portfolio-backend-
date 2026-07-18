@@ -32,3 +32,10 @@ htmlcov/
 
 # Vercel deployment cache
 .vercel/
+
+# Logs
+server.log
+
+# Temporary Agent configs
+..agents/
+

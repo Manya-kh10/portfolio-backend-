@@ -153,6 +153,26 @@
     body {
       min-height: max(884px, 100dvh);
     }
+    .glass-contact-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(229, 226, 217, 0.12) 100%) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      box-shadow: 
+        0 12px 40px 0 rgba(46, 66, 81, 0.08),
+        0 4px 12px 0 rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.35) !important;
+      transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    }
+    .glass-contact-card:hover {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(229, 226, 217, 0.18) 100%) !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+      box-shadow: 
+        0 24px 48px 0 rgba(46, 66, 81, 0.16),
+        0 8px 24px 0 rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.5) !important;
+      transform: translateY(-4px) scale(1.01) !important;
+    }
   </style>
   </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -572,29 +592,29 @@
 </div>
 </section>
 <!-- Achievements Preview -->
-<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#F5F4EF] hidden" id="achievements-section">
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-[#2E4251] text-[#F5F4EF] hidden" id="achievements-section">
 <div class="max-w-container-max mx-auto reveal-on-scroll">
 <div class="flex justify-between items-center mb-stack-lg">
     <div>
-        <h2 class="font-headline-xl text-[28px] md:text-[56px] text-primary">Achievements</h2>
+        <h2 class="font-headline-xl text-[28px] md:text-[56px] text-[#F5F4EF]">Achievements</h2>
     </div>
-    <a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-primary group" href="/achievements">
+    <a class="hidden md:inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F5F4EF] group" href="/achievements">
         EXPLORE ALL ACHIEVEMENTS
-        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform text-[#F5F4EF]">arrow_forward</span>
     </a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="pinned-achievements-list">
 </div>
 <div class="mt-stack-md md:hidden text-center">
-    <a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary" href="/achievements">EXPLORE ALL ACHIEVEMENTS <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+    <a class="inline-flex items-center gap-2 font-label-sm text-label-sm text-[#F5F4EF]" href="/achievements">EXPLORE ALL ACHIEVEMENTS <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
 </div>
 </div>
 </section>
 <!-- Contact CTA -->
-<section class="py-20 px-margin-mobile md:px-margin-desktop bg-[#F5F4EF]" id="contact">
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-[#F5F4EF]" id="contact" style="background-image: url('/lux_editorial/chatgpt_bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
     <!-- Left Card: Get in Touch -->
-    <div class="bg-[#E5E2D9] p-6 sm:p-8 md:p-12 rounded-[40px] border border-[#2E4251]/10 shadow-xl flex flex-col justify-between reveal-on-scroll">
+    <div class="glass-contact-card p-6 sm:p-8 md:p-12 rounded-[40px] border flex flex-col justify-between reveal-on-scroll">
       <div class="space-y-6">
         <h2 class="font-headline-xl text-[36px] md:text-[48px] text-[#2E4251] font-bold tracking-tight">
           Get in Touch
@@ -640,7 +660,7 @@
     </div>
     
     <!-- Right Card: Send Me a Message -->
-    <div class="bg-[#E5E2D9] p-6 sm:p-8 md:p-12 rounded-[40px] border border-[#2E4251]/10 shadow-xl flex flex-col justify-between reveal-on-scroll" style="transition-delay: 150ms;">
+    <div class="glass-contact-card p-6 sm:p-8 md:p-12 rounded-[40px] border flex flex-col justify-between reveal-on-scroll" style="transition-delay: 150ms;">
       <div>
         <h2 class="font-headline-xl italic text-[36px] md:text-[48px] text-[#2E4251] font-bold tracking-tight mb-8">
           Send Me a Message
@@ -950,16 +970,16 @@
             if (achievements.length > 0 && section && container) {
                 section.classList.remove("hidden");
                 container.innerHTML = achievements.map((ach, idx) => `
-                    <div class="bg-[#2E4251] p-8 rounded-3xl shadow-sm border border-white/10 hover:-translate-y-1 hover:shadow-xl hover:border-accent/20 transition-all duration-500 ease-out flex flex-col justify-between text-[#F5F4EF] cursor-pointer" onclick="window.location.href='/achievements'">
+                    <div class="bg-[#F5F4EF] p-8 rounded-3xl shadow-sm border border-outline-variant/10 hover:border-[#2E4251]/20 hover:-translate-y-1 hover:shadow-xl transition-all duration-500 ease-out flex flex-col justify-between text-[#2E4251] cursor-pointer" onclick="window.location.href='/achievements'">
                         <div>
                             <div class="flex justify-between items-start mb-6">
-                                <span class="font-label-sm text-[10px] text-accent uppercase tracking-widest bg-[#F5F4EF]/10 px-3 py-1 rounded-full">${ach.category}</span>
-                                <span class="font-label-sm text-xs text-[#F5F4EF]/60">${ach.date}</span>
+                                <span class="font-label-sm text-[10px] text-[#2E4251] uppercase tracking-widest bg-[#2E4251]/10 px-3 py-1 rounded-full font-bold">${ach.category}</span>
+                                <span class="font-label-sm text-xs text-[#2E4251]/60">${ach.date}</span>
                             </div>
-                            <h3 class="font-headline-lg text-headline-lg text-[#F5F4EF] mb-4 leading-tight">${ach.title}</h3>
-                            <p class="font-body-md text-sm text-[#F5F4EF]/80 line-clamp-3">${ach.description}</p>
+                            <h3 class="font-headline-lg text-headline-lg text-[#2E4251] mb-4 leading-tight font-bold">${ach.title}</h3>
+                            <p class="font-body-md text-sm text-[#2E4251]/80 line-clamp-3">${ach.description}</p>
                         </div>
-                        <div class="mt-6 flex items-center text-accent">
+                        <div class="mt-6 flex items-center text-[#2E4251]/85">
                             <span class="font-label-sm text-xs uppercase tracking-widest">View Details</span>
                             <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
                         </div>
